@@ -1,0 +1,167 @@
+<div id="popupEditaPrecios" style="display: none;" class="popupEditaPrecios">
+    <div class="content-popupEditaPrecios">
+      	<div style="background:#F2F2F2;  border: 1px solid #CCCCCC" align="center">
+      		<br>
+				<table width="95%">
+				   <tr>
+						<td align="center">
+							
+						</td>
+					   <td align="right" >
+					   	   <form action="ControlDeIngresosServlet" method="post" id= "idControlDeIngresosServlet">
+					   	   		<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 					<input type="hidden" name="pagina" id="idIndex" value="OtrosIngresos.jsp" >	
+							    <button class="btn btn-danger" type="button"  style=" padding:3px; width:30px " onclick="javascript:document.getElementById('idControlDeIngresosServlet').submit();"  >
+									<i class="glyphicon glyphicon-remove"></i> 
+							    </button>
+						   </form>
+					   </td>
+				   </tr>
+				</table>
+				<br>
+				<br>
+                <table width="95%">
+					<tr>
+						<td>
+							<div class="funkyradio" style="padding:0px; width:100%" id="cbxsMtoConceptos" >
+								<table width="40%">
+									<tr>
+										<td>
+											<div class="funkyradio-primary" style="width:140px" >
+										  <input type="radio" name="mtoConceptos" id="mtoPrecios"   onclick="ValidaDivAMotrarEnManto('mto')"/>
+										  <label for="mtoPrecios" style="font-weight:bold;  font-size:11px; font-family:arial; padding:3px ; "> &nbsp;Cambio de Precio</label>
+											</div>
+										</td>
+										<td>
+										 	<c:if test="${infoUsu.nivel_usuario == 0 }">
+												<div class="funkyradio-primary" style="width:140px">
+													<input type="radio" name="mtoConceptos" id="altaConcepto"  onclick="ValidaDivAMotrarEnManto('alta')" />
+													<label for="altaConcepto" style="font-weight:bold;  font-size:11px; font-family:arial; padding:3px ; "> &nbsp;Alta Concepto</label>
+													
+												</div>
+											</c:if>
+										</td>
+									</tr>
+								</table>
+								<br>		                                                       
+							</div> 
+						</td>    
+					</tr>
+                    <tr>
+                        <td>
+							<!-- **************** MANTENIMIENTO DE PRECIOS POR CONCEPTO **************** -->
+							<div  style="border:1px solid #C0C0C0; border-radius: 3px; " id="divCambioPrecio" >
+								<br>			                                        		
+								<table width="70%" align="center" >
+									<tr>
+										<td><label class ="EG_lbtexto">Concepto:</label></td>
+										<td>
+											<select id="cmbConceptoMto"  name="conceptoMto" class="ECI_cmbOI" onchange="obtienePrecio('mantenimiento')">
+												<option value="0"  selected="selected">SELECCIONA</option>		
+												<c:forEach var="oi" items="${listaOtrosIngresos}">
+													<option value="${oi.id_otro_ingreso}" >${oi.descripcion}</option>												
+												</c:forEach>
+											</select>
+										</td>
+										<td><label class ="EG_lbtexto">Precio:</label></td>
+										<td><input id="txtPrecioMto" type="text"  name="precioMto" class ="ECI_txtOI"  onkeypress="return EsNumero(event)"></td>
+										<c:if test="${infoUsu.nivel_usuario == 0}">
+											<td><label class ="EG_lbtexto">CDO-BR:</label></td>
+											<td>
+												<select id="cmbCdoMto"  name="cdoMtoDinamico" class="ECI_cmbOI">
+													<c:forEach var="cdo" items="${listaCdos}">
+														<option value="${cdo.cve_cdo}" >${cdo.nombre_cdo}</option>												
+													</c:forEach>
+												</select>
+											</td>
+										</c:if>
+										<c:if test="${infoUsu.nivel_usuario == 1}">
+											<td>
+												<input type="hidden" id="cdoMtoFijo"  name="cdoMtoFijo" id="idIndex" value="${infoUsu.uname_br}">	
+											</td>
+										</c:if>
+									</tr>
+									<tr><td> <br></td></tr>
+									<tr>
+										<td align="center" colspan="6">
+											<button class="btn btn-primary" type="button"  style="padding:4px; width:150px" onclick="ActualizaPrecioConcepto();" >
+												<i class="glyphicon glyphicon-ok"></i> Actualiza Precio
+											</button>
+										</td>
+									</tr>
+								</table>
+								<br>
+							</div>
+                                   	
+							<!-- **************** ALTA DE NUEVOS CONCEPTOS **************** -->
+							<div style="border:1px solid #C0C0C0; border-radius: 3px; display: none" id="divAltaConcepto"  >
+								<br>
+								<table width="90%" align="center">
+									<tr>
+										<td> <label class ="EG_lbtexto">Concepto:</label></td>
+										<td><input id="txtConceptoAlta" type="text"  name="conceptoAlta" class ="ECI_txtOI" ></td>
+										<td> <label class ="EG_lbtexto">Cuenta Contable:</label></td>
+										<td> <input id="txtReglaContable"  type="text"  name="reglaContable" class ="ECI_txtOI"  maxlength="20"  onkeypress="return EsNumero(event) "></td>
+										<td> <label class ="EG_lbtexto">Precio:</label></td>
+										<td> <input id="txtPrecioAlta" type="text"  name="precioAlta" class ="ECI_txtOI"  maxlength="10" onkeypress="return EsNumero(event) " ></td>
+										<td> <label class ="EG_lbtexto">Modificar Precio:</label></td>
+										<td>  
+											<select id="cmbModificaPrecio"  name="modificaPrecio" class="ECI_cmbOI" STYLE="width:60px">
+													<option value="0" >No</option>	
+													<option value="1" >Si</option>	
+											</select>
+										</td>
+										<td><label class ="EG_lbtexto">CDO-BR:</label></td>
+										<td>
+											<select id="cmbAltaMto"  name="cdoAltaDinamico" class="ECI_cmbOI">	
+												<c:forEach var="cdo" items="${listaCdos}">
+													<option value="${cdo.cve_cdo}" >${cdo.nombre_cdo}</option>												
+												</c:forEach>
+											</select>
+										</td>
+									</tr>
+									<tr><td> <br></td></tr>
+									<tr>
+										<td align="center" colspan="11">
+										
+											<input type="hidden" name="vista" id="idIndex" value="OtrosIngresos.jsp" >
+											<input type="hidden" name="operacion" id="idIndex" value="InsertaNuevoConcepto" >
+											<button class="btn btn-primary" type="submit"  style="padding:4px; width:200px" onclick="InsertaNuevoConcepto()"  >
+												<i class="glyphicon glyphicon-ok"></i> Guardar  Concepto
+											</button>
+										</td>
+									</tr>
+								</table>
+								<br>
+							</div>
+                                   	 
+                            <!-- **************** MENSAJES DE ERROR Y EXITO **************** -->
+                            <br>
+                            <table align="center" width="50%">
+                                <tr>
+									<td align="center">
+										<div id="divMjsErrorMantoConceptos" style=" padding:3px; display: none">	
+											<div class="alert alert-danger alert-dismissible fade in" >
+												<strong id="TipoMsjMatoConceptos">¡Error!</strong> <label id ="lbMsjErrorMantoConceptos" style="font-weight: normal"></label>
+												<button type="button" class="close" onclick="OcultarDiv('divMjsErrorMantoConceptos')">&times;</button>
+											</div>
+										</div>
+										<div id="divMjsExitoMantoConceptos" style=" padding:3px; display: none">	
+											<div class="alert alert-success alert-dismissible fade in" >
+												 <label id ="lbMsjExitoMantoConceptos" style="font-weight: normal"> </label> &nbsp;<strong id="TipoMsjMatoConceptos">¡Correctamente!</strong>
+												<button type="button" class="close" onclick="OcultarDiv('divMjsExitoMantoConceptos')">&times;</button>
+											</div>
+										</div>
+									</td>	
+                                </tr>
+                            </table>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+		   <br />       
+		   <br />
+		   <br>
+      	</div>
+    </div>
+</div>

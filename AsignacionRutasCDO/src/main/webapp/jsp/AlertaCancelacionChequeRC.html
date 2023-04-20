@@ -1,0 +1,169 @@
+<div id="divCancelacionRC" style="display: none;" class="popupCE">
+			<div class="content-popupCE">
+				<div style="background: #F2F2F2; border: 1px solid #CCCCCC" align="center" id="colorCE"><br>
+					<table width="95%" align="center">
+						<tr>
+							
+							<td >
+								<div style="text-align: center">
+									<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px"> <strong>ASIGNACION A CHOFER</strong> </label><BR><br>
+									
+									
+									
+								</div>
+								<div  style="font-weight: normal;font-size:17px;" class="table-responsive" id="alertaWidthRC">
+									<table style="width: 100%">
+										<tr>
+										<td align="left" width="80%">
+												<label id="msjPedidosFacturasRC" style="font-weight: bold;"></label>
+										</td>
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacionRC"></label>
+											</td>
+											<td align="right" width="20%" rowspan="3">
+												<button onclick="MostrarDiv('agregarNuevoFacturaRC')" class="btn btn-success" style="padding: 3px;width: 97px;font-size: 13px;"> Nueva </button>
+											</td>
+											
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacionOdes"></label>
+											</td>
+											
+										</tr>
+									</table>
+								</div> 
+								
+							</td>
+						</tr>
+					</table> <br>
+					<table style="width: 95%;margin-bottom: 20px; display: none" id="agregarNuevoFacturaRC">
+						<tr>
+							<td>
+								<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px">Ingrese FACTURAS, separadas por coma: </label>
+							</td>
+							<td>
+								<input id="facturaAgregada" placeholder="Ingrese Factura..." >
+							</td>
+							<td>
+												<button onclick="agregarRegistroFactura()" class="btn btn-warning" style="padding: 3px;width: 97px;font-size: 13px; color: white;"> Consultar </button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+							<br>
+								<label id="msjFacturaRC">
+								</label>
+							</td>
+							
+						</tr>
+					</table>
+					
+					<table width="95%" align="center">
+						<tr>
+							
+							<td style="padding-bottom: 20px;">
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">CHOFERES: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<input id="choferSelect" type="hidden" value="0" >
+									<select class="form-control" id="choferSel" name="choferSel" style="height: 40px;"  onchange="selectChoferes(event.target.value)" autocomplete="off" >
+										<option value="0" >Seleccione Chofer</option>
+										<c:forEach var="dato" items="${choferes}">
+											<c:if test="${dato.getCve() == 2}">
+											<option value="${dato.getChofer()}" style="background: #cac6c1;" title="Chofer no disponible, no ha registrado su regreso de trayecto">${dato.getChofer()} -  ${dato.getNombre()}</option>
+											</c:if>
+											<c:if test="${dato.getCve() == 1}">
+											<option value="${dato.getChofer()}" >${dato.getChofer()} -  ${dato.getNombre()}</option>
+											</c:if>
+										</c:forEach>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							
+							<td style="padding-bottom: 20px;">
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">VEHICULOS: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<input id="vehiculosSelect" type="hidden" value="0" >
+									<select class="form-control" id="vehiculosSel" name="vehiculosSel" style="height: 40px;"  onchange="selectVehiculos(event.target.value)" autocomplete="off" >
+										<option value="0" >Seleccione Vehiculo</option>
+										<c:forEach var="dato" items="${vehiculos}">
+											<option value="${dato.getPlacas()}*${dato.getLlantas()}" >${dato.getPlacas()} -  ${dato.getDescripcion()} - num. llantas:  ${dato.getLlantas()} </option>
+										</c:forEach>
+									</select>
+								</div>
+							</td>
+						</tr>						
+						<tr id="cdoOrigPue" style="display: none">
+						
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">CDO DESTINO: &nbsp;</span>
+									<input id="cdoSelectPue" type="hidden" value="0" >
+									<select class="form-control" id="cdoSelPue" name="cdoSelPue" style="height: 40px;" autocomplete="off" >
+										 <option value="0" selected="selected">Seleccione CDO</option>
+										 <option value="cdf-7">CDMX</option> 
+										 <option value="cd2-8">PUEBLA</option>
+									<!-- <option value="cdl-4">LEON</option> -->
+									</select>
+								</div>					
+							</td>
+						</tr>  
+						
+						<tr id="cdoOrigLeo" style="display: none">
+						
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">CDO DESTINO: &nbsp;</span>
+									<input id="cdoSelectLeo" type="hidden" value="0" >
+									<select class="form-control" id="cdoSelLeo" name="cdoSelLeo" style="height: 40px;" autocomplete="off" >
+										<option value="0" selected="selected">Seleccione CDO</option>
+										<option value="cdf-7">CDMX</option> 
+									<!-- <option value="cd2-8">PUEBLA</option> -->
+										<option value="cdl-4">LEON</option>
+									</select>
+								</div>					
+							</td>
+						</tr>  
+						
+						<tr id="cdoOrigCDMX" style="display: none">
+						
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">CDO DESTINO: &nbsp;</span>
+									<input id="cdoSelectCDX" type="hidden" value="0" >
+									<select class="form-control" id="cdoSelCDX" name="cdoSelCDX" style="height: 40px;" autocomplete="off" >
+									    <option value="0" selected="selected">Seleccione CDO</option> 
+										<option value="cdf-7">CDMX</option>
+									<!-- <option value="cd2-8">PUEBLA</option> -->
+									<!-- <option value="cdl-4">LEON</option> -->
+									</select>
+								</div>					
+							</td>
+						</tr>
+					</table> <br>
+					<table width="90%" align="center">
+						<tr>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-primary" type="button" style="padding: 3px; width: 80px; font-size: 13px" onclick="OcultarDiv('divCancelacionRC');">
+									 Atras
+								</button>
+							</td>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-success" type="button" style="padding: 3px; width: 97px; font-size: 13px" onclick="validarCaminoAsignacionRC()">
+									 ASIGNAR
+									
+								</button>
+							</td>
+
+							<td class="EG_lbtexto" align="right">
+		
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>

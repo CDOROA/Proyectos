@@ -1,0 +1,546 @@
+.EPP_lb_size_22
+{
+	font-family: Arial; font-size:22px;  font-weight: normal;
+}
+
+.EPP_lb_size_20
+{
+	font-family: Arial; font-size:20px;  font-weight: normal;
+}
+
+.EPP_lb_size_18
+{
+	font-family: Arial; font-size:18px;  font-weight: normal;
+}
+
+.EPP_lb_size_24
+{
+	font-family: Arial; font-size:24px;  font-weight: normal;
+}
+
+.EPP_lb_size_28
+{
+	font-family: Arial; font-size:28px;  font-weight: normal;
+}
+
+.EPP_lb_size_30
+{
+	font-family: Arial; font-size:30px;  font-weight: normal;
+}
+
+.EPP_lb_size_40
+{
+	font-family: Arial; font-size:40px;  font-weight: normal;
+}
+
+.EPP_lb_size_45
+{
+	font-family:Arial; font-size:45px;  font-weight: normal;
+}
+
+.EPP_lb_size_60
+{
+	font-family: Arial; font-size:60px;  font-weight: normal;
+}
+
+.EPP_lb_size_16
+{
+	font-family: Arial; font-size:16px;  font-weight: normal;
+}
+
+.EPP_lb_size_14
+{
+	font-family: Arial; font-size:14px;  font-weight: normal;
+}
+
+.EPP_lb_size_12
+{
+	font-family: Arial; font-size:12px;  font-weight: normal;
+}
+
+.EPP_lb_size_11
+{
+	font-family: Arial; font-size:11px;  font-weight: normal;
+}
+
+.EPP_lb_size_10
+{
+	font-family: Arial; font-size:10px;  font-weight: normal;
+}
+
+
+
+.EPP_img_cintillo_marcas
+{
+	width: 90% ;
+}
+
+.EPP_vista_normal
+{
+	display: block;
+}
+
+.EPP_vista_movil
+{
+	 display: none;	
+}
+
+.EPP_img_mision
+{
+	 display: block;
+	 width:80%;
+	 border-radius: 8px
+}
+
+.EPP_img_mision_movil
+{
+	 display: none;		
+}
+
+.EPP_img_vision
+{
+	 width:80%; 
+	 border-radius: 8px
+}
+
+
+.EPP_pdf
+{
+	 display: block;
+}
+
+.EPP_pdf_movil
+{
+	 display: none;		
+}
+
+
+.img_redes_sociales-hover
+{
+	 transform: scale(1.5);
+}
+
+
+.EPP_video
+{
+	 display: block;
+}
+
+.EPP_video_movil
+{
+	 display: none;		
+}
+
+input:required {
+    box-shadow:none;
+}
+input:invalid {
+    box-shadow:0 0 1px ;
+}
+
+
+.divClasica
+{
+	text-align: right;
+	font-family: arial;
+	font-size: 11px;
+}
+
+.EG_divRojo
+{
+	text-align:center;
+	font-weight: bold;
+    color:white;
+    width:100%;
+    background:#DC143C; 
+    font-family: arial;
+	font-size: 11px;
+}
+
+
+.EG_calendario
+{
+	width:100px; 
+	padding:2px; 
+	height:25px; 
+	font-size: 12px; 
+	font-weight: normal;
+	text-align:center;
+	border:1px solid #C0C0C0;
+	border-radius: 3px;
+}
+
+
+.EG_txt
+{
+	border:1px solid #C0C0C0;
+	border-radius: 2px;
+	font-family: arial;
+	font-size: 12px;
+	padding: 2px;
+	text-align: center;
+	width: 90px;
+}
+
+
+
+/* ESTILOS PARA  ALERTA DE ESPERA */
+.popupCargando {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupCargando {
+    margin:0px auto;
+    margin-top:20%;
+    position:relative;
+    padding:10px;
+    width:30%;
+    min-height:200px;
+    max-height:300px;    
+    border-radius:4px;
+    background-color:transparent;
+    box-shadow: 0 2px 5px transparent;
+    overflow: auto;
+}
+
+.content-popupCargando h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupCargando-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+.popupEspera {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupEspera {
+    margin:0px auto;
+    margin-top:25%;
+    position:relative;
+    padding:10px;
+    width:30%;
+    min-height:200px;
+    max-height:300px;    
+    border-radius:4px;
+    background-color:trasparent;
+    box-shadow: 0 2px 5px trasparent;
+    overflow: auto;
+}
+
+.content-popupEspera h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupEspera-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+
+/******************  ESTILOS ALERTA POSTULATE  ***********************/
+.popupPostulate {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:2500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupPostulate {
+    margin:0px auto;
+    margin-top:40%;
+    position:relative;
+    padding:10px;
+    width:80%;
+    min-height:500px;
+    max-height:800px;    
+    border-radius:4px;
+    background-color:white;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupPostulate h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupPostulate-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/******************  ESTILOS ALERTA MENSAJE INICIAL  ***********************/
+
+.popupMensajeInicio {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupMensajeInicio {
+    margin:0px auto;
+    margin-top:10%;
+    position:relative;
+    padding:10px;
+    width:85%;
+    /*min-height:85%;
+    max-height:90%; */   
+    border-radius:4px;
+    background-color:trasparent;
+    box-shadow: 0 2px 5px trasparent;
+    overflow: auto;
+}
+
+.content-popupMensajeInicio h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupMensajeInicio-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+
+
+/***** ESTILOS DE HEADERS ***/
+body {
+	  margin: 0;
+	  font-family: Arial, Helvetica, sans-serif;
+	}
+	
+	.headerPrincipal {
+	  background-color: white;
+	  padding: 5px;
+	  text-align: center;
+	}
+	
+	.headerMenu {
+	  padding: 0px;
+	  background: white;
+	  color: white;
+	}
+	
+	.contenedorBody {
+	  padding: 0px;
+	}
+	
+	.sticky {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  z-index: 1;
+	}
+	
+	.sticky + .contenedorBody {
+	  padding-top: 160px;
+	}
+	
+
+/* ESTILOS PARA DIMERNCIONES MOVILES */
+
+@media (max-width: 767px) 
+{
+	.EPP_lb_size_22
+	{
+		font-family: Arial; font-size:14px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_24
+	{
+		font-family: Arial; font-size:18px;  font-weight: normal;
+	}
+
+	.EPP_lb_size_28
+	{
+		font-family: Arial; font-size:18px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_30
+	{
+		font-family: Arial; font-size:20px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_40
+	{
+		font-family: Arial; font-size:30px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_45
+	{
+		font-family: Arial; font-size:25px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_60
+	{
+		font-family: Arial; font-size:35px;  font-weight: normal;
+	}
+	
+	.EPP_lb_size_16
+	{
+		font-family: Arial; font-size:14px;  font-weight: normal;
+	}
+
+	.EPP_img_cintillo_marcas
+	{
+		width: 100% ; height: 30px
+	}
+	
+	.EPP_vista_normal
+	{
+	 	display: none;		 
+	}
+	.EPP_lb_size_12
+{
+	display: none;		 
+}
+ 
+	.EPP_vista_movil
+	{
+		display: inline;
+	}
+		
+	.EPP_img_mision
+	{
+		  display: none;
+		  border-radius: 8px	
+	}
+	
+	.EPP_img_mision_movil
+	{
+		display: block;
+		width:100%; 
+		height: 40%;
+		border-radius: 8px
+	}
+	
+	.EPP_img_vision
+	{
+	 	width:100%; height: 90%	;
+	 	border-radius: 8px
+	}
+	
+	.EPP_video
+	{
+		 display: none;
+	}
+	
+	.EPP_video_movil
+	{
+		 display: block;		
+	}
+	
+	.content-popupEspera 
+	{
+	    margin:0px auto;
+	    margin-top:300px;
+	    position:relative;
+	    padding:10px;
+	    width:80%;
+	    min-height:100px;
+	    max-height:250px;    
+	    border-radius:4px;
+	    background-color:trasparent;
+	    box-shadow: 0 2px 5px trasparent;
+	    overflow: auto;
+	}
+}
+
+
+.btn-flotante {
+	font-size: 16px; /* Cambiar el tamaño de la tipografia */
+	text-transform: uppercase; /* Texto en mayusculas */
+	font-weight: bold; /* Fuente en negrita o bold */
+	color: #ffffff; /* Color del texto */
+	border-radius: 5px; /* Borde del boton */
+	letter-spacing: 2px; /* Espacio entre letras */
+	background-color: #DE1A30; /* Color de fondo */
+	padding: 10px;  /*Relleno del boton */
+	position: fixed;
+	bottom: 50%;
+	right: 10px;
+	transition: all 300ms ease 0ms;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	z-index: 99;
+}
+.btn-flotante:hover {
+	background-color: #013a71; /* Color de fondo al pasar el cursor */
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+	transform: translateY(-7px);
+}
+@media only screen and (max-width: 600px) {
+ 	.btn-flotante {
+		font-size: 14px;
+		padding: 12px 20px;
+		bottom: 20px;
+		right: 20px;
+	}
+} 
+
+

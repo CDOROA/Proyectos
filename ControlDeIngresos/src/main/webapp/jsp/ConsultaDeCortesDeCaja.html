@@ -1,0 +1,125 @@
+<div id="divConsultaCortesDeCaja">	
+
+	<div style="height: 10px"></div>
+	<table width=70% align="center" style="background-color: #FBFBFB ; border: 1px solid #DDDDDD;">
+		<tr height="10px"></tr>
+		<tr>
+			<td width=20px></td>
+			<td>
+				<label class="EG_lbtexto">Fecha Corte Caja:</label>
+				<input type="text" id="txt_fechaCorteCaja" class="EG_calendario">
+			</td>
+			<td>
+				<label class="EG_lbtexto">Folio Corte Caja:</label>
+				<input type="text" id="txt_folioCorteCaja" class="EG_txt">
+			</td>
+			<c:if test="${infoUsu.dato_numerico == 1}">
+				<td><label class ="EG_lbtexto">CDO-BR:</label></td>
+				<td>
+					<select id="cmbCdoMantoCorteCaja"  name="cmbCdoMantoCorteCaja" class="ECI_cmbOI">
+						<option value="0" >Selecciona</option>	
+						<c:forEach var="cdo" items="${listaCdos}">
+							<option value="${cdo.cve_cdo}" >${cdo.nombre_cdo}</option>												
+						</c:forEach>
+					</select>
+				</td>
+			</c:if>
+			<td>
+                <button  class="btn btn-info" type="submit"  style="padding:3px; font-size:13px;  width: 110px" onclick="consultaCorteDeCajaBD(1,0)"  >
+					<i class="glyphicon glyphicon-search"></i> Buscar
+				</button>
+            </td>
+            <td width=10px></td>
+		</tr>	
+		<tr height="10px"></tr>
+	</table>
+	<div style="height: 10px"></div>
+	
+	<div id="divCorteCajaConsultado" style="display:none" >	
+	
+		<!-- GRID CORTE DE CAJA GENERAL -->
+		<table align ="center" width=70%>
+			<tr>
+				<td align="left" valign="top">
+						
+					<div id="dgCorteCajaGeneral" class="EG_DivGrid" style="font-size: 80%;"></div>
+				</td>
+			</tr>
+		</table>
+		
+		<!--PREVIO DE INGRESOS -->
+		<table width="90%" align="center">
+			<tr height="10px"></tr>
+			<tr>
+				<td colspan="3" align="center" valign="top"><label class="ECDC_lbtextoTitulo" style="color: #229FC7; font-size:20px">Previo de Ingresos</label></td>
+			</tr>
+			<tr>
+				<td align="left" valign="top">
+					<!-- GRID PREVIO INGRESOS  FORMA PAGO -->	
+					<div id="dgPrevioFormaPago" class="EG_DivGrid"></div>
+				</td>
+				<td align="center" valign="top">
+					<!-- GRID PREVIO INGRESOS  TIPO PAGO -->		
+					<div id="dgPrevioTipoPago" class="EG_DivGrid"></div>
+				</td>
+				<td align="right" valign="top">
+					<!-- GRID PREVIO INGRESOS  BANCOS -->	
+					 <div id="dgPrevioBancos" class="EG_DivGrid"></div>
+				</td>
+			</tr>
+		</table>
+		
+		<hr width="80%" style="color:blue; height: 2px; margin: 10px">
+		<!--PREVIO DE EGRESOS -->
+		<table  width="90%" align="center">
+			<tr>
+				<td colspan="2" align="center" valign="top"><label class="ECDC_lbtextoTitulo" style="color: #DC143C; font-size:20px">Previo de Egresos</label></td>
+			</tr>
+			<tr>
+				<td align="left">
+					<div id="dgPrevioEgresos" class="EG_DivGrid"></div>
+				</td>
+				<td align="right">
+					<div id="dgPrevioEgresosBancos" class="EG_DivGrid"></div>
+				</td>
+			</tr>
+		</table>
+			
+		<hr width="80%" style="color:red; height: 2px; margin: 10px">
+		<!--PREVIO DE TOTALES -->
+		<table  width="90%" align="center">
+			<tr>
+				<td align="center" valign="top"><label class="ECDC_lbtextoTitulo" style="color: #679E34; font-size:20px">Previo Importe Total</label></td>
+			</tr>
+			<tr>
+				<td>					
+					<table align="center"  class="table" style="width:50%">						
+					 	<tr>
+					 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px; font-size: 12px;">Total Ingresos</td>
+					 		<td align="right" class="ECDC_lbtexto" style=" font-weight: normal;font-size: 12px; padding:5px"> <lable  id="lbTotalIngresos"> </td>
+						 </tr>
+						 <tr>
+					 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px;font-size: 12px;">Total Egresos</td>
+					 		<td align="right" class="ECDC_lbtexto" style=" font-weight: normal; font-size: 12px; padding:5px" ><lable id="lbTotalEgresos"> </td>
+						 </tr>						 
+						 <tr>
+					 		<td align="left" class="ECDC_lbtexto" style="font-size: 14px; font-weight:bold; padding:5px">Importe Total</td>
+					 		<td align="right" class="ECDC_lbtexto" style="font-size: 14px; font-weight:bold; padding:5px" > $ <lable id="lbTotalCorteCaja"> </lable></td>
+						 </tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<br>
+	<br>
+	<div id="divMjsCorteCaja" style=" padding:3px; width:60%; display: none">	
+		<div class="alert alert-info alert-dismissible fade in" >
+		    <strong>No se encontraron Cortes de Caja en el sistema</strong>
+		    <button type="button" class="close" onclick="OcultarDiv('divMjsError')">&times;</button>
+		</div>
+	</div>
+	
+	
+</div>

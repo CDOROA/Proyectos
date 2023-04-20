@@ -1,0 +1,95 @@
+<!-- Modal -->
+		<div class="modal fade bd-example-modal-lg" id="ModalVacante"
+			tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document"
+				style="margin-right: 100px; margin-left: 100px; max-width: 100%;">
+				<div class="modal-content ">
+					<div class="modal-header">
+					<table>
+					<tr>
+					<td>
+					<img id="ImgAdvertencia" class="img-log"
+										src="Images/Alert-48.png"
+										style="height: 50px; width: 50px; border-width: 0px; display: none;">
+					</td>
+					<td>
+						<h5 class="modal-title" id="modalTituloVacante"></h5>
+						</td>
+						</tr>
+						</table>
+						
+						
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<form>
+
+							<div class="form-group">
+								<label for="txtVacanteDescripcion">Descripcion:</label>
+								<textarea readonly  class="form-control" id="txtVacanteDescripcion"
+									rows="3"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="txtVacanteHorario">Horario:</label> <input
+									type="text" readonly class="form-control" id="txtVacanteHorario">
+							</div>
+
+							<div class="form-group">
+								<label for="txtVacanteObservaciones">Observaciones:</label>
+								<textarea class="form-control" readonly id="txtVacanteObservaciones"
+									rows="3"></textarea>
+
+							</div>
+
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="txtVacanteLugarTrabajo">Lugar de Trabajo:</label> <input
+										type="text" readonly class="form-control" id="txtVacanteLugarTrabajo">
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="cmbVacanteEstado">Estado:</label> 
+									<input type="text" readonly class="form-control" id="cmbVacanteEstado">
+								</div>
+							</div>
+
+
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="cmbVacanteEmpresa">Empresa Solicitante:</label> 
+									<input type="text" readonly class="form-control" id="cmbVacanteEmpresa">
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="txtVacantefechaPublicacion">Fecha de
+										Registro:</label>
+									<!-- <input type="text" class="form-control"
+										id="txtVacantefechaPublicacion"> -->
+									<input type="date" readonly class="form-control"
+										id="txtVacantefechaPublicacion" name="trip-start">
+								</div>
+							</div>
+							
+									<input type="hidden" readonly id="hidenStatus">
+									<input type="hidden" readonly id="hidenIdAsp">
+								
+						</form>
+
+
+	
+					</div>
+					
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN Modal -->

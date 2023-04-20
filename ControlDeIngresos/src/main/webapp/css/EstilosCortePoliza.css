@@ -1,0 +1,15 @@
+.ECPO_lbCheckBox
+{
+	font-weight:bold;  font-size:11px; font-family:arial; padding:3px ;
+}
+
+
+.ECPO_lbEfectivo
+{
+	font-weight: bold; padding:5px; background-color: #F0F8FF
+}
+
+.ECPO_lbFormaPago
+{
+	font-weight: normal; padding:5px
+}

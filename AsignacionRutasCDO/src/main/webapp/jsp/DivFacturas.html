@@ -1,0 +1,86 @@
+<div id="credito"   style="display: none; width: 100%; height:100%; margin-top: 10px;"  class="tab-pane fade">
+	<table align="center" width="85%" style="border: 1px solid #DDDDDD; ">
+		<tr>
+			<td width="20px">
+			</td>
+			<td>
+				<div style="padding: 0px;width: 100%;margin-top: 10px;height: 108px">
+				<table width="100%" align="center"  >
+					<tr><td colspan="12" style="text-align: center;"> 
+							<label style="    font-size: 18px; color: #428bca">SELECCIONE LAS FACTURAS Y CONFIRME </label>
+						</td></tr>
+					<tr>
+						<td>
+							<label class="EG_lbtexto">Fecha inicio:</label>
+						</td>
+						<td>
+							<input type="text" id="txt_fechaIniCredito" class="EG_calendario" >
+						</td>
+						<td>
+							<label class="EG_lbtexto">Fecha fin:</label>
+						</td>
+						<td>
+							<input type="text" id="txt_fechaFinCredito" class="EG_calendario" >
+						</td>
+						<td>
+							<label class="EG_lbtexto">Mostrar: </label>
+						</td>
+						<td>
+							<input type="radio" name="tipoBusquedaCredito" id="pendienteCredito" value="pendientes" checked="checked" onclick=""/>
+							<label for="pendienteCredito" class="EG_lb_text" style="margin-bottom: 0px;"> &nbsp;Pendiente Confirmar</label>
+						</td>
+						<td>
+							<input type="radio" name="tipoBusquedaCredito" id="todasCredito" value="todas" onclick=""/>
+							<label for="todasCredito" class="EG_lb_text" style="margin-bottom: 0px;"> &nbsp;Todas</label>						
+						</td>
+						<td>
+							<label class="EG_lbtexto">Folio Corte</label>
+						</td>
+						<td>
+							<input type="text" id="folioCorteCredito" class="EG_calendario" >
+						</td>
+						<td>
+												<select id="cmbFacturas" name="cmbFacturas"  style="width: auto; display: none" onchange="changeFuncFacturas(value);">
+								  <option value="" disabled="disabled" selected>CDO</option>
+								  <option value="" disabled="disabled"style="background: #87CEEB;font: bold;">REGIONALES</option>
+								 	<c:forEach var="dato" items="${regionales}">
+										<option value="${dato.getUname_br()}" >${dato.getDescripcion()} </option>
+									</c:forEach>	
+							 </select>	
+							 <input type="hidden" id="cdoFacturas" value="">
+						</td>
+						
+							<td rowspan="2">
+							<button class="btn btn-primary" type="submit" style="padding: 4px; width: 100px" onclick="consultarCredito()">Consultar</button>
+						</td>
+		<td>
+		</td>
+		<td rowspan="2">
+							<button class="btn btn-success" type="submit" style="padding: 4px; width: 162px; display: none;" id="btnConfirmarFac" onclick="confirmarFac()">Confirmar Facturas</button>
+						</td>
+						
+					
+						</tr>
+					</table><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<br>
+<table style="width: 100%">	
+<tr>
+<td  align="left" style=" padding-left: 20px;font-weight: bold;    font-size: 17px;">
+	<label id="totalFacturasDisponibles" style="    background-color: aqua;"></label><label id="totalFacturasSeleccionadas" style="    background-color: aqua;"></label>
+</td>
+</tr>
+<tr>
+<td>
+	<div style="width: 100%" align="center">
+	<div id="monCredito" class="EG_DivGrid" style="font-size: 12px !important;margin-top: 10px;margin-bottom: 10px; display: none"></div>
+	<br>
+	</div>
+</td>
+</tr>
+</table>
+</div>

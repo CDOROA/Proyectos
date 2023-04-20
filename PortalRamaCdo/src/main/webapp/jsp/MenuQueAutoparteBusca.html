@@ -1,0 +1,99 @@
+<div style="padding: 10px; margin: 0;" >	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">		
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">		
+		 	<label class="EPP_lb_size_45" style="font-weight: bold; color:#0054A2">¿Qu&eacute; Autoparte Buscas?</label>		
+		</div>		
+	</div>
+	<div style="height: 15px"></div>	
+	<div class="row" style="padding: 2px; margin: 0; text-align: center; ">	
+	
+		<div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3" style="text-align:center;border-right:  1px solid #DDDDDD;">			
+			<div style="border-bottom: 1px solid #DDDDDD; text-align: center">
+				<label style="font-family: Arial; font-size:18px; font-weight: bold; color: #DC143C">Filtros De B&uacute;squeda</label>
+			</div>
+			<div style="height: 15px"></div>	
+			
+				<div class="form-group" align="left" >
+					<label for="txtProductoQueAutoBusca" style="font-weight: bold">Producto:</label>
+					<input  id="txtProductoQueAutoBusca" type="text" class="form-control" id="formGroupExampleInput" placeholder="Descripci&oacute;n del Producto" style="font-size: 12px; font-family: arial" >
+				</div>
+				
+				<div class="form-group" align="left" >
+					<label for="cboMarcaQueAutoBusca" style="font-weight: bold">Marca:</label>
+					<select id="cboMarcaQueAutoBusca" class="custom-select" required style="font-size: 14px; font-family: arial" onchange="consultaArmadoras()" >
+						<option value="0" >-- Selecciona --</option>
+						<c:forEach var="marca" items="${listMarcas}">
+							<option value="${marca.nombre_marca}" >${marca.nombre_marca}</option>
+						</c:forEach>
+					</select>
+				</div>
+				
+				<div id="divArmadorasQueAutoBusca" class="form-group" align="left" style="display:none" >
+					<label for="cboArmandoraQueAutoBusca" style="font-weight: bold">Armandora:</label>
+					<select id="cboArmandoraQueAutoBusca" class="custom-select" required style="font-size: 14px; font-family: arial"  onchange="consultaSubMarcas()">
+						
+					</select>
+				</div>				
+				
+				<div id="divSubMarcasQueAutoBusca" class="form-group" align="left" style="display:none">
+					<label for="cboSubMarcaQueAutoBusca" style="font-weight: bold">Submarca:</label>
+					<select id="cboSubMarcaQueAutoBusca" class="custom-select" required style="font-size: 14px; font-family: arial">
+						<option value="0" >-- Selecciona --</option>
+						<c:forEach var="submarca" items="${listSubMarcas}">
+							<option value="${submarca.nombre_submarca}}" >${submarca.nombre_submarca}</option>
+						</c:forEach>
+					</select>
+				</div>
+								
+				<div class="form-group" align="left">
+					<label for="cboGrupoQueAutoBusca" style="font-weight: bold">Sistema Automotriz:</label>
+					<select id="cboGrupoQueAutoBusca"  class="custom-select" required style="font-size: 12px; font-family: arial">
+						<option value="0" >-- Selecciona --</option>
+						<c:forEach var="grupo" items="${listSistemaAutomotriz}">
+							<option value="${grupo.nombre_grupo}" >${grupo.nombre_grupo}</option>
+						</c:forEach>
+					</select>
+				</div>
+				
+				<div class="form-group" align="center" style="margin: 4px;font-size: 12px; font-family: arial; padding-top: 10px" >
+					<button class="btn btn-primary" onclick="limpiaFiltrosQuerAutoBusca()">Limpiar Filtros</button>
+					<button class="btn btn-danger" onclick="consultaArticulos()">Buscar Producto</button>
+				</div>
+				<br><br><br>
+		</div>
+		
+		<div class=" col-xs-12 col-sm-12 col-md-9 col-lg-9" style="text-align:center;">			
+			
+			<div id="div_autoparteBuscaSinResultados" style="font-weight: bold; margin: 3px; width:70%; margin-left: 5%; margin-top: 10%">
+					<label style="color:#0C5478">¿Necesita ayuda para encontrar su autoparte? <br>  
+					<!-- <a href="#divContactenos" class="btn btn-link primary">Contáctenos</a> -->
+					<a href="#!" data-toggle="modal" data-target="#modalFormulario" onclick="limpiarCamposContacto()" class="btn btn-link primary">Contáctenos</a></label>
+			</div>
+			
+			<div id="div_autoparteBuscaConResultados" style=" text-align: center;width:100%" >
+				<!-- GRID DE INGRESOS  CAPTURADOS  -->	
+			 	<table width=100%>
+					<tr>
+						<td align="center" width=100%>
+						 	<div id="dgAutopartes" class="EPI_DivGridAutopartes"  style="font-size: 70%;"></div>
+						 	<div id="dgAutopartesMovil" class="EPI_DivGridAutopartesMovil"  style="font-size: 60%;"></div>
+						</td>
+					</tr>   
+			 	</table>
+			</div>
+			
+			
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+</div>
+
+
+

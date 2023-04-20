@@ -1,0 +1,262 @@
+.ECI_lbCheckBox
+{
+	font-weight:bold;  font-size:11px; font-family:arial; padding:3px ;
+}
+
+.EG_lbtexto
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+}
+
+.EG_lbMsjConfirmacionAzul
+{
+	font-family: arial;
+	font-size: 14px;
+	font-weight: normal;
+	color:black;
+}
+
+.EG_lbtexTotalizado
+{
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: black;
+}
+
+.EG_lbtexTotalizadoGeneral
+{
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: white;
+}
+
+
+
+/******************************* ESTILOS PARA VENTA EMRGENTE HOJA RUTA MANUAL ******************************/
+
+.popupFac {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupFac {
+    margin:0px auto;
+    margin-top:220px;
+    position:relative;
+    padding:10px;
+    width:750px;
+    min-height:180px;
+    max-height:250px;
+    
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupFac h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 140%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupFac-overlay 
+{
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close 
+{
+    position: absolute;
+    right: 15px;
+}
+
+
+
+/******************************* ESTILOS PARA VENTA EMRGENTE CONFIRMA INGRESO ******************************/
+
+.popupConfirmaIngreso {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupConfirmaIngreso {
+    margin:0px auto;
+    margin-top:100px;
+    position:relative;
+    padding:10px;
+    width:500px;
+    min-height:80px;
+    max-height:450px;
+    
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupConfirmaIngreso h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 140%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupConfirmaIngreso-overlay 
+{
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close 
+{
+    position: absolute;
+    right: 15px;
+}
+
+
+/******************************* ESTILOS PARA VENTA EMRGENTE FACTURA MANUAL ******************************/
+
+.popupAgregaFacManual {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupAgregaFacManual {
+    margin:0px auto;
+    margin-top:220px;
+    position:relative;
+    padding:10px;
+    width:900px;
+    min-height:80px;
+    max-height:450px;
+    
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupAgregaFacManual h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 140%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupAgregaFacManual-overlay 
+{
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close 
+{
+    position: absolute;
+    right: 15px;
+}
+
+
+/******************************* ESTILOS PARA VENTA EMRGENTE DETALLE FOLIO HOJA RUTA ******************************/
+
+.popupDetalleFHR {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupDetalleFHR {
+    margin:0px auto;
+    margin-top:220px;
+    position:relative;
+    padding:10px;
+    width:500px;
+    min-height:80px;
+    max-height:550px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupDetalleFHR h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 140%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupDetalleFHR-overlay 
+{
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close 
+{
+    position: absolute;
+    right: 15px;
+}
+

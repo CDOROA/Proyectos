@@ -1,0 +1,74 @@
+<div style="padding:0px; margin: 0;" >	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">
+		
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">		
+		 	<label class="EPP_lb_size_45" style="font-weight: bold; color:#0054A2">Centro de Distribuci&oacute;n Oriente</label>		
+		</div>		
+	
+		<div class=" col-xs-0 col-sm-0 col-md-12 col-lg-12  style="height: 10px"></div>
+		<div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align:center;">
+			<img src="${pageContext.request.contextPath}/image/paginaInicio/mision.png" class="EPP_img_mision" ></img>				
+		</div>		
+		<div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align:center;">			
+			<label class="EPP_lb_size_30" style="font-weight: bold; color:#4169E1">Misi&oacute;n</label>
+			<label class="EPP_lb_size_16" style="text-align:justify;">			
+				<c:forEach var="empresa" items="${listNuestraEmpresa}">						
+					<c:if test="${empresa.id_seccion == 1}">
+          					${empresa.descripcion}
+          				</c:if>
+				</c:forEach>	
+			</label>	
+			<img src="${pageContext.request.contextPath}/image/paginaInicio/mision.jpg" class="EPP_img_mision_movil"></img>			
+		</div>
+				
+		<div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align:center;" >
+			<br>
+			<label class="EPP_lb_size_30" style="font-weight: bold;color:#4169E1">Visi&oacute;n</label>			
+			<label class="EPP_lb_size_16" style="text-align:justify;">
+				<c:forEach var="empresa" items="${listNuestraEmpresa}">						
+					<c:if test="${empresa.id_seccion == 2}">
+          					${empresa.descripcion}
+          			</c:if>
+				</c:forEach>
+			</label>				
+		</div>		
+		<div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align:right;">
+			<img src="${pageContext.request.contextPath}/image/paginaInicio/vision.jpg" class="EPP_img_vision"></img>		
+		</div>
+	</div>
+	<div style="height: 5px"></div>
+	<div class="row"  style="padding: 10px; margin: 0; text-align: center;">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<label class="EPP_lb_size_30" style="font-weight: bold; color:#4169E1">Nuestros Valores</label>
+		</div>
+		
+		<c:forEach var="valor" items="${listValores}">			
+			<c:choose>
+        		<c:when  test="${valor.seccion == 'Valores'}">
+     				<div class="  col-xs-12 col-sm-12 col-md-3 col-lg-3">
+						<div  style="font-weight: bold; color:#DC143C; font-size: 20px">
+							${valor.titulo}
+						</div>
+					</div>
+					<div class="  col-xs-12 col-sm-12 col-md-9 col-lg-9" style="vertical-align: middle;">
+					
+						<label class="EPP_lb_size_16" style="text-align:justify;">
+							${valor.descripcion}
+						</label>
+					</div>
+     			</c:when >
+     			<c:otherwise>     			
+	     			<div class="  col-xs-12 col-sm-12 col-md-3 col-lg-3" style="margin: 0px; padding: 0px">
+					</div>
+					<div class="  col-xs-12 col-sm-12 col-md-9 col-lg-9" style="margin: 0px; padding: 0px;padding-left:15px; text-align: left">
+						<label class="EPP_lb_size_16" style="text-align:justify;margin: 0px; padding: 0px">										
+							<strong>${valor.titulo}</strong>${valor.descripcion}						
+						</label>
+					</div>
+     			</c:otherwise>
+     		</c:choose>   
+		</c:forEach>
+	</div>
+	<br>
+	
+</div>

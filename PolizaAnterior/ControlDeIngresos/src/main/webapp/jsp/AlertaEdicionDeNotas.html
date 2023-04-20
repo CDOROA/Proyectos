@@ -1,0 +1,73 @@
+<div id="divEditaNota" style="display: none;" class="popupCE" >
+    <div class="content-popupCE">
+	    <div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+	       	<br>
+			<table width="95%" align="center">
+				<tr> 
+					<td colspan="2"  align="center">
+						<label class="EG_lbtexto" style="font-size: 15px" > Folio de Ingreso:</label>
+						<label class="EG_lbtexto" style="font-size: 15px" id ="lbtipoPagoNota"></label>
+					</td>
+				</tr>
+				<tr>				
+					<td rowspan="2" width=10% align="right">
+						<img src="images/info.png" class="img-responsive navbar-brand-img"></img>
+					</td>
+					<td align="center" > 
+						<div id="NotaCredito" style="display: none">
+							<label class="EG_lbtexto"  style="font-weight: normal" > Encargado CR: </label>
+							<select id="cmbUsuNota"  name="cmbUsuNota" class="EG_cmb" style="width:200px">
+								<option value="0"> -- SELECCIONA --</option>	
+								 <c:forEach var="usuCr" items="${listaUsuariosCredito}">
+									<option value="${usuCr.cve_usu_credito}">${usuCr.nombre_usu_credito}</option>
+								 </c:forEach>
+							</select>
+						</div>
+						<div id="NotaDevolcuion" style="display: none">
+							<label class="EG_lbtexto"  style="font-weight: normal" > Observaciones: </label>
+							<input id="txtObservacionesNota"  type="text" name="txtObservacionesNota" class ="EG_txt"  style="width:220px;">
+						</div>
+					</td>
+				</tr>		        					    
+				<tr>
+					<td align="center">	
+						<div class="text-center" style="display: inline">
+							<input id="cbxDescuentoMes"  type="checkbox" name="cbxDescuentoMes" onclick="ocultarMostrarNota()" >
+							<label class="EG_lbtexto"  style="font-weight:normal ; " >Descuento del Mes </label>&nbsp;&nbsp;&nbsp;&nbsp;			
+							<label id="lbDocumentoNota" class="EG_lbtexto"  style="font-weight: normal" > Nota: </label>
+							<input id="txtDocumentoNota"  type="text" name="txtDocumentoNota" class ="EG_txt"  maxlength="50"> 
+							<label class="EG_lbtexto"  style="font-weight: normal" > Imp. </label>
+							<label class="EG_lbtexto" style="font-weight: normal" id="lbtipoNota"></label>
+							<input id="txtImporteNota"  type="text" name="txtImporteNota" class ="EG_txt"  maxlength="12" onkeypress="return EsNumero(event)" >
+						</div>				
+					</td>
+				</tr>
+			</table>	
+			<br>
+	     	<table width="80%" align="center">
+	    		<tr>	
+	    			<td>&nbsp;</td> 	
+	     			<td  class="EG_lbtexto" align="center">
+	     				<button class="btn btn-danger" type="button"  style="padding:3px; width: 100px; font-size:12px " onclick="OcultarDiv('divEditaNota');"  >
+							<i class="glyphicon glyphicon-arrow-left"></i> Atras
+						</button>
+	     			</td>
+	     			<td  class="EG_lbtexto" align="center">
+	     				<button class="btn btn-primary" type="button"  style="padding:3px; width: 120px;font-size:12px" onclick="actualizaImporteNota()"  >
+							<i class="glyphicon glyphicon-ok"></i> Sí, Actualizar
+						</button>
+	     			</td> 	
+					<td  class="EG_lbtexto" align="center">
+						<button class="btn btn-warning" type="button"  style="padding:3px; width: 70px; font-size:12px" onclick="CancelarImporteNota()"  >
+							<i class="glyphicon glyphicon-usd"></i>  0.00
+						</button>
+					</td>    	
+	     		</tr>
+	    	</table>
+	    	<br>
+	    </div>
+    </div>
+</div>
+      
+      
+      

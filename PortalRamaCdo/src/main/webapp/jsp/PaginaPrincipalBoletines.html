@@ -1,0 +1,37 @@
+<div style="padding: 10px; margin: 0;background-color: #FBFBFB;" >	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">	
+	
+		<div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3" style="text-align:center;">
+			<label class="EPP_lb_size_30" style="font-weight: bold;  color:#DC143C; ">Boletines</label>  
+			<div class="row" style="padding: 10px; margin: 0; text-align: center;">	
+				<c:forEach var="boletin" items="${listBoletines}">		
+					<div   class=" col-xs-4 col-sm-4 col-md-6 col-lg-6" style="text-align:center;padding: 10px"  >
+					<div  id="div_bol_${boletin.id_boletin}" style="font-weight: bold;background-color: #F5F5F5 ; border: 1px solid #DDDDDD;" onmouseover="mouseOverdivBoletines('div_bol_${boletin.id_boletin}')" onmouseout="mouseOutdivBoletines('div_bol_${boletin.id_boletin}')">
+						<img src="${pageContext.request.contextPath}/image/boletines/${boletin.imagen_boletin}" 
+							 style="height: 130px; width: 90%; border-radius: 8px; padding: 5px" 
+							 onclick="mostrarBoletinSeleccionado(${boletin.id_boletin},${fn:length(listBoletines)})"></img>
+					</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		
+		<c:forEach var="boletin" items="${listBoletines}">		
+			<c:choose>
+        		<c:when  test="${boletin.id_boletin == '1'}">
+        			<div id="div_boletin_${boletin.id_boletin}" class=" col-xs-0 col-sm-0 col-md-9 col-lg-9" style="text-align:center;">				
+						<label class="EPP_lb_size_30" style="font-weight: bold;  color:#0033CC; ">${boletin.nombre_boletin}</label>  
+						<img  src="${pageContext.request.contextPath}/image/boletines/${boletin.imagen_boletin}"  style=" width: 90%;border-radius: 8px"></img>	
+					</div>
+        		</c:when>
+        		<c:otherwise> 
+        		  <div   id="div_boletin_${boletin.id_boletin}" class=" col-xs-0 col-sm-0 col-md-9 col-lg-9" style="text-align:center;display:none">				
+						<label class="EPP_lb_size_30" style="font-weight: bold;  color:#0033CC; ">${boletin.nombre_boletin}</label>  
+						<img src="${pageContext.request.contextPath}/image/boletines/${boletin.imagen_boletin}"  style="width: 90%;border-radius: 8px"></img>	
+					</div>
+        		</c:otherwise>
+        	</c:choose>
+		</c:forEach>	
+		
+	</div>
+</div>

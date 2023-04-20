@@ -1,0 +1,58 @@
+
+<div id="corte"   style="display: none; width: 100%; margin-top: 10px;"  class="tab-pane fade">
+	<table align="center" width="50%" style="border: 1px solid #DDDDDD; ">
+		<tr>
+			<td width="20px">
+			</td>
+			<td>
+				<div style="padding: 0px;width: 100%;margin-top: 10px;height: 108px">
+				<table width="70%" align="center"  >
+					<tr><td colspan="12" style="text-align: center;"> 
+							<label style="    font-size: 18px; color: #428bca">GENERAR CORTE POR DIA </label>
+						</td></tr>
+					<tr>
+						<td>
+							<label class="EG_lbtexto">Ingrese Fecha:</label>
+						</td>
+						<td>
+							<input type="text" id="txt_fechaIniCorte" class="EG_calendario" >
+						</td>
+						<td>
+						<select id="cmbCorte" name="cmbCorte"  style="width: auto; display: none" onchange="changeFuncCorte(value);">
+								  <option value="" disabled="disabled" selected>CDO</option>
+								  <option value="" disabled="disabled"style="background: #87CEEB;font: bold;">REGIONALES</option>
+								  <c:forEach var="dato" items="${regionales}">
+										<option value="${dato.getUname_br()}" >${dato.getDescripcion()} </option>
+									</c:forEach>	
+							 </select>	
+							 <input type="hidden" id="cdoCorte" value="">
+						</td>
+						
+							<td rowspan="2">
+							<button class="btn btn-primary" type="submit" style="padding: 4px; width: 100px" onclick="consultarCorte()">Generar</button>
+						</td>
+		
+						
+
+					
+						</tr>
+					</table><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+<div style="width: 100%" align="center">
+	<table style="width: 70%">	
+	<tr>
+	<td>
+		<div id="tablaCorte" align="center"></div>
+	</td>
+	<td style="width: 20%">
+	</td>
+	<td>
+	<div id="tablaCorte2" align="center"></div>
+	</td>
+	</tr>
+	</table>
+	</div>
+</div>

@@ -1,0 +1,142 @@
+<div id="comprobanteSD" style="width:100%; text-align:center; display:none;"><h6>Sin datos</h6></div>
+	<div id="comprobante" style="width:80%; margin-left:8%;">
+	<br><div id="comprobanteTITULO" style='background:black; color:white;'><h5>Comprobante:</h5></div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="serieComp" placeholder="SERIE" onkeyup="validar('#serieComp');" value="">
+		      <label for="floatingInputGrid">SERIE</label>
+		      <div class="invalid-feedback">
+       			 Ingresa una serie.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="folioComp" placeholder="FOLIO" onkeyup="validar('#folioComp');" value="">
+		      <label for="floatingInputGrid">FOLIO</label>
+		    
+		    <div class="invalid-feedback">
+       			 Ingresa un folio.
+      		</div>
+      		</div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="fechaCFDI" placeholder="Fecha CFDI" readonly value="">
+		      <label for="floatingInputGrid">FECHA CFDI</label>
+		      
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="formaPago" placeholder="FORMA PAGO" readonly value="">
+		      <label for="floatingInputGrid">FORMA PAGO</label>
+		      <div class="invalid-feedback">
+       			 Forma de pago no valida o vacia.
+      		</div>
+		      <div style="text-align:right; margin: 2px;">
+		      <button id="btnFormaPago" class="btn btn-success" onclick="actualizaFormaPago();">ACTUALIZAR</button>
+		      
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="importeDescuentos" placeholder="IMPORTE DESCUENTOS" readonly value="">
+		      <label for="floatingInputGrid">IMPORTE DESCUENTOS</label>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="moneda" placeholder="MONEDA" onkeyup="validar('#moneda');" value="">
+		      <label for="floatingInputGrid">MONEDA</label>
+		       <div class="invalid-feedback">
+       			Ingresa una moneda.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="tipoCambio" placeholder="TIPO CAMBIO" onkeyup="validar('#tipoCambio');"value="">
+		      <label for="floatingInputGrid">TIPO CAMBIO</label>
+		    </div>
+		     <div class="invalid-feedback">
+       			 Ingresa tipo de cambio.
+      		</div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="importeTotal" placeholder="IMPORTE TOTAL"  readonly value="">
+		      <label for="floatingInputGrid">IMPORTE TOTAL</label>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="tipoComprobante" placeholder="TIPO COMPROBANTE" readonly value="">
+		      <label for="floatingInputGrid">TIPO COMPROBANTE</label>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="exportacion" placeholder="EXPORTACIÓN" onkeyup="validar('#exportacion');"value="">
+		      <label for="floatingInputGrid">EXPORTACIÓN</label>
+		    </div>
+		     <div class="invalid-feedback">
+       			 Ingresa exportación.
+      		</div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control " id="metodoPago" placeholder="METODO PAGO" readonly value="">
+		      <label for="floatingInputGrid">METODO PAGO</label>
+		      <div class="invalid-feedback">
+       			 Metodo de pago no valido o vacio.
+      		</div>
+		      <div style="text-align:right; margin: 2px;">
+		      <button id="btnMetodoPago" class="btn btn-success" onclick="actualizaMetodoPago();">ACTUALIZAR</button>
+		       
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="importeSubtotal" placeholder="IMPORTE SUBTOTAL" readonly value="">
+		      <label for="floatingInputGrid">IMPORTE SUBTOTAL</label>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="lugarExpedicion" placeholder="LUGAR EXPEDICION"  readonly value="">
+		      <label for="floatingInputGrid">LUGAR EXPEDICION</label>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="observaciones" placeholder="OBSERVACIONES" onkeyup="validar('#observaciones');" value="">
+		      <label for="floatingInputGrid">OBSERVACIONES</label>
+		       <div class="invalid-feedback">
+       			Ingresa observaciones.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="ode" placeholder="ORDEN DE ENTREGA" onkeyup="validar('#ode');" value="">
+		      <label for="floatingInputGrid">ORDEN DE ENTREGA</label>
+		       <div class="invalid-feedback">
+       			 Ingresa orden de entrega.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		
+		</div>

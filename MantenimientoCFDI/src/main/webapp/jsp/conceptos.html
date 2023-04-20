@@ -1,0 +1,217 @@
+<div class="modal fade" id="modalConceptos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="tituloModalConceptos"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="numRenglon" placeholder="NUMERO RENGLON" onkeyup="validar('#numRenglon');" value="">
+			      <label for="floatingInputGrid">NUMERO RENGLON</label>
+			      <div class="invalid-feedback">
+       			Ingresa un numero de reglon.
+      			</div>
+			      
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control " id="claveProdServ"  maxlength="8" placeholder="CLAVE PRODUCTO SERV" onchange="verificaClaveProdutoServ(this.value);" value="">
+			      <label for="floatingInputGrid">CLAVE PRODUCTO SERV</label>
+			      <div class="invalid-feedback">
+       			Clave Producto Servicio no valido o vacio.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control" id="noIdentificacion" placeholder="NO. IDENTIFICACION" readonly value="">
+			      <label for="floatingInputGrid">NO. IDENTIFICACION</label>
+			      <div class="invalid-feedback">
+       			Ingresa un numero de identificacion.
+      			</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="cantidad" placeholder="CANTIDAD" onkeyup="validar('#cantidad');" value="">
+			      <label for="floatingInputGrid">CANTIDAD</label>
+			      <div class="invalid-feedback">
+       			Ingresa cantidad.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control" id="claveUnidad" placeholder="CLAVE UNIDAD" readonly value="">
+			      <label for="floatingInputGrid">CLAVE UNIDAD</label>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="unidad" placeholder="UNIDAD" onkeyup="validar('#unidad');" value="">
+			      <label for="floatingInputGrid">UNIDAD</label>
+			      <div class="invalid-feedback">
+       				Ingresa la unidad.
+      				</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="descripcionConceptos" placeholder="DESCRIPCION" onkeyup="validar('#descripcionConceptos');" value="">
+			      <label for="floatingInputGrid">DESCRIPCION</label>
+			      <div class="invalid-feedback">
+       					Ingresa la descripcion.
+      				</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="valorUnitario" placeholder="VALOR UNITARIO"  onkeyup="validar('#valorUnitario');" value="">
+			      <label for="floatingInputGrid">VALOR UNITARIO</label>
+			      <div class="invalid-feedback">
+       				Ingresa el valor unitario.
+      				</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="importe" placeholder="IMPORTE" onkeyup="validar('#importe');" value="">
+			      <label for="floatingInputGrid">IMPORTE</label>
+			      <div class="invalid-feedback">
+	       			Ingresa un importe.
+	      			</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="descuento" placeholder="DESCUENTO" onkeyup="validarDescuento('#descuento');" value="">
+			      <label for="floatingInputGrid">DESCUENTO</label>
+			      <div class="invalid-feedback">
+	       			Ingresa descuento.
+	      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="objetoImp" placeholder="OBJETO IMP" onchange="validarObjetoImp(this.value);" value="">
+			      <label for="floatingInputGrid">OBJETO IMP</label>
+			      <div class="invalid-feedback">
+       			El valor tiene que ser 01 o 02.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="baseTraslado" placeholder="BASE TRASLADO" onkeyup="validar('#baseTraslado');" value="">
+			      <label for="floatingInputGrid">BASE TRASLADO</label>
+			      <div class="invalid-feedback">
+       			Ingresa la base traslado.
+      			</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="importeTraslado" placeholder="IMPORTE TRASLADO" onkeyup="validar('#importeTraslado');" value="">
+			      <label for="floatingInputGrid">IMPORTE TRASLADO</label>
+			      <div class="invalid-feedback">
+       			Ingresa el importe taslado.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="impuestoTraslado" placeholder="IMPUESTO TRASLADO" onkeyup="validar('#impuestoTraslado');" value="">
+			      <label for="floatingInputGrid">IMPUESTO TRASLADO</label>
+			      <div class="invalid-feedback">
+       			Ingresa el impuesto traslado.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="tasaCuota" placeholder="TASA CUOTA TRASLADO" onkeyup="validar('#tasaCuota');" value="">
+			      <label for="floatingInputGrid">TASA CUOTA TRASLADO</label>
+			      <div class="invalid-feedback">
+       			Ingresa la tasa cuota.
+      			</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="tipoFactorTranslado" placeholder="TIPO FACTOR TRASLADO" onkeyup="validar('#tipoFactorTranslado');" value="">
+			      <label for="floatingInputGrid">TIPO FACTOR TRASLADO</label>
+			      <div class="invalid-feedback">
+       			Ingresa tipo factor traslado.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="baseRetencion" placeholder="BASE RETENCION" onkeyup="validar('#baseRetencion');" value="">
+			      <label for="floatingInputGrid">BASE RETENCION</label>
+			      <div class="invalid-feedback">
+       			Ingresa la base retencion.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="importeRetencion" placeholder="IMPORTE RETENCION" onkeyup="validar('#importeRetencion');" value="">
+			      <label for="floatingInputGrid">IMPORTE RETENCION</label>
+			      <div class="invalid-feedback">
+       			Ingresa el importe retencion.
+      			</div>
+			    </div>
+			  </div>
+			</div>
+			<br><div class="row g-3">
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="impuestoRetencion" placeholder="IMPUESTO RETENCION" onkeyup="validar('#impuestoRetencion');" value="">
+			      <label for="floatingInputGrid">IMPUESTO RETENCION</label>
+			      <div class="invalid-feedback">
+       			Ingresa el impuesto retencion.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="tipoFactorRetencion" placeholder="TIPO FACTOR RETENCION" onkeyup="validar('#tipoFactorRetencion');" value="">
+			      <label for="floatingInputGrid">TIPO FACTOR RETENCION</label>
+			      <div class="invalid-feedback">
+       			Ingresa un tipo retencion.
+      			</div>
+			    </div>
+			  </div>
+			  <div class="col-md">
+			    <div class="form-floating">
+			      <input type="text" class="form-control bg-editable" id="tasaCuotaRetencion" placeholder="TASA CUOTA RETENCION" onkeyup="validar('#tasaCuotaRetencion');"  value="">
+			      <label for="floatingInputGrid">TASA CUOTA RETENCION</label>
+			      <div class="invalid-feedback">
+       			Ingresa tasa cuota retencion.
+      			</div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+      <div class="modal-footer">
+    	<button type="button" class="btn btn-primary" onclick="verificaConcepto();" >Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div style="padding: 2px; margin: 0;background-color: #FBFBFB;" >	
+	<div class="row" style="padding: 5px; margin: 0; text-align: center;">		
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;padding:3px">		
+		 	<label class="EPP_lb_size_40" style="font-weight: bold; color:#0054A2; margin: 0px">&Uacute;nete a Nuestro Equipo</label>	
+		</div>
+	</div>	
+	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">	
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"><br></div>		
+		<div class=" col-xs-12 col-sm-12 col-md-10 col-lg-10" style="text-align:center; background-color: #F5F5F5; padding:10px">
+			<table width="70%" align="center">
+				<tr>
+					<td>
+						<label for="cboBolsaTrabajoEstado" style="font-weight: bold">Estado:</label>								
+					</td>
+					<td>
+						<select id="cboBolsaTrabajoEstado" class="custom-select" required style="padding: 4px; font-size: 12px; font-family: arial" onchange="consultaVacantes('9');">
+							<option value="0" >-- Selecciona --</option>						
+							<c:forEach var="estado" items="${listEstados}">
+								<option value="${estado.cve_Estado}" >${estado.nombre_estado}</option>
+							</c:forEach>
+						</select>
+					</td>
+				</tr>				
+			</table>			
+		</div>
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"><br></div>
+	</div>
+	
+	<div id="divVacantesDisponibles">
+    </div>
+	
+	<table width="60%" align="center">
+		<tr>
+			<td valign="middle">
+				<div id="divMjsErrorBolsaTrabajo" style=" padding:3px; display: none;">	
+					<div class="alert alert-primary alert-dismissible fade show" role="alert" style="padding:10px;">
+					  	<strong>¡Lo sentimos!</strong> <label  style="font-weight: normal; font-size: 16px"> No existen vacantes disponibles para su estado.</label>				  
+					</div>	
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

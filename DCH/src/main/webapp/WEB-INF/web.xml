@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <session-config>
+    <session-timeout>480</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>mx.cdo.Sismay</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioServlet</display-name>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <servlet-class>Web.UsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <url-pattern>/UsuarioServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorEvaluaciones</display-name>
+    <servlet-name>AdministradorEvaluaciones</servlet-name>
+    <servlet-class>Web.AdministradorEvaluaciones</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorEvaluaciones</servlet-name>
+    <url-pattern>/AdministradorEvaluaciones</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ResultadosServlet</display-name>
+    <servlet-name>ResultadosServlet</servlet-name>
+    <servlet-class>Web.ResultadosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResultadosServlet</servlet-name>
+    <url-pattern>/ResultadosServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SeguimientoServlet</display-name>
+    <servlet-name>SeguimientoServlet</servlet-name>
+    <servlet-class>Web.SeguimientoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeguimientoServlet</servlet-name>
+    <url-pattern>/SeguimientoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmpleadosServlet</display-name>
+    <servlet-name>EmpleadosServlet</servlet-name>
+    <servlet-class>Web.EmpleadosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpleadosServlet</servlet-name>
+    <url-pattern>/EmpleadosServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

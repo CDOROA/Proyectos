@@ -1,0 +1,104 @@
+<div style="width: 100%" align="center">
+	<div style="width: 30%;margin-top: 10px;">
+	<input type="hidden" id="uname_br" value="${session_br} ">
+	<input type="hidden" id="minutos" value="${minutos} ">
+		<table width="100%" style="display: block" id="encabezadoPedidosInicial">
+		  <tr>
+		    <td>
+			    <table>
+					  <tr>
+					    <td>
+<!-- 					    	<button class="btn btn-primary" type="button" style="padding: 4px; width: 270px" onclick="quitarChofer();actualizar();"> -->
+<!-- 								 ACTUALIZAR INFORMACION&nbsp;&nbsp; -->
+<!-- 							</button> -->
+					   	</td>
+					  </tr>
+				</table>
+		    </td>
+		  </tr>
+		</table>
+	</div>
+</div>
+
+<div id="asignacion"   class="tab-pane fade show active">
+	<div style="width: 100%" align="center">
+		<div style="display: none;height: 53px;width: 100%;padding: 10px 30px;margin-bottom: 5px;margin-top: 5px;    " id="encabezadoPedidos">
+			<table style="width: 100%">
+			<tr>
+			<td style="width: 20%">
+			<input id="rutasSesion" value="${rutasParse}" type="hidden">
+<!-- 				<select id="cmbCh" name="cmbCh"  style="width: auto;" onchange="changeCh(value)"> -->
+<!-- 					<option value="" disabled="disabled" selected>SELECCIONE RUTA</option> -->
+<!-- 				  <option value="" >Todo</option> -->
+<!-- 	 				 <c:forEach var="dato" items="${rutasChofer}"> -->
+<!-- 						<option value="${dato.getNum_ruta()}">${dato.getDescripcion()} </option> -->
+<!-- 					</c:forEach> -->
+<!-- 	 			</select> -->
+<table>
+<tr>
+<td>
+<input type="text" style="width: 85%" placeholder="Escanee factura" onKeyPress="if (event.keyCode == 13) marcarFactura()" maxlength="15" id="escaneadoFacturaPedido">
+</td>
+<td style = "    padding-right: 15px;">
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="ctereg" id="cte" value="c" checked>
+			  <label class="form-check-label" for="cte">
+			    CTE
+			  </label>
+			</div>
+</td>
+<td>		
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="ctereg" id="reg" value="r">
+			  <label class="form-check-label" for="reg">
+			    REG
+			  </label>
+			</div>
+			</td>
+			</tr></table>
+			</td>
+			<td style="width: 60%">
+			<table width="100%" style=" background: rgb(209, 211, 212);color: black; border-radius: 5px;">
+			  <tr>
+			    <td style="width: 60%; text-align: center;">
+			    	<label style="   font-size: 17px;margin-bottom: 0px;">SELECCIONE PEDIDO(S) Y ASIGNE A CHOFER </label>
+
+			    </td>
+			    <td style="width: 40%" align="center">
+				    <table width="100%">
+						  <tr>
+						    <td>
+						    		    	<button class="btn btn-success" type="button" style="padding: 4px; width: 117px; color: white;"  onclick="mostrarBlock();">
+									 ASIGNAR&nbsp;&nbsp;
+								</button>
+						    	
+						   	</td>
+						</tr>
+					</table>
+			    </td>
+			  </tr>
+			</table>
+			</td>
+			<td> <div style="width: 40px;"></div></td>
+			<td style="width: 20%">
+							<button class="btn btn-warning" type="button" style="padding: 4px; width: auto; color: white;" onclick="quitarChofer();principal()">
+									 ACTUALIZAR INFORMACION&nbsp;&nbsp;
+								</button>
+			</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	<div style="width: 100%; overflow:auto;" class="table-responsive">
+	<div id="dgZonasClic" class="EG_DivGrid" style="font-size: 12px !important; "></div>
+	</div>
+	<table align="center">
+		<tr>
+			<td align="center">
+				<div id="dgZonas" class="EG_DivGrid" style="font-size: 14px;"></div>
+				
+			</td>
+		</tr>
+	</table>
+	
+</div>	

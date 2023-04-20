@@ -1,0 +1,125 @@
+divPrincipal {
+	width: 95%;
+
+	
+}
+
+.containerPrincipal {
+	margin: 0 auto;
+	width: 100%;
+	left: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+	text-align: center;
+}
+
+.tbLogin {
+	cellpadding: 0px;
+	cellspacing: 0px;
+}
+
+.lbTexto {
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+}
+
+.TextosGrande {
+	color: white;
+	font-size: 19px;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-family: arial;
+	vertical-align: center;
+}
+
+.msjRespuesta {
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #DC143C;
+}
+.mensajeRespuesta {
+	font-family: arial;
+	font-size: 17px;
+	font-weight: bold;
+	color: red;
+}
+
+body {
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	overflow: hidden;
+	background-color: #000000;
+	padding: 0% 10px;
+	height: 45px;
+}
+
+.col-center {
+	background-color: #ffffff;
+}
+
+.center-block {
+	float: none;
+}
+
+.header h5 {
+	float: none;
+	color: white;
+	text-align: center;
+	padding: 1px;
+	text-decoration: none;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+h5 {
+	float: none;
+	color: #4D565F;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.coltb {
+	background: black;
+	color: white;
+	
+}
+
+.td:hover {
+	background-color: #d8d8d8;
+}
+.descripcion{
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;	
+	color: #5d5553;
+}
+@media only screen and (min-width: 400px) {
+  .media {
+    width: 85%;
+  }
+}
+
+.jm-loadingpage {
+ position: fixed;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ z-index: 999999999;
+ background: black;
+}
+
+

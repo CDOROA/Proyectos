@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>cdo.RHWWW</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioServlet</display-name>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <servlet-class>Web.UsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <url-pattern>/UsuarioServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministadorVacantes</display-name>
+    <servlet-name>AdministadorVacantes</servlet-name>
+    <servlet-class>Web.AdministadorVacantes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministadorVacantes</servlet-name>
+    <url-pattern>/AdministadorVacantes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorAspirantes</display-name>
+    <servlet-name>AdministradorAspirantes</servlet-name>
+    <servlet-class>Web.AdministradorAspirantes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorAspirantes</servlet-name>
+    <url-pattern>/AdministradorAspirantes</url-pattern>
+  </servlet-mapping>
+   <session-config>
+    <session-timeout>480</session-timeout>
+  </session-config>
+</web-app>

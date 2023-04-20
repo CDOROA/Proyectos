@@ -1,0 +1,99 @@
+
+
+<div   id="DivVideoCdo">
+ 
+
+  <div class="modal-dialog mw-100 w-75" >
+  
+    <div class="modal-content" style="background: white;" id="VideoContenido">
+    
+      <div class="modal-header" style="    padding-bottom: 0px;padding-top: 0px;">
+     	<div class="col-12 col-sm-12 col-md-12 col-lg-12 row" >
+	     	<div class="col-12 col-sm-12 col-md-12 col-lg-4" style="text-align: center; padding: 0px"></div>
+	     	<div class="col-12 col-sm-12 col-md-12 col-lg-4" style="text-align: center; padding: 0px">
+		     	<h4 class="modal-title" id="myLargeModalLabel" style="color: #17a2b8;">GALERIA</h4>
+		    </div>
+		    <div class="col-12 col-sm-12 col-md-6 col-lg-4" style="text-align: center; padding: 0px"></div>
+	    </div>
+      </div>
+      
+	<div class="modal-body" id="VideosModalBody" style="padding-bottom: 0px;">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="row">
+				
+				
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="row">
+	<c:forEach var="video" items="${listaVideos}">	
+		<div class="col-12 col-sm-12 col-md-12 col-lg-4 VideosDivCol" >
+			<div style="margin-left: 10px; margin-right: 10px;" >
+				   <table class="VideoscolorDiv Videostabla " onclick="abrirVideo('${video.urlVideo}')"> 
+				 <!--  <table class="VideoscolorDiv Videostabla " onclick="cargar('${video.urlVideo}')">  -->
+				<!-- <table class="VideoscolorDiv Videostabla "> -->
+					<tbody>
+						<tr>
+							<td class="VideosbordeTd">
+								<div style="width: 100%">
+									<img src="${video.urlImagen}"  width="100%" >
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="VideosbordeTd">
+								<div style="width: 100%">
+									<div  class="VideosDivDescripcion labelDescripcion">
+										<label>  ${video.descripcion} </label>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</c:forEach>
+		
+	</div>
+</div>
+				
+				
+			</div>
+		</div>
+   	</div>
+      
+      <div class="modal-footer" style="padding-top: 0px;padding-bottom: 0px;">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiarControlesDeSubmenu()" style="background-color: #de1a30;">Cerrar</button>
+	  </div>
+      
+    </div>
+  </div>
+
+</div>
+
+  <div class="modal fade bd-example-modal-lg "   tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalVideos" onclick="document.getElementById('frameVideo').src = '';">
+  <button type="button" onclick="document.getElementById('frameVideo').src = '';" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 48px;color: white;" >&times;</span>
+                    </button>
+	<div class="modal-dialog	modal-lg" >
+	
+    	<div class="modal-content"  id="modalVideoContenido">
+			<div class="modal-body" style="padding-right: 0px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12 embed-responsive embed-responsive-16by9" id="etiquetaVideo">
+							
+						</div>
+					</div>
+   			</div>
+    	</div>
+	</div>
+</div>  
+
+
+<!-- <div id="myModal" class="modal">
+			  	<span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+				<div class="modal-content" >
+					  <div class="embed-responsive embed-responsive-16by9">
+						<iframe  class="embed-responsive-item" id="vidq" allowfullscreen="true"></iframe>
+					  </div>
+				 </div>
+			</div> -->

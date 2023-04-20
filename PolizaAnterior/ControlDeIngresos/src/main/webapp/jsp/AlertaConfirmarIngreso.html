@@ -1,0 +1,42 @@
+<div id="divConfirmar" style="display: none;" class="popupConfirmaIngreso" >
+    <div class="content-popupConfirmaIngreso">
+      	<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			<br>
+			<table width="95%" align="center">
+				<tr>
+					<td rowspan="2" width=13% align="right">
+						<img src="images/pregunta.png" class="img-responsive navbar-brand-img"></img>
+					</td>
+					<td align="center">	
+						<div style="display: inline">
+							<label class="EG_lbMsjConfirmacionAzul" > El folio </label>
+							<strong> <label id="msjConfirmacion"  class="EG_lbMsjConfirmacionAzul" 	style=" font-weight: bold" ></label> </strong>
+							<label class="EG_lbMsjConfirmacionAzul" > sera <strong> CONFIRMADO </strong> en el sistema.</label>
+							<label class="EG_lbtexto"  style="font-weight: normal;">Fecha de Poliza: </label><strong> <label id="msjConfirmacionFechaPoliza" ></label> </strong><br>
+							<input type="hidden" name="lbDatosIConfirmado" id="lbDatosIConfirmado">
+						</div>	
+						<div id="msjConfirmacionFormasPago">
+						
+						</div>			
+					</td>
+				</tr>	
+			</table>	
+			 <br>
+			 <table width="70%" align="center">
+				<tr>	
+					<td  class="EG_lbtexto" align="center">
+						<button class="btn btn-danger" type="button"  style="padding:3px; width: 80px ; font-size:13px" onclick="OcultarDiv('divConfirmar');"  >
+							<i class="glyphicon glyphicon-arrow-left"></i> Atras
+						</button>
+					</td>
+					<td  class="EG_lbtexto" align="right">
+						<button class="btn btn-primary" type="button"  style="padding:3px; width: 140px; font-size:13px" onclick="validarPagosConTarjeta()"  >
+							<i class="glyphicon glyphicon-remove"></i> Si, Confirmar
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+   		</div>
+    </div>
+</div>

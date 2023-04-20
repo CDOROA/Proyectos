@@ -1,0 +1,188 @@
+<div style="height: 5px"></div>
+<table align="center" width="100%">
+	<tr>
+		<td align="center">
+			 <div style="background-color: #FBFBFB ; border: 1px solid #DDDDDD; width:95%; border-radius: 4px; padding: 5px">
+				 <table width="95%" align="center" > 
+	              	<tr>
+                        <td align="left" valign="bottom">
+                        	<label class="EG_lbtexto">Fecha Inicio:</label>
+                        	<input type="text" id="txt_fechaIniHSBC" class="EG_calendario">
+                       	</td>
+                       	<td align="left" valign="bottom">
+                       		<label class="EG_lbtexto">Fecha Fin:</label>
+                       		<input type="text" id="txt_fechaFinHSBC" class="EG_calendario">
+                       	</td>
+                       	<td align="left" valign="bottom">
+                       		<label class="EG_lbtexto">Estatus:</label>
+                       		<select id="cmbEstatusHSBC"  name="cmbEstatusHSBC" class="EG_cmb">
+                       			<c:forEach var="stsLin" items="${listaEstatusLinea}">                       			
+                       				<c:choose>
+                       					<c:when  test="${infoUsu.nivel_usuario == 0 && infoUsu.dato_numerico == 0 }">
+                       						<c:if test="${stsLin.id_estatus == 0}">
+			                       			 	<option value="${stsLin.id_estatus}">${stsLin.nombre_estatus}</option>
+			                       			 </c:if>
+                       					</c:when >
+                       					<c:otherwise>
+                       						<option value="${stsLin.id_estatus}">${stsLin.nombre_estatus}</option>
+                       					</c:otherwise>
+                       				</c:choose>                       			
+								 </c:forEach>
+							</select>
+                       	</td>
+	                    <td align="center" valign="bottom">
+	                        <button class="btn btn-info" type="submit"  style="padding:3px; font-size:13px;  width:120px"   onclick="consultaLineaBancariaHSBC()"  >
+								<i class="glyphicon glyphicon-search"></i> Buscar
+							</button>
+	                    </td>	                   
+	               	</tr>
+				</table>
+			 </div>
+		</td>
+	</tr>
+	<tr><td height="5px"></td></tr>	
+</table>
+
+<div id="divMantoLineaBancariaHSBC">
+	<table width="95%" align="center">
+		<tr>
+			<td align="center">
+				<table  align="left">
+					<tr>
+						<td>
+							<div style="width:380px;border: 1px solid #ED969E; border-radius: 3px; padding: 10px; " id="div_ActualizarPagoCajaHsbc">
+								<table width=100% align="center">
+									<tr>
+										<td align="left" valign="bottom">
+											<label class="ELB_lbtexto"> Tipo: </label>
+											<select id="cmbTipoHsbcCaja"  name="cmbTipoHsbcCaja" class="EG_cmb" style="width:120px">
+												<option value="0"> -- SELECCIONA --</option>	
+												<c:forEach var="tipoLin" items="${listaTiposLinea}">
+													<c:if test="${tipoLin.area_tipo_linea == '2'}">
+														<option value="${tipoLin.id_tipo_linea}">${tipoLin.nombre_tipo_linea}</option>
+													</c:if>
+												 </c:forEach>
+											</select>
+										</td>
+										<td align="center">
+											<button id="btn_AplicarPagoHsbcXCaja" class="btn btn-danger" type="button"  style="padding:3px; font-size:13px;  width:180px" onclick="mantoLineaBancaria(16, 'Aplicar_Pago','CajaAdministrativa');"  >	
+												<i class="glyphicon glyphicon-saved"></i> Aplicado en Caja Admin.
+											</button> 											
+										</td>
+									</tr>
+								</table>					
+							</div>
+						</td>
+						<td>
+							<div style="width:350px;border: 1px solid #8FD19E; border-radius: 3px; padding: 10px; " id="div_AplicarPagoHsbc">
+								<table width=100% align="center">
+									<tr>
+										<td align="left" valign="bottom">
+											<label class="ELB_lbtexto"> Folio Pago: </label>
+											<input type="text" id="txt_folio_pagoActHsbc" class="EG_txt" style="width:50px" onkeypress="return EsNumeroOSigno(event)">
+										</td>
+										<td align="center">
+											<button id="btn_AplicarPagoHsbc" class="btn btn-success" type="button"  style="padding:3px; font-size:13px;  width:160px" onclick="mantoLineaBancaria(16, 'Aplicar_Pago','');"   >	
+												<i class="glyphicon glyphicon-floppy-saved"></i> Aplicado en Sis.May.
+											</button>										
+										</td>
+									</tr>
+								</table>					
+							</div>
+						</td>	
+						<td>
+							<button id="btn_QuitarPagoHsbc"  class="btn btn-danger" type="button"  style="padding:3px; font-size:13px;  width:120px" onclick="mantoLineaBancaria(16, 'Regresar_Pago','');" >	
+									<i class="glyphicon glyphicon-floppy-remove"></i> Revertir Pago
+							</button>	
+						</td>
+						<td width="5px"></td>	
+	        			<td align=left >
+	        				<div style="width:550px;border: 1px solid #4682B4; border-radius: 3px; padding: 10px; " id="div_ActualizarAgenteHsbc">
+								<table width=100% align="center">
+									<tr>
+										<td align="center">
+											<label style="font-family: arial; font-size: 12px; font-weight: bold" >AV :</label>
+											<select id="cmbNumeroAVHsbc"  name="cmbNumeroAVHsbc" class="EG_cmb" style="width:180px">
+												<option value="0"> -- SELECCIONA --</option>	
+												<c:forEach var="agte" items="${listaAgentes}">
+													<option value="${agte.num_agente}">${agte.num_agente} - ${agte.nombre_agente}</option>
+												 </c:forEach>
+											</select>
+										</td>
+										<td align="left" valign="bottom">
+											<label class="ELB_lbtexto"> Tipo: </label>
+											<select id="cmbTipoHSBC"  name="cmbTipoHSBC" class="EG_cmb" style="width:130px">
+												<option value="0"> -- SELECCIONA --</option>	
+												<c:forEach var="tipoLin" items="${listaTiposLinea}">
+													<c:if test="${tipoLin.area_tipo_linea == '1'}">
+														<option value="${tipoLin.id_tipo_linea}">${tipoLin.nombre_tipo_linea}</option>
+													</c:if>
+												 </c:forEach>
+											</select>
+										</td>
+										<td align="center">
+											<button id="btn_ActualizarAVHsbc"  class="btn btn-primary" type="button"  style="padding:3px; font-size:13px;  width:120px" onclick="actualizaAVMasivoDeLineaBancariaXBanco(16);">	
+												<i class="glyphicon glyphicon-check"></i> Pre-Asignar AV
+											</button>	
+										</td>
+									</tr>
+								</table>					
+							</div>
+	        			</td>
+	        			<td width="5px"></td>	
+	        			<td align="right" > 
+	        				<div style="width:240px;border: 1px solid #4682B4; border-radius: 3px; padding: 10px ;" id="div_ActualizarClienteHsbc">
+								<table width=98%>
+									<tr>
+										<td>
+											<label style="font-family: arial; font-size: 12px; font-weight: bold" >Cliente:</label>
+											<input type="text" id="txt_NumeroCteActHsbc" class="EG_txt" style="width:50px">
+										</td>
+										<td>
+											<button id="btn_ActualizarClienteHsbc" class="btn btn-primary" type="button"  style="padding:3px; font-size:13px;  width:100px " onclick="actualizaCteMasivoDeLineaBancariaXBanco(16);"  >	
+												<i class="glyphicon glyphicon-user"></i> Actualiza Cte.
+											</button>
+										</td>
+									</tr>
+								</table>				
+							</div>
+	        			</td>
+	        			<td width="5px"></td>
+	        			<td align="center">
+							<div style="border: 1px solid #4682B4; width:360px; border-radius: 4px; padding: 10px" id="divAsignarLineaBanECR_Hsbc">
+								<table width="98%" align="center" > 
+					              	<tr>
+				                       <td align="left" valign="bottom">
+											<label class="ELB_lbtexto"> ECC: </label>
+											<select id="cmbUsuEcHSBC"  name="cmbUsuEcHSBC" class="EG_cmb" style="width:180px">
+												<option value="0"> -- SELECCIONA --</option>	
+												 <c:forEach var="usuCr" items="${listaUsuariosCredito}">
+													<option value="${usuCr.cve_usu_credito}">${usuCr.nombre_usu_credito}</option>
+												 </c:forEach>
+											</select>
+										</td>
+										
+										<td align="center" valign="bottom">
+											<button class="btn btn-primary" type="button"  style="padding:3px; font-size:13px;  width:110px" onclick="modificaLineaBancaria(16);"  >	
+												<i class="glyphicon glyphicon-check"></i> Modifica ECC 
+											</button>
+										</td>
+				                    </tr>
+				                </table>
+							</div>
+						</td>	
+	        			
+	        				
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr><td height="5px"></td></tr>	
+	</table>
+	<table align=center width="100%">
+		<tr>
+			<td><div id="grid_LineaHSBC" style="font-size: 75%"></div></td>
+		</tr>
+	</table>	
+</div>
+

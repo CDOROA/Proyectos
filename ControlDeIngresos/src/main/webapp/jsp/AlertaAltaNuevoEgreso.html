@@ -1,0 +1,182 @@
+<div id="divAltaNuevoEgreso" style="display: none;" class="popupAltaEgresos" >
+    <div class="content-popupAltaEgresos">
+		<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			
+			<!-- TITULO -->
+			<div class="row">
+	       		<div class="col-sm-12 text-center"  >
+	       			<table width="100%" align="center">
+	       				<tr>
+	       					<td width="100%" align="right">
+	       						 <button class="btn btn-danger" type="button"  style=" padding:5px; width:30px " onclick="OcultarDiv('divAltaNuevoEgreso');"  >
+									<i class="glyphicon glyphicon-remove"></i> 
+							    </button>
+	       					</td>
+	       				</tr>
+	       			</table>
+	       			<br>
+	       			<table width=95% align="center">
+	       				<tr>
+	       					<td align="center">
+	       						 <label style="color: #2866AF; font-size: 18px;"  class="ECDC_lbtextoTitulo" >Registro de Egresos</label>
+	       					</td>
+	       				</tr>
+	       			</table>
+	       			<br>
+	       		</div>
+       		</div>
+			
+			<table align="center" width="95%" >
+		 		<tr>
+		 			<td>
+		 				<div class="row" >
+		 					<div class="col-sm-12 center-text" >
+		 						<!-- CHECKS DE TIPOS DE PAGO  -->	
+				 				<div class="funkyradio" style="padding:0px; " id="cbxsTipoEgresoAlta">
+				 					<br>
+                                     	<table width="80%" align="center">
+                                        	<tr>
+                                        		<td  align="center">
+                                        		<div class="funkyradio-warning" style="width:120px" >
+                                                   <input type="radio" name="tipoEgreso" id="APagare"  onchange="validaTipoEgresoAIngresar()"/>
+                                                   <label for="APagare" class="ECE_lbCheckBox"> &nbsp;Pagare</label>
+                                           		</div>
+                                        		</td>
+                                        	
+                                        		<td  align="center">
+                                        			<div class="funkyradio-warning" style="width:120px">
+	                                                <input type="radio" name="tipoEgreso" id="ACheque"  onchange="validaTipoEgresoAIngresar()"/>
+	                                                <label for="ACheque" class="ECE_lbCheckBox"> &nbsp;Cheque</label>
+                                            		</div>
+                                        		</td>
+                                        	
+                                        		<td  align="center">
+                                        			<div class="funkyradio-warning" style="width:120px">
+	                                                <input type="radio" name="tipoEgreso" id="ARembolso"  onchange="validaTipoEgresoAIngresar()"/>
+	                                                <label for="ARembolso" class="ECE_lbCheckBox"> &nbsp;Rembolso</label>
+                                            		</div>
+                                        		</td>
+                                        	
+                                        		<td  align="center">
+                                        			<div class="funkyradio-warning" style="width:120px">
+	                                                <input type="radio" name="tipoEgreso" id="ADeudores"  onchange="validaTipoEgresoAIngresar()"/>
+	                                                <label for="ADeudores" class="ECE_lbCheckBox"> &nbsp;Deudores</label>
+                                            		</div>
+                                        		</td>
+                                        		
+                                        		<td  align="center">
+                                        			<div class="funkyradio-warning" style="width:120px">
+	                                                <input type="radio" name="tipoEgreso" id="ARedondeo"  onchange="validaTipoEgresoAIngresar()"/>
+	                                                <label for="ARedondeo" class="ECE_lbCheckBox"> &nbsp;Redondeo</label>
+                                            		</div>
+                                        		</td>
+                                        		
+                                        		<td  align="center">
+                                        			<div class="funkyradio-warning" style="width:120px">
+	                                                <input type="radio" name="tipoEgreso" id="ANomina"  onchange="validaTipoEgresoAIngresar()"/>
+	                                                <label for="ANomina" class="ECE_lbCheckBox"> &nbsp;Nomina</label>
+                                            		</div>
+                                        		</td>
+                                        		
+                                        	</tr>
+                                       </table>	                                                        
+                                 </div>
+		 					</div>
+		 					
+		 					
+		 					<div class="col-sm-12" >
+		 						<!-- PANEL DE DATOS   -->
+		 						<br>	
+					 			<table align="center"  width=100%>
+					 				<tr>
+					 					<td align="left">
+						 						<label for="id_folio" class="EG_lbtexto" >Folio</label>
+						 						<input type="text"  id="id_folio" name="folio" class="EG_txt" style="width:80px" onkeypress="return EsNumero(event)" maxlength="10">
+						 				</td>
+					 					<td align="left" >
+					 						<label for="id_monto" class="EG_lbtexto" >Importe </label>
+					 						<input type="text"  id="id_monto" name="monto" class="EG_txt" style="width:90px" onkeypress="return EsNumero(event)" maxlength="15">
+						 				</td>	
+						 			
+						 				<td align="left" >						 						
+						 					<label for="id_banco" class="EG_lbtexto">Banco Emisor:</label>
+					 						<select id="id_banco"  name="banco" class="EG_cmb" style="width:150px">	
+					 							<option value="0" >--Selecciona--</option>
+												<c:forEach var="ba" items="${listaBancos}" >
+													<option value="${ba.cve_banco}" >${ba.nombre_banco}</option>												
+												</c:forEach>
+											</select>		 					
+						 				</td>
+						 				<td align="left">	
+					 						<label for="id_bancoDeposito" class="EG_lbtexto">Banco Deposito</label>
+					 						<select id="id_bancoDeposito"  name="bancoDeposito" class="EG_cmb" style="width:150px">	
+					 						<option value="0" >--Selecciona--</option>
+												<c:forEach var="ba" items="${listaBancos}" >
+													<c:if test="${ba.deposito == '1'}">
+														<option value="${ba.cve_banco}" >${ba.nombre_banco}</option>
+													</c:if>												
+												</c:forEach>
+											</select>		 					
+						 				</td>
+						 				<td align="left" colspan="1">
+					 						<label for="id_cheque" class="EG_lbtexto">Referencia</label>
+					 						<input type="text"  id="id_cheque" name="cheque" class="EG_txt" style="width:200px" maxlength="50">	
+					 					</td>
+					 					<td align="left" colspan="1">
+					 						<label for="id_cheque" class="EG_lbtexto">Fecha Poliza:</label>
+					 						<input type="text"  id="id_fecha_polizaEgreso" name="id_fecha_polizaEgreso" class="EG_txt" style="width:100px">	
+					 					</td>
+					 					<td align="left" colspan="1">
+					 						<label for="id_cheque" class="EG_lbtexto">Colectiva:</label>
+					 						<select id="id_colectivaEgreso"  name="colectivaEgreso" class="EG_cmb" style="width:150px">	
+					 							<option value="0" >--Selecciona--</option>
+					 							<option value="119" >SERDINA</option>
+					 							<option value="120" >SERDINA TECNICO</option>
+					 						</select>
+					 					</td>
+					 				</tr>
+					 				<tr><td><br></td></tr>
+					 				<tr>
+					 					<td colspan="7" align="center">
+					 						<div>
+							 					<br>
+							 						<button id="btn_guardarNuevoEgreso" class="btn btn-primary" type="submit"  style="width:200px" onclick="altaNuevoEgreso()">
+							 							<i class="glyphicon glyphicon-ok"></i>Guardar Egreso
+													</button>
+							 					<br>
+							 				</div>
+					 					</td>
+					 				</tr>
+					 			</table>	
+					 			<br>							 					
+		 					</div>
+		 					
+		 					<!-- ALERTAS DE ERROR Y EXITO  -->	
+							<br>
+						    <table align="center" width="70%">
+                                <tr>
+									<td align="center">
+										<div id="divMjsError" style=" padding:3px; display: none">	
+											<div class="alert alert-danger alert-dismissible fade in" >
+											    <strong >¡Error!</strong>&nbsp; <label id ="lbMsjError" style="font-weight: normal"></label>
+											    <button type="button" class="close" onclick="OcultarDiv('divMjsError')">&times;</button>
+											</div>
+										</div>
+										<div id="divMjsExito" style=" padding:3px; display: none">	
+											<div class="alert alert-success alert-dismissible fade in" >
+											     <label id ="lbMsjExito" style="font-weight: normal"> </label> &nbsp;<strong>¡Correctamente!</strong>
+											    <button type="button" class="close" onclick="OcultarDiv('divMjsExito')">&times;</button>
+											</div>
+										</div>
+									</td>	
+                                </tr>
+                            </table>
+						    <br>
+		 				</div>
+		 			</td>
+		 		</tr>
+		 	</table>
+			<br>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+.EPI_lb_subtitulos
+{
+	font-family: Arial Narrow; 
+	font-size: 18px; 
+	font-weight: bold; 
+	color:black;
+}
+
+.EPI_lb_texto_negritas
+{
+	font-family: Arial Black; 
+	font-size: 14px; 
+	font-weight: bold; 
+}
+
+.EPI_lb_texto_negritas_16
+{
+	font-family: Arial Black; 
+	font-size: 16px; 
+	
+}
+
+
+.EPI_DivGridAutopartes
+{
+	display: block;
+}
+
+.EPI_DivGridAutopartesMovil
+{
+	display: none;
+}
+
+
+/* ESTILOS PARA DIMERNCIONES MOVILES */
+
+@media (max-width: 767px) 
+{
+	.EPI_lb_subtitulos
+	{
+		font-size: 16px; 
+	}
+	
+	.EPI_DivGridAutopartes
+	{
+		display: none;
+	}
+	
+	.EPI_DivGridAutopartesMovil
+	{
+		display: block;
+	}
+}

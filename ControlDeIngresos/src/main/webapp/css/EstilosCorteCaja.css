@@ -1,0 +1,304 @@
+.ECDC_txt
+{
+	border:1px solid #C0C0C0;
+	border-radius: 2px;
+	font-family: arial;
+	font-size: 12px;
+	padding: 2px;
+	text-align: center;
+	width: 50px;
+}
+
+.ECDC_lbCheckBox
+{
+	font-weight:bold;  font-size:11px; font-family:arial; padding:3px ;
+}
+.ECDC_lbtextoTitulo
+{
+	font-family: arial;
+	font-size:15px;
+	font-weight: bold;
+}
+
+.ECDC_lbtexto
+{
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: black;
+	padding: 5px;
+}
+
+.ECDC_tdIngresosLogo
+{
+	background-color:#229FC7;
+	border : 1px solid #229FC7
+}
+
+.ECDC_tdIngresos
+{
+	border : 1px solid #229FC7
+}
+
+.ECDC_tdEgresosLogo
+{
+	background-color:#DC143C ; 
+	border : 1px solid #DC143C
+}
+
+.ECDC_tdEgresos
+{
+	border : 1px solid #DC143C;
+}
+
+.ECDC_tdTotalLogo
+{
+	background-color:#69A336;
+	border : 1px solid #69A336
+}
+
+.ECDC_tdTotal
+{
+	border : 1px solid #69A336
+}
+
+
+.ECDC_lbTotal
+{
+	font-family: arial;
+	font-size: 16px;
+}
+
+
+.ECDC_lbTotalLetra
+{
+	font-family: arial;
+	font-size: 10px;
+}
+
+
+.imgCorteCaja
+{
+	 width:50px; 
+	 padding: 3px;
+}
+
+
+.dgGridHead{
+		background:red; text-align:center; color:black; 
+}
+
+
+.ECDC_thTitulo{
+	
+	text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;
+	
+}
+.ECDC_th{
+	
+	text-align: center; font-family: arial;font-size: 12px;color:white;border-left:1px solid white; background-color: black; border: 1px solid black;
+	
+}
+
+
+.ECDC_td{
+	
+	text-align: center;font-family: arial;font-size: 12px;color:black;font-weight: normal;
+	
+}
+
+
+
+
+.ECDC_lbCheckBox
+{
+	font-weight:bold;  font-size:11px; font-family:arial; padding:3px ;
+}
+
+
+.ECDC_lbRedondeos
+{
+	font-family: arial;
+	font-size: 13px;
+}
+
+.ECDC_lbConfirmaMovimientos
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: nomal;
+}
+
+
+/*****************************  Estilos para Panel Corte de Caja ******************************/
+.popupCECorteCaja {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupCECorteCaja  {
+    margin:0px auto;
+    margin-top:20px;
+    position:relative;
+    padding:10px;
+    width: 80%;
+   
+    max-height: 900px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupCECorteCaja  h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupCECorteCaja -overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+}
+
+/*****************************  Estilos para la ficha Bancaria ******************************/
+
+.ECDC_fb_lbtexto
+{
+	font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;
+}
+
+.ECDC_fb_txt
+{
+	border:1px solid #C0C0C0;
+	border-radius: 2px;
+	font-family: arial;
+	font-size: 9px;
+	padding: 2px;
+	text-align: center;
+	width: 15px;
+}
+
+.ECDC_fb_td
+{
+	border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;
+}
+
+
+
+/*****************************  Estilos para Panel Redondeo de Centavos ******************************/
+.popupCEAlertaRedondeo {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupCEAlertaRedondeo  {
+    margin:0px auto;
+    margin-top:100px;
+    position:relative;
+    padding:10px;
+    width: 50%;   
+    max-height: 900px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupCEAlertaRedondeo  h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupCEAlertaRedondeo -overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+}
+
+
+
+
+/*****************************  Estilos para CONFIRMACION DEL REDONDEO******************************/
+
+.popupConfirmRedondeo {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupConfirmRedondeo  {
+    margin:0px auto;
+    margin-top:130px;
+    position:relative;
+    padding:10px;
+    width:520px;
+    max-height:550px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupConfirmRedondeo h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupConfirmRedondeo -overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+

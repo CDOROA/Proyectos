@@ -1,0 +1,105 @@
+<div style="padding: 2px; margin: 0;background-color: #FBFBFB;" >	
+	
+	<table width="60%" align="center" >
+		<tr>
+			<td>
+				<div id="divMjsErrorSucursales" style=" padding:3px; display: none;">	
+					<div class="alert alert-primary alert-dismissible fade show" role="alert" style="padding:10px;">
+					  <strong>¡Lo sentimos!</strong> <label id="lb_msjErrorSucursales" style="font-weight: normal; font-size: 14px"></label>				  
+					</div>	
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">	
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"><br></div>
+						
+		<div class=" col-xs-12 col-sm-12 col-md-10 col-lg-10" style="text-align:center; background-color: #F5F5F5; padding:5px">
+			<table width="70%" align="center" valign="middle">
+				<tr>
+					<td valign="middle">
+						<label for="cboSucursalesEstado"  class="EPP_lb_size_28"  style="font-weight: bold; color:#0054A2 ; margin: 0px">Seleccione su Estado:</label>
+						<select id="cboSucursalesEstado" class="custom-select" required style="padding: 4px; font-size: 12px; font-family: arial" onchange="consultaSucursalesXEdo();">
+							<option value="0" >-- Selecciona --</option>						
+							<c:forEach var="estado" items="${listEstados}">
+								<option value="${estado.cve_Estado}" >${estado.nombre_estado}</option>
+							</c:forEach>
+						</select>								
+					</td>
+				</tr>				
+			</table>			
+		</div>
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"><br></div>
+	</div>
+	
+	
+	<div id="divSucursalesMapa" class="row" style="padding: 10px; margin: 0; text-align: center;">
+	
+	</div>
+		
+	
+	<div id="divSucursalesResultados" class="row" style="padding: 5px; margin: 0; text-align: center;">
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"></div>
+		<div class=" col-xs-12 col-sm-12 col-md-10 col-lg-10" style="text-align:center;">			
+			
+			<div class="row" style="padding: 10px; margin: 0; text-align: center;" >
+				<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align:center;">				
+					<div style="background-color: #F3F3F3 ; border: 1px solid #DDDDDD;border-radius:8px;padding: 10px">
+					
+					
+					<div style="padding: 3px;padding-left:0px;text-align: center">
+						<label  class="EPP_lb_size_22" style="font-weight: bold; color:#004085; margin:0px">Cobertura:</label><br>
+						<label id="lb_sucursales_cobertura" class="EPP_lb_size_12" style="font-weight: normal; color:normal;margin-bottom: 3px; text-align: justify;"></label>
+						
+					</div>
+					
+											
+						<table width="100%" align="center" >
+						<tr style="width: 100%;"><td style="width: 100%;" colspan="2"><hr align="CENTER" size="2" width="100%" color="#CCCCCC" noshade=""></td></tr>
+							<tr>
+								<td align="center" colspan="2">
+									<label id="lb_sucursales_empresa" class="EPP_lb_size_30" style="font-weight: bold; color:#004085"> </label>		
+								</td>
+							</tr>
+							<tr>
+								<td align="center" colspan="2">															
+									<label  id="lb_sucursales_direccion" class="EPP_lb_size_14" style="font-weight: bold; color:black; text-align: center;"></label>					
+								</td>
+							</tr>
+							<tr>
+								<td align="right"><img src="${pageContext.request.contextPath}/images/telefono_mini.png"></img></td>
+								<td align="left">															
+									&nbsp;<label id="lb_sucursales_telefono" class="EPP_lb_size_14" style="font-weight: bold; color:black"></label>					
+								</td>
+							</tr>
+							<tr>
+								<td align="right"><img src="${pageContext.request.contextPath}/images/mail_mini.png"></img></td>
+								<td align="left">															
+									&nbsp;<label id="lb_sucursales_email" class="EPP_lb_size_14" style="font-weight: bold; color:black"></label>					
+								</td>
+							</tr>						
+						</table>
+					</div>
+					
+					<div style="padding: 0px;text-align: left">
+						<label class="EPP_lb_size_20" style="font-weight: bold; color:#004085">Horario de Atenci&oacute;n:</label>	
+						<br>
+						<label class="EPP_lb_size_14" style="font-weight: bold; color:black;margin-bottom: 3px">L-V de 08:00 hrs. a 19:00 hrs.</label>
+						<label class="EPP_lb_size_14" style="font-weight: bold; color:black;margin-bottom: 3px">Sab. de 08:00 hrs. a 14:00 hrs.</label>
+					</div>
+				</div>
+				
+				<div class=" col-xs-12 col-sm-12 col-md-8 col-lg-8" style="text-align:center">
+					<div class="posicionMapa" id="map" style="width: 100%; height:500px; border: 0px solid #777;  overflow: hidden; margin: 0 auto; display: none; "></div>			
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class=" col-xs-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;"></div>				
+	</div>
+	
+	
+	
+</div>

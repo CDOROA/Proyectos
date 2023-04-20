@@ -1,0 +1,121 @@
+<div id="divCancelacion" style="display: none;" class="popupCE">
+			<div class="content-popupCE">
+				<div style="background: #F2F2F2; border: 1px solid #CCCCCC" align="center" id="colorCE"><br>
+					<table width="95%" align="center">
+						<tr>
+							
+							<td >
+								<div style="text-align: center">
+									<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px"> <strong>ASIGNACION A CHOFER</strong> </label><BR><br>
+									
+									
+									
+								</div>
+								<div  style="font-weight: normal;font-size:17px;" class="table-responsive" id="alertaWidth">
+									<table style="width: 100%">
+										<tr>
+										<td align="left" width="80%">
+												<label id="msjPedidosFacturas" style="font-weight: bold;"></label>
+											</td>
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacion"></label>
+											</td>
+											<td align="right" width="20%" rowspan="3">
+												<button onclick="MostrarDiv('agregarNuevoOde')" class="btn btn-success" style="padding: 3px;width: 97px;font-size: 13px;"> Nueva ODE</button>
+											</td>
+											
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacionOdes"></label>
+											</td>
+											
+										</tr>
+									</table>
+								</div> 
+								
+							</td>
+						</tr>
+					</table> <br>
+					<table style="width: 95%;margin-bottom: 20px; display: none" id="agregarNuevoOde">
+						<tr>
+							<td>
+								<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px">Ingrese ODE, sepradas por coma: </label>
+							</td>
+							<td>
+								<input id="odeAgregada" placeholder="Ingrese Ode..." >
+							</td>
+							<td>
+												<button onclick="agregarRegistroOde()" class="btn btn-warning" style="padding: 3px;width: 97px;font-size: 13px; color: white;"> Consultar ODE</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+							<br>
+								<label id="msjOde">
+								</label>
+							</td>
+							
+						</tr>
+					</table>
+					
+					<table width="95%" align="center">
+						<tr>							
+							<td style="padding-bottom: 20px;">
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">CHOFERES: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<input id="choferSelect" type="hidden" value="0" >
+									<select class="form-control" id="choferSel" name="choferSel" style="height: 40px;"  onchange="selectChoferes(event.target.value)" autocomplete="off" >
+										<option value="0" >Seleccione Chofer</option>
+										<c:forEach var="dato" items="${choferes}">
+											<c:if test="${dato.getCve() == 2}">
+											<option value="${dato.getChofer()}" style="background: #cac6c1;" title="Chofer no disponible, no ha registrado su regreso de trayecto">${dato.getChofer()} -  ${dato.getNombre()}</option>
+											</c:if>
+											<c:if test="${dato.getCve() == 1}">
+											<option value="${dato.getChofer()}" >${dato.getChofer()} - ${dato.getNombre()}</option>
+											</c:if>
+										</c:forEach>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							
+							<td >
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">VEHICULOS: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<input id="vehiculosSelect" type="hidden" value="0" >
+									<select class="form-control" id="vehiculosSel" name="vehiculosSel" style="height: 40px;"  onchange="selectVehiculos(event.target.value)" autocomplete="off" >
+										<option value="0" >Seleccione Vehiculo</option>
+										<c:forEach var="dato" items="${vehiculos}">
+											<option value="${dato.getPlacas()}*${dato.getLlantas()}" >${dato.getPlacas()} -  ${dato.getDescripcion()} - num. llantas:  ${dato.getLlantas()} </option>
+										</c:forEach>
+									</select>
+								</div>
+							</td>
+						</tr>
+					</table> <br>
+					<table width="90%" align="center">
+						<tr>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-primary" type="button" style="padding: 3px; width: 80px; font-size: 13px" onclick="OcultarDiv('divCancelacion');">
+									 Atras
+								</button>
+							</td>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-success" type="button" style="padding: 3px; width: 97px; font-size: 13px" onclick="validarCaminoAsignacion()">
+									 ASIGNAR
+									
+								</button>
+							</td>
+
+							<td class="EG_lbtexto" align="right">
+		
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>

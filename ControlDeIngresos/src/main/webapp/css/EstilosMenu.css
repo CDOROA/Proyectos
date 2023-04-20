@@ -1,0 +1,142 @@
+
+
+.EM_tbH_eader{
+	cellpadding:0px;
+	cellspacing:0px; 
+}
+
+.EM_lbMenu
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+}
+
+.EM_lbAzul
+{
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: #87B5E0;
+}
+
+.EM_td_menu
+{
+	background: #C0D9EF; 
+	border-left: 1px solid #98C0E4;
+	border-right: 1px solid #98C0E4;
+	border-top: 1px solid #98C0E4;
+	border-bottom: 1px solid #98C0E4;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	
+}
+
+.EM_img_size
+{
+	width:45px
+}
+
+.lb_menus
+{
+	font-family: arial; 
+	font-size:11px; 
+	color:white
+}
+
+
+/*********************** DISEÑO PARA BOTONES DE MENU ***********************/
+.descipcionMenu {
+		position: fixed;
+		vertical-align:middle;
+		left: 180px;
+		margin-top: 20px;
+		margin-left: 30px;
+		text-align: left;
+		white-space: nowrap;
+		padding: 10px 13px;
+		border-width: 0px !important;
+		background-color: #65A9D6;
+		opacity: 0;
+		color: white;
+		font-weight: bold;
+}
+		
+.div_menu > .descipcionMenu:after {
+	z-index: -1;
+	position: absolute;
+	top: 50%;
+	left: -10px;
+	margin-top: -10px;
+	content:'';
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 	
+	border-right: 10px solid #65A9D6;
+	border-right-color: #65A9D6;
+}
+.div_menu:hover > .descipcionMenu {
+	left: 30px;
+	opacity: 50;
+}
+
+
+/*********************** DISEÑO PARA BOTONES DE SALIR  ***********************/
+
+.descipcionSalir {
+		position: fixed;
+		vertical-align:middle;
+		left: 180px;
+		margin-top: 20px;
+		margin-left: 50px;
+		text-align: left;
+		white-space: nowrap;
+		padding: 10px 13px;
+		border-width: 0px !important;
+		background-color: #EC2D53;
+		opacity: 0;
+		color: white;
+		font-weight: bold;
+}
+		
+.div_menu > .descipcionSalir:after {
+	z-index: -1;
+	position: absolute;
+	top: 50%;
+	left: -10px;
+	margin-top: -10px;
+	content:'';
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 	
+	border-right: 10px solid #EC2D53;
+	border-right-color: #EC2D53;
+}
+
+.div_menu:hover > .descipcionSalir {
+	left: 60px;
+	opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

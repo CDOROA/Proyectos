@@ -1,0 +1,477 @@
+
+	<div id="divAlertaCorteCaja" style="display: none;" class="popupCECorteCaja" >
+	    <div class="content-popupCECorteCaja">
+		    <div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+		       	<div class="content" >
+			       	<div class="row" >
+			       	
+			       		<!-- TITULO -->
+			       		<div class="col-sm-12 text-center" id="div_titulo" >
+			       			<table width="100%" align="center">
+			       				<tr>
+			       					<td align="center">
+			       						<label style="color: #2866AF; font-size: 18px;"  class="ECDC_lbtextoTitulo" >Corte De Caja</label>
+			       					</td>
+			       					<td width="5%" align="right">
+			       						 <button class="btn btn-danger" type="button"  style=" padding:5px; width:30px " onclick="refrescarCorteCaja()"  >
+											<i class="glyphicon glyphicon-remove"></i> 
+									    </button>
+			       					</td>
+			       				</tr>
+			       			</table>
+			       			<br>
+			       		</div>
+			       		
+			       		<!-- TITULO IMPRESION-->
+			       		<div class="col-sm-12 text-center" id="div_tituloImpresion" >
+			       			<table width="90%" align="center">
+			       				<tr>
+			       					<td width="10%" align="center">
+			       						<img src="images/logocdo.png" class="img-responsive navbar-brand-img" width="55px" ></img>
+			       					</td>
+			       					<td>
+			       						<table  width="100%">
+			       							<tr>
+			       								<td colspan="4" align="center" >
+						       						<label style="color: black; font-size: 18px;" >CENTRO DE DISTRIBUCI&Oacute;N ORIENTE - ${infoUsu.uname_br_nombre}</label>
+						       					</td>
+			       							</tr>
+			       							<tr>
+						       					<td width="33%" align="left">
+						       						<label style="color: black; font-size: 12px; font-weight: normal"  >Folio De Corte: </label>
+						       						<label style="color: black; font-size: 12px; font-weight: bold" id="id_lbNumCorteCaja"></label>
+						       					</td>
+						       					<td width="33" align="center">
+						       						<label style="color: black; font-size: 12px; font-weight: normal" >Importe Efectivo:</label>
+						       						<label style="color: black; font-size: 12px; font-weight: bold" id="id_lbImporteCorteCaja" ></label>
+						       					</td>
+						       					
+						       					<td  width="33%"  align="right">
+						       						<label style="color: black; font-size: 12px; font-weight: normal" >Fecha:</label>
+						       						<label style="color: black; font-size: 12px; font-weight: bold" id="id_lbFechaCorteCaja" ></label>
+						       					</td>
+						       				</tr>
+						       				<tr>
+						       					<td  colspan="4" align="left">
+						       						<label style="color: black; font-size: 12px; font-weight: normal" >Usuario:</label>
+						       						<label style="color: black; font-size: 11px; font-weight: bold" id="id_lbUsuCorteCaja"></label>
+						       					</td>
+						       				</tr>
+			       						</table>
+			       					</td>
+			       				</tr>
+			       			</table>
+			       		</div>
+			       		
+			       		<table><tr><td height="5px"></td></tr></table>		       		
+			       		
+			       		<!-- IMPORTES DE EFECTIVO DE CORTE DE CAJA -->
+			       		<div class="col-sm-12 row" id="div_importesEfectivo">
+							<div class="col-sm-12" >
+								<table align="center"  class="table" style="width:50%">
+									<tr>
+										<td colspan="3" align="center">
+											<label style="font-size: 15px;"  class="ECDC_lbtextoTitulo" >Importes De Efectivo</label>
+										</td>
+									</tr>
+								 	<tr>
+								 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px">Ingresos Efectivo</td>
+								 		<td colspan="1" align="right" class="ECDC_lbtexto" style=" font-weight: normal;font-size: 12px; padding:5px" ><label id="lbImpPrevioIEfectivo">$ ${importePrevioIEfectivo}</label></td>
+									 </tr>
+									 <tr>
+								 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px">Egresos Efectivo</td>
+								 		<td colspan="1" align="right" class="ECDC_lbtexto" style=" font-weight: normal; font-size: 12px; padding:5px" ><label id="lbImpPrevioE"> $ - ${importePrevioE} </label></td>
+									 </tr>						 
+									 <tr>
+								 		<td align="left" class="ECDC_lbtexto" style="font-size: 15px; padding:5px">Importe Total</td>
+								 		<td align="right" class="ECDC_lbtexto" style="font-size: 15px; padding:5px" > $ <lable id="lbImpTotalPrevioEfectivo"> ${importePrevioTotalEfectivo} </lable></td>
+								 		<td align="left" width=10%  style="border:0px solid white">
+											<button class="btn btn-info" type="submit"  style=" padding-left:10px;padding-right: 10px; padding-bottom: 5px; padding-top: 5px " onclick="muestraAlertaRedondearCentavos()">
+					 							<i class="glyphicon glyphicon-refresh"></i>
+											</button>
+										</td>
+									 </tr>
+									 <tr>
+								 		<td align="left" class="ECDC_lbtexto" style="font-size: 15px; padding:5px; color:#4169E1">Importe Denominaci&oacute;n:</td>
+								 		<td colspan="1" align="right"  class="ECDC_lbtexto" style="font-size: 15px; padding:5px; color:#4169E1" >$ <label id="lbImporteFajillas"> 0.00</label></td>
+									 </tr>
+								</table>
+							</div>
+			       		</div>	
+			       		
+			       		<!-- DENOMINACIONES -->		       		       	
+			       		<table width=98%>
+			       			<tr>
+								<td width=70% valign="top">
+									<!-- DENOMINACION BILLETES -->								
+									<table  id="tblDenominacionBilletes" class="table table-striped" style="width:90%"  align="center">
+										<thead>
+											<tr>
+												<th style="text-align: center; font-family: arial;font-size: 12px;color:white;border-left:1px solid white; background-color: black; border: 1px solid black;" colspan="3"  >DENOMINACI&Oacute;N BILLETES</th>
+												<th style="text-align: center; font-family: arial;font-size: 12px;color:white;border-left:1px solid white; background-color: black; border: 1px solid black;" colspan="4"  >FAJILLAS BILLETES</th>
+											</tr>
+											<tr>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;">Billete</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;" >Cantidad</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 3px; display: none">Cantidad</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 2px" >Importe</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 2px">100</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 2px">50</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 2px">25</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 2px">Sueltos</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="billete" items="${ListDenonimacionBillete}">
+												<tr>
+													<td style="border: 1px solid #E4E4E4;text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;">${billete.denominacion}</td>
+													<td align="center" style="border: 1px solid #E4E4E4;padding: 3px">
+														<input type="text" value="0"  name="cantidadDenominacion_${billete.id_denominacion}" id="id_cantidadDenominacion_${billete.id_denominacion}" class="ECDC_txt"  maxlength="4"   onkeypress="return EsNumeroOSigno(event)" onfocusout="validarCampoCantidad(${billete.id_denominacion})" onkeyup="calcularDenominacionDeBilletes(${billete.id_denominacion},${billete.denominacion} )">
+													 </td>
+													 <td align="right" style="border: 1px solid #E4E4E4 ;padding: 3px;">
+														<label id="id_cantidadDenominacionFija_${billete.id_denominacion}" style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;"></label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" name="importeDenominacion_${billete.id_denominacion}" id="importeDenominacion_${billete.id_denominacion}">$ 0.00</label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" name="fajilla100_${billete.id_denominacion}" id="fajilla100_${billete.id_denominacion}">0</label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" name="fajilla50_${billete.id_denominacion}" id="fajilla50_${billete.id_denominacion}"> 0</label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" name="fajilla25_${billete.id_denominacion}" id="fajilla25_${billete.id_denominacion}"> 0</label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" name="suelto_${billete.id_denominacion}" id="suelto_${billete.id_denominacion}"> 0</label>
+													</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+										<tfoot>
+									        <tr>
+									            <td align="center" style="border:1px solid #E4E4E4; font-family: arial;font-size: 13px;color:black;font-weight: bold; background-color:#E4E4E4; padding: 3px ">TOTAL</td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									        </tr>
+	    								</tfoot>
+									</table>
+								</td> 
+								
+								<!-- DENOMINACIONES DE MONEDAS -->	
+								<td width=30% valign="top">
+									<table id="tblDenominacionMonedas" class="table table-striped" style="width:90%"  align="center">
+										<thead>
+											<tr><th style="text-align: center; font-family: arial;font-size: 12px;color:white;border-left:1px solid white; background-color: black; border: 1px solid black;" colspan="3"  >DENOMINACI&Oacute;N MONEDAS</th></tr>
+											<tr>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 3px">Moneda</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 3px">Cantidad</th>
+												<th  style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 3px; display: none">Cantidad</th>
+												<th style="text-align: center;font-family: arial;font-size: 12px;color:white;background-color: gray;background: gray;border: 1px solid gray;padding: 3px">Total</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="moneda" items="${ListDenonimacionMoneda}">
+												<tr>
+													<td style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;border: 1px solid #E4E4E4; padding: 3px"">${moneda.denominacion}</td>
+													<td id="tdDenomiCantDinamica_${moneda.id_denominacion}" align="center" style="border: 1px solid #E4E4E4;padding: 3px">
+														<input type="text" name="cantidadDenominacion_${moneda.id_denominacion}" id="id_cantidadDenominacion_${moneda.id_denominacion}" class="ECDC_txt" maxlength="4"   onkeypress="return EsNumeroOSigno(event)" onfocusout="validarCampoCantidad(${moneda.id_denominacion})" onkeyup="calcularDenominacionDeMonedas(${moneda.id_denominacion},${moneda.denominacion} )"> 
+													</td>
+													<td align="center" style="border: 1px solid #E4E4E4 ;padding: 3px;">
+														<label id="id_cantidadDenominacionFija_${moneda.id_denominacion}" style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;"></label>
+													</td>
+													<td align="right" style="border: 1px solid #E4E4E4;padding: 3px">
+														<label style="text-align: center;font-family: arial;font-size: 11px;color:black;font-weight: normal;" id="importeDenominacion_${moneda.id_denominacion}">0</label>
+													</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+										<tfoot>
+									        <tr>
+									            <td align="center" style="border:1px solid #E4E4E4; font-family: arial;font-size: 13px;color:black;font-weight: bold; background-color:#E4E4E4; padding: 3px">TOTAL</td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4; padding: 3px "></td>
+									            <td align="right" style="border:1px solid #E4E4E4; font-family: arial;font-size: 12px;color:black;font-weight: bold;background-color:#E4E4E4 ; padding: 3px"></td>
+									        </tr>
+	    								</tfoot>
+									</table>	
+								<td>
+							</tr>
+			       		</table>	     
+					</div>
+					
+					<!-- FECHA BANCARIA -->	
+					<div class="row" style="width: 98%; " id="div_fichaBancaria" >	</div>
+					
+					<!-- 
+						 Se inhabilita el div, ya que esta ficha estara disponible en el corte de Panamericano
+					     Nota: No se quita el codigo, podria habilitarse posteriormente.
+					-->			
+					<div class="row" style="width: 98%; display: none">	
+						<hr style="width: 98% ;border-top: 1px dashed gray;margin:8px">				
+						<div class="col-sm-12">
+							<!-- SECCION DE FICHA BANCARIA PARA PANAMERICANO-->	
+							<div id="div_ficha_bancaria" style="border:1px solid #A9A9A9; width:98%">
+							
+								<!-- TITULO-->
+								<div style="width:100%; background-color: #A9A9A9">
+									<table width="95%" align="center" >
+										<tr>
+											<td align="left">
+												<img src="images/citibanamex.png" class="img-responsive navbar-brand-img" width="120px" ></img>
+											</td>
+											<td align="center">
+												<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">No.Documentos</label>
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+											</td>
+											<td align="center">
+												<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">No.Autorizaci&oacute;n</label>
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+											</td>
+											<td align="right">
+												<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Pago/Deposito</label>
+												<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">M.N</label>
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold"  checked="checked">
+												<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">DLLS.</label>
+												<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+											</td>
+										</tr>
+									</table>
+								</div>	
+								
+								<!-- DATOS CLIENTE -->
+								<table width="95%" align="center">
+									<tr>
+										<td align="left">
+											<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Nombre Del cliente</label>
+										</td>
+										<td align="left" colspan="2" style="border:1px solid gray; background-color: white">
+											<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 1px;">CENTRO DE DISTRIBUCION ORIENTE SA DE CV</label>
+										</td>
+									</tr>
+									<tr>
+										<td align="left" width="20%" > 
+											<table width=60% style="padding: 0px; margin: 0px">
+												<tr>
+													<c:forTokens items = " ,2,6,9" delims = "," var = "item">
+												        <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;">${item}</td>
+												    </c:forTokens>
+												</tr>
+												<tr><td colspan="4" align="center"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">No. De Sucursal</label></td></tr>
+											</table>
+										</td>
+										<td align="left" width="50%">
+											<table width=95% style="padding: 0px; margin: 0px">
+												<tr>
+													<c:forTokens items = " , , , , , , , , , ,7,9,0,0,9,4,5" delims = "," var = "item">
+												        <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;">${item}</td>
+												    </c:forTokens>
+												</tr>
+												<tr><td colspan="16" align="center"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">No. De Cuenta</label></td></tr>
+											</table>
+										</td>
+										<td align="right" align="left" width="30%">
+											<table width=95% style="padding: 0px; margin: 0px">
+												<tr>
+													<c:forTokens items = " , , , , , , , , , ," delims = "," var = "item">
+												        <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;"><br></td>
+												    </c:forTokens>
+												</tr>
+												<tr><td colspan="10"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">No.Referencia (Solo Para Linea Banamex)</label></td></tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							
+								<!-- DETALLES DEL FORMATO -->
+								<table width="95%" align="center" style="padding: 0px; margin: 0px">
+									<tr>
+										<td width="20%" >
+											<table width="100%" align="center" style="padding: 0px; margin: 0px">
+												<tr>	
+													<td align="center" width="50%"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">DOCUMENTO</label></td>
+													<td align="center" width="50%"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">IMPORTE</label></td>
+												</tr>
+												<tr>
+													<td width="50%">
+														<table width=100% style="padding: 0px; margin: 0px">
+															<c:forTokens items = " , , , , , , ," delims = "," var = "item">
+																<tr>
+																    <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;"><br></td>
+																</tr>
+															</c:forTokens>
+														</table>
+													</td>
+													<td width="50%">
+														<table width=100% style="padding: 0px; margin: 0px">
+															<c:forTokens items = " , , , , , , ," delims = "," var = "item">
+																<tr>
+																    <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;"><br></td>
+																</tr>
+															</c:forTokens>
+														</table>
+													</td>
+												</tr>							
+											</table>
+										</td>
+										<td width="80%" align="right">
+											<table width="98%" style="padding: 0px; margin: 0px">
+												<tr>
+													<td colspan="2">
+														<table width=100%>
+															<tr>
+																<c:forTokens items = " , , , , , , , , , , , , , , , , , , , ," delims = "," var = "item">
+															        <td style="border:1px solid #C0C0C0;border-radius: 2px;font-family: arial;font-size: 9px;padding: 2px;text-align: center;width: 15px;"><br></td>
+															    </c:forTokens>
+															</tr>
+															<tr><td colspan="16" align="center" style="width:15px; "><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Referencia Alfanumerica (Solo Para Linea Banamex)</label></td></tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td align="left" width="50%" style="width:15px; "><label style="font-family: arial;font-size: 9px;font-weight: bold;color: black;padding: 3px;" >Forma De Pago / Deposito:</label></td>
+													<td align="center" width="50%" style="width:15px; "><label style="font-family: arial;font-size: 9px;font-weight: bold;color: black;padding: 3px;">Requisiete Una Forma Por Cada Opci&oacute;n</label></td>
+												</tr>
+												<tr>
+													<td  valing="top" colspan="2">
+														<table width="100%">
+															<tr>
+																<td valign="bottom" >
+																<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Cheques <br> Banamex</label>
+																</td>
+																<td valign="bottom">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Cheques Otros <br> Bancos De Plaza</label>
+																</td>
+																<td valign="bottom">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Cheques Otros <br> Bancos Fuera De Plaza(1)</label></td>
+																<td valign="bottom">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" checked="checked" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Efectivo</label></td>
+																<td valign="bottom">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Otro _______</label>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2" align="left" width="50%"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px; font-weight: bold" >Pago / Deposito A:</label></td>
+											    </tr>
+											    <tr>
+													<td align="left" width="50%"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;" >(Marque Solo Un Cuadro)</label></td>
+													<td align="center" width="50%"><label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;"   >Importe Del Pago / Deposito:</label></td>
+												</tr> 
+											</table>	
+										
+											<table width="98%">
+												<tr>
+													<td width="50%" align="left">
+														<table width="100%" cellpadding="0" cellspacing= "0">
+															<tr>
+																<td valign="bottom" align="left">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" checked="checked" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Cheque/Cta. Maestra</label>
+																</td>
+																<td valign="bottom" align="left">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;">Linea Banamex</label>
+																</td>
+															</tr>
+															<tr>
+																<td valign="bottom" align="left">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;" >Tarjeta</label>
+																</td>
+																<td valign="bottom" align="left">
+																	<input type="checkbox"  id="txtFB_m_n" style=" font-weight: bold" >
+																	<label style="font-family: arial;font-size: 9px;font-weight: normal;color: black;padding: 3px;" >Credito Banamex</label>
+																</td>
+															</tr>
+														</table>
+													</td>
+													<td align="right" >
+														<!-- <table  width="100%"  cellpadding="0" cellspacing= "0">
+															<tr>
+																<td valign="bottom" align="right" style="font-weight: bold; font-size: 16px">$</td>
+																<c:forTokens items = "${listaImporteEfectivo}" delims = "|" var = "item">
+																	<c:if test="${(item == '.') || (item == ',')}">
+															        	<td valign="bottom" align="center" style="padding: 0px;marging:0px;  width:3px; font-size:16px; font-weight: bold">${item}</td>
+															        </c:if>
+															        <c:if test="${(item != '.') && (item != ',')}">
+															        	<td class="ECDC_fb_td" align="center" style="padding: 0px;marging:0px;font-size:16px;border:1px solid #C0C0C0; font-weight: bold">${item}</td>
+															        </c:if>
+															    </c:forTokens>
+															</tr>
+														</table>-->
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								
+								<!-- FOOTER-->
+								<div style="width:100%; background-color: #A9A9A9">
+									<table width="95%" align="center" cellpadding="0" cellspacing= "0">
+										<tr>
+											<td style="padding: 0px; margin: 0px">
+												<label class="ECDC_fb_lbtexto" style="font-size:9px; padding: 0px; margin: 0px" >Banco Nacional de México, S.A. <br> Integrante del Grupo Financiero Banamex</label>
+											</td>
+											<td style="padding: 0px; margin: 0px" align="center">
+												<label class="ECDC_fb_lbtexto" style="font-size:9px; padding: 0px; margin: 0px" >(1) El Importe De La Situacion De Estos Documentos Sera Cargado a Mi (Nuestra) Cuenta Por Separado</label>
+											</td>
+										</tr>
+									</table>
+								
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					
+					<!-- BOTONES -->	
+					<table><tr><td height="5px"></td></tr></table>
+					
+					<table align="center">
+						<tr>
+							<td valign="top" style="padding: 5px">
+								<button  class="btn btn-primary" type="submit"  style="width:450px" id="btn_confirmaCorte" onclick="validaImporteEfectivoVSdenominaciones()" >
+		 							<i class="glyphicon glyphicon-ok"></i> &nbsp; Confirma Corte De Caja
+								</button>
+								<form action="CorteDeCaja" method="post" id= "idCorteCajaImpresion">
+									<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+							 		<input type="hidden" name="pagina" id="idIndex" value="CorteDeCaja.jsp" >	
+									<button class="btn btn-danger" type="submit"  style="width:200px" id="btn_salirCorte" >
+			 							<i class="glyphicon glyphicon-remove"></i> &nbsp; Salir
+									</button>
+								</form>
+							</td>
+							<td valign="top" style="padding: 5px">	
+								<button class="btn btn-primary" type="submit"  style="width:450px" id="btn_imprimeCorte" onclick="Imprimir()" >
+		 							<i class="glyphicon glyphicon-print"></i> &nbsp; Imprime Corte De Caja
+								</button>
+							</td>
+						</tr>
+					</table>
+					
+					<table><tr><td height="5px"></td></tr></table>
+					
+				</div>
+		    		    	
+		    </div>
+	    </div>
+	</div>
+	

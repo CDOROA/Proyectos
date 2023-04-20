@@ -1,0 +1,123 @@
+<div id="divCancelacionTrans" style="display: none;" class="popupCE">
+			<div class="content-popupCE">
+				<div style="background: #F2F2F2; border: 1px solid #CCCCCC" align="center" id="coloTransCE"><br>
+					<table width="95%" align="center">
+						<tr>
+							
+							<td >
+								<div style="text-align: center">
+									<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px"> <strong>ASIGNACION TRANSPORTE</strong> </label><BR><br>
+									
+									
+									
+								</div>
+								<div  style="font-weight: normal;font-size:17px;" class="table-responsive" id="alertaTransWidth">
+									<table style="width: 100%">
+										<tr>
+										<td align="left" width="80%">
+												<label id="msjPedidosFacturasTrans" style="font-weight: bold;"></label>
+											</td>
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacionTrans"></label>
+											</td>
+											<td align="right" width="20%" rowspan="3">
+												<button onclick="MostrarDiv('agregarNuevoOdeTrans')" class="btn btn-success" style="padding: 3px;width: 97px;font-size: 13px;"> Nueva ODE</button>
+											</td>
+											
+										</tr>
+										<tr>
+											<td align="left" width="80%">
+												<label id="msjCancelacionOdesTrans"></label>
+											</td>
+											
+										</tr>
+										<tr>
+										<td colspan="2">
+											
+										</td>
+										</tr>
+									</table>
+								</div> 
+								
+							</td>
+						</tr>
+					</table> <br>
+					<table style="width: 95%;margin-bottom: 20px; display: none" id="agregarNuevoOdeTrans">
+						<tr>
+							<td>
+								<label class="EG_lbtexto" style="font-weight: normal; font-size: 18px">Ingrese ODE, sepradas por coma: </label>
+							</td>
+							<td>
+								<input id="odeAgregadaTrans" placeholder="Ingrese Ode..." >
+							</td>
+							<td>
+												<button onclick="agregarRegistroOdeTrans()" class="btn btn-warning" style="padding: 3px;width: 97px;font-size: 13px; color: white;"> Consultar ODE</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+							<br>
+								<label id="msjOdeTrans">
+								</label>
+							</td>
+							
+						</tr>
+					</table>
+					<table id="regionalesTrans" style="display: none; width: 95%" >
+												<tr>
+													<td>
+														<b><label id="labelRegionalesTrans"></label></b>
+													</td>
+													<td>
+													<input type="hidden" id="cdoFacturasTrans" value="${unameTrans}">
+														<select id="cmbFacturasTrans" name="cmbFacturasTrans"  style="width: auto;" onchange="changeFuncFacturasTrans(value);">
+											 				<option value="${unameTrans}" selected="selected">${unameNombreTrans} </option>
+											 				<c:forEach var="dato" items="${regionales2}">
+											 						<option value="${dato.getUname_br()}" >${dato.getDescripcion()} </option>
+															</c:forEach>	
+														</select>
+													</td>
+												</tr>
+											</table>
+					<table width="95%" align="center">
+						<tr>
+							
+							<td >
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">TRANSPORTES: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<input id="choferSelectTrans" type="hidden" value="0" >
+									<select class="form-control" id="choferSelTrans" name="choferSelTrans" style="height: 40px;"  onchange="selectChoferesTrans(event.target.value)" autocomplete="off" >
+										<option value="0" >Seleccione Transporte</option>
+										<c:forEach var="dato" items="${trans}">
+											<option value="${dato.getChofer()}" >${dato.getChofer()} -  ${dato.getNombre()}</option>
+											
+										</c:forEach>
+									</select>
+								</div>
+							</td>
+						</tr>
+					</table> <br>
+					<table width="90%" align="center">
+						<tr>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-primary" type="button" style="padding: 3px; width: 80px; font-size: 13px" onclick="OcultarDiv('divCancelacionTrans');">
+									 Atras
+								</button>
+							</td>
+							<td class="EG_lbtexto" align="right">
+								<button class="btn btn-success" type="button" style="padding: 3px; width: 97px; font-size: 13px" onclick="asignarPedidosTrans()">
+									 ASIGNAR
+									
+								</button>
+							</td>
+
+							<td class="EG_lbtexto" align="right">
+		
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>

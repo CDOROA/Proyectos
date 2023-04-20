@@ -1,0 +1,92 @@
+<div id="divExistenciasArticulo" style="display: none;" class="popupImagenes">
+    <div class="content-popupImagenes" style=" background-color: white">
+    	<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12 alert alert-primary" style="text-align:left;padding: 3px ; margin: 0px">
+    			<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+    				<div  class=" col-6 col-sm-6 col-md-6 col-lg-6 " style="text-align: left;padding: 3px ; margin: 0px">  
+						<img src="${pageContext.request.contextPath}/images/info.png" ></img>	
+						<strong><label class="ECC_lb_size_14">Agregar Art&iacute;culo al Carrito</label></strong>			
+		    		</div>
+		    		<div  class=" col-6 col-sm-6 col-md-6 col-lg-6" style="text-align: right;padding: 3px ; margin: 0px">  
+						<img src="${pageContext.request.contextPath}/images/cerrar_alerta.png" onclick="OcultarDiv('divExistenciasArticulo')"></img>				
+		    		</div>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	<div class='row justify-content-center' style='padding: 0px; margin: 0; text-align: right; '>    	
+   			<div  class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:left;">
+   				<br>
+    			<img id="ExistenciasArticulo_Imagen" style ="width: 98%" src='https://www.cdoautopartes.com.mx/image//img_productos/N12Y_1.jpg' >
+    		</div>
+    		<div  class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:left;" >
+    			<br>
+    			<strong><label id="ExistenciasArticulo_Descripcion" class="ECC_lb_size_16" style="color:#00498A; font-weight: bold"> </label></strong>
+    			<br><label class="ECC_lb_size_12"></label><label id="ExistenciasArticulo_NumArt" style="font-weight: bold;color: white;background: black;padding-right: 5px;padding-left: 5px;    border-radius: 6px;"  class="ECC_lb_size_12" > </label>
+    			<br><br>
+    		</div> 
+    	</div>
+    	    	
+    	<div class='row justify-content-center' style='padding: 0px; margin: 0; text-align: right; '>
+    		<div id="ExistenciasArticulo_divTablaCantidades" class=" col-12 col-sm-12 col-md-6 col-lg-6" style="text-align:left;" >
+    			<table   width="98%" align="center" class="table" >
+    				<thead  style="padding: 2px">
+    					<tr>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Cantidad <br> Pedida</label></td>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Surtido <br>  CDO-CDMX </label> </td>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Surtido <br>  CDO Guadalajara</label></td>
+    				</thead>
+    				<tbody>
+    					<tr>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black">20</label></strong></td>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black"> 12</label></strong></td>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black"> 15</label></strong></td>		    					
+	    				</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    	
+    	<div id="div_mensaje_traspaso">
+    	<div class='row' style='padding: 0px; margin: 0; text-align: center '>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;" >    			
+    			<label class="ECC_lb_size_14" style="color:#DC143C"><strong> El Articulo esta Disponible en Otra  de Nuestras Sucursales</strong></label>
+    			<br><label class="ECC_lb_size_14"  style="color: #296DAE">Con entrega en un tiempo máximo de 72 horas hábiles 
+                o el día que le corresponde su ruta. </label>
+    		</div>    		
+		</div>
+		 
+		<div class='row' style='padding: 0px; margin: 0; text-align: center '>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;" > 
+    		  	<br><input type="checkbox" name="solicitaTraspaso" id="solicitaTraspaso" checked/>
+			    <label for="solicitaTraspaso" class="ECC_lb_size_14" style=" margin:0px; font-weight: bold"> &nbsp;Solicitar Piezas Faltantes en Otra de Nuestras Sucursales</label>
+			    <br>
+			      <label class="ECC_lb_size_14" style="color:#DC143C"><strong> En pedidos de 72 hrs no hay cancelaciones ni devoluciones</strong></label>
+			    <br>
+    		</div>
+    	</div>
+    	</div>
+    	
+    	<div id="div_mensaje_envio_expres" style="display: none">
+    	<div class='row' style='padding: 0px; margin: 0; text-align: center '>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;" >    			
+    		<label class="ECC_lb_size_14" style="color:#DC143C"><strong> IMPORTANTE! </strong></label>
+    			<label class="ECC_lb_size_14" style="color:#DC143C"><strong> Articulo no disponible para Servicio Express.</strong></label>
+    			<br> 
+    			<br> 
+    		</div>    		
+		</div>
+		</div>
+			 <div id="div_sin_existencia"  style="padding: 0px; margin: 0; text-align: center; display:none;">
+    		<label class="ECC_lb_size_14" style="color:#DC143C"><strong> Articulo Sin Existencia.</strong></label>
+    	</div>
+    	
+    	<div >
+    		<div class='row' style='padding: 0px; margin: 0; text-align: center '>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;" > 
+		   		<button id="ExistenciasArticulo_BotonComprar" class="btn btn-primary" onclick="" style="width: 40%">Agregar al Carrito y seguir comprando.</button>	
+    		</div>    		
+    	  </div>
+		 <br>
+    </div>
+</div>	</div>	

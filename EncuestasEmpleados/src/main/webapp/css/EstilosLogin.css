@@ -1,0 +1,43 @@
+.EL_textosGrande{
+	color:white;
+	font-size: 19px;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-family: arial;
+	
+}
+
+.EL_msjRespuesta{
+		
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color:  #DC143C;
+	
+}
+#espacio{
+	height: 150px;
+}
+#DivLoguin{
+	width:30%;
+	margin-left:35%;
+	margin-top: 20px;
+}
+#DivLoguin input,select{
+	width:100%;
+}
+@media screen and (max-width: 679px) {
+  #DivLoguin{
+  	margin-top:5px;
+	width:100%;
+	margin-left:0%;
+	height:100%;
+}
+#espacio{
+	height: 90px;
+}
+.EL_textosGrande{
+	font-size: 15px;
+}
+}

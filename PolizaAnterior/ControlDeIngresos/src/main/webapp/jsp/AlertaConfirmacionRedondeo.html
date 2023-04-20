@@ -1,0 +1,63 @@
+<div id="divConfirmaRedondeo" style="display: none;" class="popupConfirmRedondeo" >
+    <div class="content-popupConfirmRedondeo">
+		<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			<br>
+			<br>
+			<table width="95%" align="center">
+				<tr>
+					<td  align="center" colspan="2">
+						<label class="EG_lbtexto" style="font-weight: bold; font-size: 13px"> El sistema aplicara el siguiente movimiento. ¿Deseas Continuar?</label>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="2" width=13% align="center">
+						<img src="images/info.png" class="img-responsive navbar-brand-img" width=80%></img>
+					</td>
+					<td align="center">
+						<div style="display: inline">
+							<table class="table table-striped">
+								<thead >
+									<tr height="20px"> </tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td align="left">
+											<label id="msjTipoRedondeo" class="ECDC_lbConfirmaMovimientos" ></label>
+										</td>
+										<td align="right">
+											<label id="msjImporteMovimientoAplicarRedondeo" class="ECDC_lbConfirmaMovimientos"> </label>
+										</td>
+									</tr>
+									<tr>
+										<td align="left">
+											<label  style="color:#B22222; font-weight: bold" class="ECDC_lbConfirmaMovimientos" >Importe Con Redondeo</label>
+										</td>
+										<td align="right">
+											<label id="msjImporteConRedondeo" style="color:#B22222; font-weight: bold" class="ECDC_lbConfirmaMovimientos">  </label>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>				
+					</td>
+				</tr>	
+			</table>	
+			<table width="70%" align="center">
+				<tr>	
+					<td  class="EG_lbtexto" align="center">
+						<button class="btn btn-danger" type="button"  style="padding:3px; width: 120px ; font-size:13px" onclick="OcultarDiv('divConfirmaRedondeo');"  >
+							<i class="glyphicon glyphicon-arrow-left"></i> Atras
+						</button>
+					</td>
+					<td  class="EG_lbtexto" align="right">
+						<button class="btn btn-primary" type="button"  style="padding:3px; width: 140px; font-size:13px" onclick="generarRedondeoCentavos()"  >
+							<i class="glyphicon glyphicon-remove"></i> Si, Redondear
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<br>
+		</div>
+    </div>
+</div>

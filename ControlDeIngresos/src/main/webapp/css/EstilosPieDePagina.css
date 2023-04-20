@@ -1,0 +1,38 @@
+.EPDP_lbMinimo
+{
+	font-family: arial;
+	font-size: 11px;
+	color: #2E8B57;
+}
+
+.EPDP_lbMaximo
+{
+	font-family: arial;
+	font-size: 11px;
+	color: #DC143C;
+}
+
+.EPDP_lbDisponible
+{
+	font-family: arial;
+	font-size: 13px;
+	color: #1D4A83;
+}
+
+
+#divSemaforoIngresos {
+  width: 100%;
+  background-color: #F0FFF0;
+}
+
+#divBarraDeIngresos {
+  width: 1%;
+  height: 20px;
+  background-color: #32CD32;
+  text-align: center; 
+  line-height: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 12px;
+}

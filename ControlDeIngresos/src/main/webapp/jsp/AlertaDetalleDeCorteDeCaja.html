@@ -1,0 +1,152 @@
+<div id="divDetalleCorteCajaXFolio" style="display: none;" class="popupDetalleXFolio" >
+    <div class="content-popupDetalleXFolio">
+		<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			
+				<!--TITULO -->
+				<div class="row">
+					<div class="col-sm-12" >
+						<table width=100%>
+							<tr>
+								<td width=50% align="right" valign="top">
+									<img src="images/cerrar.png" class="EM_img_size" style="width:30px"  onclick="OcultarDiv('divDetalleCorteCajaXFolio');"></img>&nbsp;
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<table>
+					<tr>
+						<td>
+							<label style="font-family: arial; font-size: 18px; font-weight: bold; color:#00008B">Folio de Corte de Caja: </label> 
+							<label style="font-family: arial; font-size: 18px; font-weight: bold; color: #DC143C" id="lbFolioCorteDeCajaActivo"> </label>
+						</td>
+					</tr>
+				</table>
+				
+				
+				<br>
+			
+				<!--PREVIO DE INGRESOS -->
+				<div class="row content">
+					<div class="col-sm-12 row">
+						<div class="col-sm-12 col-md-12 center-text">
+							<label class="ECDC_lbtextoTitulo" style="color: #229FC7; font-size:20px">Previo de Ingresos</label>
+						</div>
+						
+						<!-- GRID PREVIO INGRESOS  FORMA PAGO -->	
+						<div class="col-sm-4 col-md-4 center-text">
+						 	<table>
+								<tr>
+									<td align="right">
+									 	<div id="dgPrevioFormaPago" class="EG_DivGrid"></div>
+									</td>
+								</tr>   
+						 	</table>
+						</div>
+						
+						<!-- GRID PREVIO INGRESOS  TIPO PAGO -->		
+						<div class="col-sm-4 col-md-4 center-text">
+								<!-- GRID DE CORTES DE CAJA  -->	
+							 	<table>
+									<tr>
+										<td align="center">
+										 	<div id="dgPrevioTipoPago" class="EG_DivGrid"></div>
+										</td>
+									</tr>   
+							 	</table>
+						</div>
+						
+						<!-- GRID PREVIO INGRESOS  BANCOS -->	
+						<div class="col-sm-4 col-md-4 center-text">
+								<!-- GRID DE CORTES DE CAJA  -->	
+						 	<table>
+								<tr>
+									<td align="center">
+									 	<div id="dgPrevioBancos" class="EG_DivGrid"></div>
+									</td>
+								</tr>   
+						 	</table>
+						</div>
+					
+					</div>
+				</div>
+				
+				
+				<hr width="80%" style="color:blue; height: 2px">
+				<!--PREVIO DE EGRESOS -->
+				<div class="row content">
+					<div class="col-sm-12 row">
+					
+						<div class="col-sm-12 col-md-12 center-text">
+							<label class="ECDC_lbtextoTitulo" style="color: #DC143C; font-size:20px">Previo de Egresos</label>
+						</div>
+						
+						<div class="col-sm-4 col-md-4 center-text">
+							<table>
+								<tr>
+									<td align="right">
+									 	<div id="dgPrevioEgresos" class="EG_DivGrid"></div>
+									</td>
+								</tr>   
+						 	</table>
+						</div>
+						
+						<div class="col-sm-4 col-md-4 center-text">
+							<br>
+						</div>
+						<div class="col-sm-4 col-md-4 center-text">
+							<table>
+								<tr>
+									<td align="center">
+									 	<div id="dgPrevioEgresosBancos" class="EG_DivGrid"></div>
+									</td>
+								</tr>   
+						 	</table>
+						</div>
+					</div>
+				</div>
+				
+				<hr width="80%" style="color:red; height: 2px">
+				<!--PREVIO DE TOTALES -->
+				<div class="row content">
+					<div class="col-sm-12 row">
+						<div class="col-sm-12 col-md-12 center-text">
+							<label class="ECDC_lbtextoTitulo" style="color: #679E34; font-size:20px">Previo Importe Total</label>
+						</div>
+					
+						<div class="col-sm-12 col-md-12center-text">
+						
+							<table align="center"  class="table" style="width:50%">
+								
+							 	<tr>
+							 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px; font-size: 12px;">Total Ingresos</td>
+							 		<td align="right" class="ECDC_lbtexto" style=" font-weight: normal;font-size: 12px; padding:5px"> <lable  id="lbTotalIngresos"> </td>
+								 </tr>
+								 <tr>
+							 		<td align="left" class="ECDC_lbtexto" style="font-weight: normal; padding:5px;font-size: 12px;">Total Egresos</td>
+							 		<td align="right" class="ECDC_lbtexto" style=" font-weight: normal; font-size: 12px; padding:5px" ><lable id="lbTotalEgresos"> </td>
+								 </tr>						 
+								 <tr>
+							 		<td align="left" class="ECDC_lbtexto" style="font-size: 16px; padding:5px">Importe Total</td>
+							 		<td align="right" class="ECDC_lbtexto" style="font-size: 16px; padding:5px" > $ <lable id="lbTotalCorteCaja"> </lable></td>
+								 </tr>
+							</table>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div id="divPaginadoFoliosCaja" style="width:100%;"></div>
+				</div>
+				
+				
+				
+				
+				<br>
+				
+			</div>
+   	 	</div>
+			
+	</div>
+</div>

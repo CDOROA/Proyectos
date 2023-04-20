@@ -1,0 +1,49 @@
+<div id="divAlertaAgregarFacturaManual" style="display: none;" class="popupAgregaFacManual" >
+    <div class="content-popupAgregaFacManual">
+	    <div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+	       	<div class="content">
+	       		<table width="98%">
+				   <tr height="5px"></tr>
+				   <tr>
+					   <td align="right" >
+					   	   <form action="ControlDeIngresosServlet" method="post" >
+					   	   		<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 					<input type="hidden" name="pagina" id="idIndex" value="ConfirmaIngresosACaja.jsp" >	
+							    <button class="btn btn-danger" type="button"  style=" padding:5px; width:30px " onclick="OcultarDiv('divAlertaAgregarFacturaManual')"  >
+									<i class="glyphicon glyphicon-remove"></i> 
+							    </button>
+						   </form>
+					   </td>
+				   </tr>
+				</table>
+                <table width="95%">
+					<tr>	
+						<td width="100%" align="center">
+							<label style="color:#439ED4" class="EG_lbTituloAzul"> Facturas Manuales </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center">
+								<br>
+								<label style="font-family: arial; font-size: 15px; font-weight: bold">Num. Factura: </label>
+								<input type="text" name="numFacturaManual" id="numFacturaManual"  maxlength="15"  required>
+								<label style="font-family: arial; font-size: 15px; font-weight: bold">Forma Pago: </label>
+								<select id="cmbFormaPagoFacCre"  name="cmbFormaPagoFacCre" class="EG_cmb"  style="font-family: arial; font-size: 14px; width: 200px;"  required>	
+									<c:forEach var="fp" items="${listaFormas_Pago}">
+										<option value="${fp.cve_forma_pago}" >${fp.nombre_forma_pago}</option>												
+									</c:forEach>
+								</select>
+								<button type="submit" class="btn btn-success btn-xs" style="padding:3px; width: 100px; font-size:13px" onclick="agregarFacturaManualmente()"  >
+									<span class=" glyphicon glyphicon-plus"> </span> Agregar
+								</button>
+							</div>
+						</td>
+					</tr>
+                </table>
+                <br>
+                <br>
+		    </div>
+		</div>
+	</div>
+</div>

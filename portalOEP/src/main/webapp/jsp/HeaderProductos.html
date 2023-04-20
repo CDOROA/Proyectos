@@ -1,0 +1,64 @@
+<nav id="CHeader" class="navbar navbar-expand-lg navbar-dark  bg-dark" style="padding-top: 0px; padding-bottom: 0px;">
+   <a class="navbar-brand" href="${pageContext.request.contextPath}/PaginaPrincipal">
+    <img src="${pageContext.request.contextPath}/img/headerFooter/Logotipo_OEP.png" alt="Logo" style="max-width:120px;">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarScroll">
+    <ol class="breadcrumb bg-dark mx-auto" style="margin-bottom: 0px;padding-top: 0px;padding-bottom: 0px;">
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/MenuCatalogos" style="text-decoration: none;">CATÁLOGOS</a></li>     
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/Productos" style="text-decoration: none;">PRODUCTOS</a></li>
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/DondeComprar" style="text-decoration: none;">DÓNDE COMPRAR</a></li>
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/QuienesSomos" style="text-decoration: none;">NOSOTROS</a></li>
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/Videos" style="text-decoration: none;">VIDEOS</a></li> 
+    	 
+    	<li class="breadcrumb-item h4" style="padding-left: 12px;"><a class="text-white" href="${pageContext.request.contextPath}/Contacto" style="text-decoration: none;">CONTACTO</a></li>
+  	</ol>
+  </div>
+</nav>
+
+<!--   <div style="margin-top: 0px;margin-bottom: 0px;background-color: #f4323e;padding-bottom: 5px;">   -->
+<div style="margin-top: 0px;margin-bottom: 0px;background-color: black;padding-bottom: 5px;">
+					<div id="divBusquedaPrincial" class="container">
+
+						<div class="row">
+							<div class='col-12 col-sm-12 col-md-2 col-lg-3'
+								style="text-align: center; padding: 5px; justify-content: center">
+								<select id="cbo_marca_aplicacion" class="custom-select" required
+									style="font-size: 16px;"
+									onchange="consultaSubmarcas()">
+									<option value="-1">-- Armadora --</option>
+									<c:forEach var="marcaAp" items="${listaArmadoras}">
+										<option value="${marcaAp.cve_armadora}">${marcaAp.descripcion_armadora}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class=" col-12 col-sm-12 col-md-2 col-lg-3"
+								style="text-align: center; padding: 5px; justify-content: center">
+								<select id="cbo_auto_aplicacion" class="custom-select"
+									style="font-size: 16px; "
+									onchange="consultaAnios()">
+									<option value="0">-- Auto --</option>
+								</select>
+							</div>
+							<div class=" col-12 col-sm-12 col-md-2 col-lg-3"
+								style="text-align: center; padding: 5px; justify-content: center">
+								<select id="cbo_modelo_aplicacion" class="custom-select"
+									style="font-size: 16px;">
+									<option value="0">-- Modelo (Año) --</option>
+								</select>
+							</div>
+							<div class=" col-12 col-sm-12 col-md-2 col-lg-3"
+								style="text-align: center; padding: 5px; justify-content: center">
+<!-- 								<button class="btn btn-default" onclick="consultaArticulosPorautomovil()" style="width: 100%;background-color: #026aab; color: white;">Ver Productos</button> -->
+								<button class="btn btn-default" onclick="consultaArticulosPorautomovil()" style="width: 100%;background-color: #fef61a; color: black;">Ver Productos</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+

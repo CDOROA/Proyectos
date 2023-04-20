@@ -1,0 +1,47 @@
+<div id="divInicioSession" class="container-fluid" style="padding: 0; margin: 0;background-color: #FBFBFB;display:none" >	
+	<br>
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">
+	
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;"></div>		
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;background-color: white; border: 1px solid #DDDDDD; border-radius: 5px">				
+			<div style="height: 15px"></div>
+			<label  class="EPP_lb_size_24" style="font-weight: bold; color:#DC143C">¡Bienvenido!</label>
+			<div style="height: 15px"></div>
+				
+			<!-- <form action="IniciaSession" method="post"> -->
+ 		<form id="formEnviarFoto" >  
+				<input type="hidden" name="vista" id="idIndex" value="PaginaInicio.jsp" >
+				<input type="hidden" name="operacion" id="idIndex" value="EntrarAlCarrito" >
+				<div class="form-group" align="left">
+					<input id="txtUsuario" name="txtUsuario" required  type="text"  maxlength="7"   class="form-control" id="formGroupExampleInput" placeholder="Usuario" onkeypress="return EsNumero(event)" >
+				</div>
+				<br>
+				<div class="form-group" align="left">
+				<div class="input-group mb-3">
+  <input id="txtContrasena" name="txtContrasena" required type="password" class="form-control" id="formGroupExampleInput" placeholder="Contraseña"aria-describedby="basic-addon2">
+  <span class="input-group-text" id="basic-addon2" onclick="changeTypeInput('txtContrasena')"><img src="${pageContext.request.contextPath}/images/verPassword.png"  style="width: 25px"></img></span>
+</div>
+
+					
+
+<!-- 					<i class="far fa-eye" onclick="changeTypeInput('txtContrasena')"></i> -->
+				</div>
+				<div class="form-group" align="center">
+					<button type="submit" class="btn btn-danger"  onclick="entrarACarrito()" style="font-family: Century Gothic">Entrar al Carrito De Compras</button>
+				</div>				
+  			</form> 
+			
+			<div class="form-group" align="center">
+					<button type="button" class="btn btn-link primary" onclick="mostrarDivRecuperarContrasena()" style="font-family: Arial Narrow">¿Olvidaste tu contrase&ntilde;a?</button>
+				</div>
+				<div class="form-group" align="center">
+					<button type="button" class="btn btn-link" style="color:#DC143C; text-decoration: underline;font-family: Arial Narrow" onclick="mostrarLogin()" >Regresar a Men&uacute;</button>
+				</div>
+			
+			<div style="height: 15px"></div>			
+		</div>		
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;"></div>
+	
+	</div>
+	<br>
+</div>

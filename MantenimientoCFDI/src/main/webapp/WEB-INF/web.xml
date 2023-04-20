@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <session-config>
+    <session-timeout>480</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>mx.cdo.MantenimientoCFDI</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioServlet</display-name>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <servlet-class>Web.UsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <url-pattern>/UsuarioServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorCFDI</display-name>
+    <servlet-name>AdministradorCFDI</servlet-name>
+    <servlet-class>Web.AdministradorCFDI</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorCFDI</servlet-name>
+    <url-pattern>/AdministradorCFDI</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorNotas</display-name>
+    <servlet-name>AdministradorNotas</servlet-name>
+    <servlet-class>Web.AdministradorNotas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorNotas</servlet-name>
+    <url-pattern>/AdministradorNotas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorGenera</display-name>
+    <servlet-name>AdministradorGenera</servlet-name>
+    <servlet-class>Web.AdministradorGenera</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorGenera</servlet-name>
+    <url-pattern>/AdministradorGenera</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdministradorSellado</display-name>
+    <servlet-name>AdministradorSellado</servlet-name>
+    <servlet-class>Web.AdministradorSellado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdministradorSellado</servlet-name>
+    <url-pattern>/AdministradorSellado</url-pattern>
+  </servlet-mapping>
+</web-app>

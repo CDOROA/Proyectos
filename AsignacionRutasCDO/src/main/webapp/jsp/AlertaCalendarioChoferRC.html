@@ -1,0 +1,36 @@
+<div id="divCalendariocRC" style="display: none;" class="popupCECalendarioc">
+	<div class="content-popupCECalendarioc">
+	<table style="width: 100%">
+		<tr>
+			<td align="center" colspan="6" style="    padding-top: 10px;padding-bottom: 7px;">
+				<label style="font-weight: bold; color: #6696ee; font-size: 16px">SELECCIONE UN RANGO DE FECHAS PARA LA BUSQUEDA DE RC</label>
+			</td>
+			<td align="right" colspan="1"  style="vertical-align: top;">
+				<label style="color: #6c757d;font-size: 17px;    padding-right: 8px; font-weight: bold;" onclick="OcultarDiv('divCalendariocRC')">X</label>
+			</td>
+		</tr>
+		<tr>
+			<td width="10%"></td>
+			<td>
+				<label class="font-family: arial;font-size: 17px;color: black;">Fecha inicio:</label>
+			</td>
+			<td>
+				<input type="text" id="txt_fechaIniPedidosRc" class="EG_calendario" autocomplete="off">
+			</td>
+			<td>
+				<label class="font-family: arial;font-size: 17px;color: black;">Fecha fin:</label>
+			</td>
+			<td>
+				<input type="text" id="txt_fechaFinPedidosRc" class="EG_calendario" autocomplete="off">
+			</td>
+			<td rowspan="2">
+				<button type="button" class="btn btn-success" id="btnFechac" style="    padding-top: 1px;padding-bottom: 1px;" onclick="envioRangoFechasRc()">Continuar</button>
+			</td>
+			</tr>
+		<tr>
+			<td align="center" colspan="7" style=" padding-bottom: 15px;">
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>

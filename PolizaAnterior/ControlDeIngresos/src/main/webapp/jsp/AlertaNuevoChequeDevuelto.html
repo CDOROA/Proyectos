@@ -1,0 +1,221 @@
+<div id="popupChq" style="display: none;" class="popupChq">
+	<div class="content-popupChq">
+		<div style="background: #F2F2F2; border: 1px solid #CCCCCC" align="center"><br>
+			<table width="95%">
+				<tr>
+					<td align="center">
+					</td>
+					<td align="right">
+						<button class="btn btn-danger" type="button" style="padding: 3px; width: 30px" onclick="OcultarMtoChq('popupChq')">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<div class="container-fluid divInicialAncho" style="height:550px;">
+
+				<table class="table  table-striped table-hover " id="tblInsert" >
+					<thead>
+						<tr class="colorTbEncabezado" style="color: #fafafa;">
+							<!-- <th class="tbThead">
+								<form action="ChequesDevueltos" method="post" onsubmit="return ConfirmarEnvio()" id="formulario">
+									<input type="hidden" name="vista" id="idIndex" value="Menu2.html"> 
+									<input type="hidden" name="accion" id="idIndex" value="Check">
+									<button type="submit" onclick="return ChecarCheck()" class="btn btn-success btn-sm ">
+										<i class="glyphicon glyphicon-plus"> </i>
+									</button>
+								</form>
+							</th>-->
+							<th class="tbThead">FOLIO CORTE</th>
+							<th class="tbThead">FECHA</th>
+							<th class="tbThead">NUM.CHEQUE</th>
+							<th class="tbThead">IMPORTE</th>
+							<th class="tbThead">MOTIVO</th>
+							<th class="tbThead">BANCO DEPOSITO</th>
+							<th class="tbThead"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%int contador=0;%>
+						<c:forEach var="data" items="${LstDatosCheques}">
+							<tr style="height: 1cm;">
+								<!--  <td align="center">
+									<input type="checkbox" id="${data.getUname()}_${data.getUname_br()}_${data.getFolio_corte_caja()}_${data.getFecha_pro()}_<%=contador%>" name="cbox2" value="${data.getUname()}_${data.getUname_br()}_${data.getFolio_corte_caja()}_${data.getFecha_pro()}_<%=contador%>" form="formulario" class="checarCheck" >
+								</td>-->
+								<form action="ChequesDevueltos" method="post" onsubmit="return ConfirmarEnvio()" id="formulario2">
+									<input align="center" type="hidden" name="txtUname" value="${data.getUname()}"> <input type="hidden" name="txtUnameBr" value="${data.getUname_br()}"> 
+									<input type="hidden" name="txtFolioCorteCaja" value="${data.getFolio_corte_caja()}">
+									<td align="center" style="font-size: 13px;">
+										<b>${data.getFolio_corte_caja()}</b>
+									</td>
+									<td style="font-size: 13px;">
+										<b>${data.getFecha_pro()}</b>
+										<input type="hidden" name="txtFechaPro" value="${data.getFecha_pro()}">
+									</td>
+									<td align="center">
+										<input class="numeroCheques" id="<%=contador%>_txtNumeroCheque" onblur="MotivoInputHidden2(this.id,this);" name="txtNumeroCheque" style="height: 20px" type="text" onKeyPress="return soloNumeros(event);" size="6" placeholder="No.Cheque" form="formulario"> 
+										<input  name="txtNumeroCheque2" id="<%=contador%>_txtNumeroCheque2" style="height: 20px" type="hidden" onKeyPress="return soloNumeros(event);" size="6" placeholder="No.Cheque">
+									</td>
+									<td align="center">
+										<input class="importeCheques" id="<%=contador%>_txtImporteCheque" onblur="MotivoInputHidden3(this.id,this);" name="txtImporteCheque" onKeyPress="return soloNumerosPuntos(event);" 	style="height: 20px" type="text" size="6" placeholder="Importe..." form="formulario"> 
+										<input  name="txtImporteCheque3" id="<%=contador%>_txtImporteCheque3" style="height: 20px" type="hidden" size="6" placeholder="Importe...">
+									</td>
+									<td align="center">
+										<select class="MotivosHidden" onblur="MotivoInputHidden(this.id,this);" id="<%=contador%>_nSelect" name="motivo2" form="formulario">
+											<option value="" disabled selected>Seleccione Motivo...</option>
+											<c:forEach var="dato" items="${LstMotivosChqDev}">
+												<option value="${dato.getId_motivo()}">${dato.getDescripcion()}</option>
+											</c:forEach>
+										</select> 
+										<input id="<%=contador%>_motivo2" class="motivoCheques" name="motivo21" type="hidden">
+									</td>
+									<td align="center">
+										<select class="BancoHidden"  id="<%=contador%>_nSelectbancoDeposito"  onblur="MotivoInputHiddenBanco(this.id,this);" name="bancoDeposito" form="formulario">
+											<option value="" disabled selected>Seleccione Banco Deposito...</option>
+											<c:forEach var="ba" items="${listaBancos}" >
+												<c:if test="${ba.deposito == '1'}">
+													<option value="${ba.cve_banco}" >${ba.nombre_banco}</option>
+												</c:if>												
+											</c:forEach>
+										</select> 
+										<input id="<%=contador%>_bancoDeposito" class="bancoDeposito" name="bancoDeposito" type="hidden">
+									</td>
+									<td align="center"><input type="hidden" name="vista" id="idIndex" value="Menu2.html"> 
+										<input type="hidden" 	name="accion" id="idIndex" value="Eliminar">
+										<button type="submit" class="btn btn-success btn-sm" id="<%=contador%>" onclick="return cancelarUno(this.id)">
+											<i class="glyphicon glyphicon-plus"> </i>
+										</button>
+									</td>
+								</form>
+							</tr>
+							<%contador++;%>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<c:if test="${mostrarAlertaAgregar == '1'}">
+<div id="popupChq" style="display: block;" class="popupChq">
+	<div class="content-popupChq">
+		<div style="background: #F2F2F2; border: 1px solid #CCCCCC" align="center"><br>
+			<table width="95%">
+				<tr>
+					<td align="center">
+					</td>
+					<td align="right">
+					   <form action="ChequesDevueltos" method="post">
+					   		<input type="hidden" name="vista" id="idIndex" value="Menu.html"> 
+							
+						<button class="btn btn-danger" type="submit" style="padding: 3px; width: 30px">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+			
+			<div class="container-fluid divInicialAncho" >
+				<table>						
+					<tr><br>
+							<td align="center">
+								<c:if test="${chequeCancelados == 'chequeCancelados'}">
+									<div id="divMjsExito" style="padding: 3px; width: 400px;">
+										<div class="alert alert-success alert-dismissible fade in">
+											<label id="lbMsjExito" style="font-weight: normal">Cheque(s) Devuelto(s) Guardado(s) <strong>¡Correctamente!</strong></label>
+											<button type="button" class="close"	onclick="OcultarDiv('divMjsExito')">&times;</button>
+										</div>
+									</div>
+								</c:if>
+							</td>
+					</tr>
+				</table>
+				<table class="table  table-striped table-hover " id="tblInsert" >
+					<thead>
+						<tr class="colorTbEncabezado" style="color: #fafafa;">
+							<!--  <th class="tbThead">
+								<form action="ChequesDevueltos" method="post" onsubmit="return ConfirmarEnvio()" id="formulario">
+									<input type="hidden" name="vista" id="idIndex" value="Menu2.html"> 
+									<input type="hidden" name="accion" id="idIndex" value="Check">
+									<button type="submit" onclick="return ChecarCheck()" class="btn btn-success btn-xs ">
+										<i class="glyphicon glyphicon-plus"> </i>
+									</button>
+								</form>
+							</th> -->
+							<th class="tbThead">FOLIO CORTE</th>
+							<th class="tbThead">FECHA</th>
+							<th class="tbThead">NUM.CHEQUE</th>
+							<th class="tbThead">IMPORTE</th>
+							<th class="tbThead">MOTIVO</th>
+							<th class="tbThead">BANCO DEPOSITO</th>
+							<th class="tbThead"></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<c:forEach var="data" items="${LstDatosCheques}">
+							<tr style="height: 1cm;">
+								<!-- <td align="center">
+									<input type="checkbox" id="${data.getUname()}_${data.getUname_br()}_${data.getFolio_corte_caja()}_${data.getFecha_pro()}_<%=contador%>" name="cbox2" value="${data.getUname()}_${data.getUname_br()}_${data.getFolio_corte_caja()}_${data.getFecha_pro()}_<%=contador%>" form="formulario" class="checarCheck" onClick="Arrays(this)">
+								</td>-->
+								<form action="ChequesDevueltos" method="post" onsubmit="return ConfirmarEnvio()" id="formulario2">
+									<input align="center" type="hidden" name="txtUname" value="${data.getUname()}"> <input type="hidden" name="txtUnameBr" value="${data.getUname_br()}"> 
+									<input type="hidden" name="txtFolioCorteCaja" value="${data.getFolio_corte_caja()}">
+									<td align="center" style="font-size: 13px;">
+										<b>${data.getFolio_corte_caja()}</b>
+									</td>
+									<td style="font-size: 13px;">
+										<b>${data.getFecha_pro()}</b>
+										<input type="hidden" name="txtFechaPro" value="${data.getFecha_pro()}">
+									</td>
+									<td align="center">
+										<input class="numeroCheques" id="<%=contador%>_txtNumeroCheque" onblur="MotivoInputHidden2(this.id,this);" name="txtNumeroCheque" style="height: 20px" type="text" onKeyPress="return soloNumeros(event);" size="6" placeholder="No.Cheque" form="formulario"> 
+										<input  name="txtNumeroCheque2" id="<%=contador%>_txtNumeroCheque2" style="height: 20px" type="hidden" onKeyPress="return soloNumeros(event);" size="6" placeholder="No.Cheque">
+									</td>
+									<td align="center">
+										<input class="importeCheques" id="<%=contador%>_txtImporteCheque" onblur="MotivoInputHidden3(this.id,this);" name="txtImporteCheque" onKeyPress="return soloNumerosPuntos(event);" 	style="height: 20px" type="text" size="6" placeholder="Importe..." form="formulario"> 
+										<input  name="txtImporteCheque3" id="<%=contador%>_txtImporteCheque3" style="height: 20px" type="hidden" size="6" placeholder="Importe...">
+									</td>
+									<td align="center">
+										<select class="MotivosHidden" onblur="MotivoInputHidden(this.id,this);" id="<%=contador%>_nSelect" name="motivo2" form="formulario">
+											<option value="" disabled selected>Seleccione Motivo...</option>
+											<c:forEach var="dato" items="${LstMotivosChqDev}">
+												<option value="${dato.getId_motivo()}">${dato.getDescripcion()}</option>
+											</c:forEach>
+										</select> 
+										<input id="<%=contador%>_motivo2" class="motivoCheques" name="motivo21" type="hidden">
+									</td>
+									
+									
+									
+									
+									<td align="center">
+										<select  class="BancoHidden" id="<%=contador%>_nSelectbancoDeposito"  onblur="MotivoInputHiddenBanco(this.id,this);" name="bancoDeposito" form="formulario">
+											<option value="" disabled selected>Seleccione Banco Deposito...</option>
+											<c:forEach var="ba" items="${listaBancos}" >
+												<c:if test="${ba.deposito == '1'}">
+													<option value="${ba.cve_banco}" >${ba.nombre_banco}</option>
+												</c:if>												
+											</c:forEach>
+										</select> 
+										<input id="<%=contador%>_bancoDeposito" class="bancoDeposito" name="bancoDeposito" type="hidden">
+									</td>
+									<td align="center"><input type="hidden" name="vista" id="idIndex" value="Menu2.html"> 
+										<input type="hidden" 	name="accion" id="idIndex" value="Eliminar">
+										<button type="submit" class="btn btn-success btn-sm" id="<%=contador%>" onclick="return cancelarUno(this.id)">
+											<i class="glyphicon glyphicon-plus"> </i>
+										</button>
+									</td>
+								</form>
+							</tr>
+							<%contador++;%>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</c:if>

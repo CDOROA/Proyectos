@@ -1,0 +1,309 @@
+<div id="modalFormulario" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			
+			<div class="modal-header" style=" padding-bottom: 0px;padding-top: 10px;">
+				<div class=" col-12 col-sm-12 col-md-12 col-lg-12 row" >
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center; padding: 0px">
+						<h4 class="modal-title" id="myLargeModalLabel" style="color:#0095ff">Cont&aacute;ctenos</h4>
+					</div>
+				</div>
+			</div>
+			
+			 <div class="modal-body">
+			 			 
+			 	<!-- MENSAJES DE ALERTA -->
+			 	<div class=" col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row" >
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center; padding: 0px">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert"  id="divAdvertenciaContactenos" style="display: none;    padding-top: 6px;padding-bottom: 4px;">
+								<label id="msjAdvertenciaContactenos" class="EPP_lb_size_14" style="font-weight: bold"></label>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>						      
+							<div class="alert alert-danger alert-dismissible fade show" role="alert"  id="divErrorContactenos" style="display: none;    padding-top: 6px;padding-bottom: 4px;">
+								<label id="msjErrorContactenos" class="EPP_lb_size_14" style="font-weight: bold"></label>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>							
+							<div class="alert alert-success alert-dismissible fade show" role="alert"  id="divCorrectoContactenos" style="display: none;    padding-top: 6px;padding-bottom: 4px;">
+								<label id="msjCorrectoContactenos" class="EPP_lb_size_14" style="font-weight: bold"></label>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>								
+						</div>
+					</div>	
+				</div>
+				
+				<div class=" col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row" >
+						<div class="col-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Nombre</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+											<!-- <div class="input-group-text"><span><i class="fa fa-user fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div>  -->
+												<div class="input-group-text"><img src="images/pencil.png" style="cursor: pointer; max-width: 24px;"></div>
+												
+											</div>
+											<input id="txt_nombreContacto" name="txt_nombreContacto" type="text" placeholder="Nombre" class="form-control">
+										</div> 
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center; padding: 10px">                            
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Apellido Paterno</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<!-- <div class="input-group-text"><span><i class="fa fa-user fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+												<div class="input-group-text"><img src="images/pencil.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<input id="txt_paternoContacto" name="txt_paternoContacto" type="text" placeholder="Apellido paterno" class="form-control">
+										</div> 
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Apellido Materno</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center">
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<!--  <div class="input-group-text"><span><i class="fa fa-user fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+												<div class="input-group-text"><img src="images/pencil.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<input id="txt_maternoContacto" name="txt_maternoContacto" type="text" placeholder="Apellido materno" class="form-control">
+										</div> 
+									</td>
+								</tr>
+							</table>	                            
+						</div>                    
+					</div>
+				</div>
+								
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-8 col-lg-8" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Estado</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group mb-2" >
+											<div class="input-group-prepend">
+												<!-- <div class="input-group-text"><span><i class="fa  fa-location-arrow fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+												<div class="input-group-text"><img src="images/estado.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<select id="select_estadoContacto" class="form-control" onchange="valorSelect(value);">
+												<option value="0" >-- Selecciona --</option>						
+												<c:forEach var="estado" items="${listEstados}">
+													<option value="${estado.cve_Estado}" >${estado.nombre_estado}</option>
+												</c:forEach>
+											</select>
+											<input type="hidden" id="txt_estado" value="gdl">
+										</div> 
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-12 col-sm-12  col-md-4 col-lg-4" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Telefono</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<!-- <div class="input-group-text"><span><i class="fa fa-phone fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+												<div class="input-group-text"><img src="images/telefono.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<input id="txt_telefonoContacto" name="txt_telefonoContacto" type="text" placeholder="Numero a 10 digitos"   maxlength="10" onKeyPress="return EsNumero(event);"class="form-control">
+										</div> 
+									</td>
+								</tr>
+							</table>	                            
+						</div>
+					</div>                    
+				</div>
+				
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row">							
+						<div class="col-12 col-sm-12  col-md-8 col-lg-8" style="text-align: center; padding: 10px">						
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Tipo Negocio:</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: left;">
+										<div class="input-group mb-2" >
+											<div class="input-group-prepend">
+												<!-- <div class="input-group-text"><span><i class="fa  fa-location-arrow fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+																<div class="input-group-text"><img src="images/tipoEmpresa.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<select id="select_tipoNegocio" class="form-control" onchange="valorSelect(value);">
+												<option value="1" >Refaccionaria</option>
+												<option value="2" >Taller</option>
+												<option value="3" >Flotilla</option>
+												<option value="4" >Llantera</option>
+												<option value="5" >Particular</option>	
+												<option value="6" >Otro</option>	
+											</select>
+										</div> 
+									</td>
+								</tr>
+							</table>                        
+						</div> 
+					
+						<div class="col-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center; padding: 10px">							
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Eres cliente</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"> 
+									    <div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="radioClienteContacto" id="radio_noContacto" value="radio_noContacto" checked="checked" onclick="ocultarClienteContacto()">
+											<label class="form-check-label" for="inlineRadio1" style="font-size: 14px; ">No</label>
+									    </div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="radioClienteContacto" id="radio_siContacto" value="radio_siContacto" onclick="mostrarClienteContacto()">
+											<label class="form-check-label" for="inlineRadio2"  style="font-size: 14px">Si</label>
+										</div>
+									</td>
+									<td>
+										<div class="input-group mb-2" id="div_txt_clienteContacto" style="display: none">
+											<div class="input-group-prepend">
+											 	<div class="input-group-text"><span><i class="fa fa-address-card-o fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div>
+											</div>
+											<input id="txt_clienteContacto" type="text" placeholder="Num. cliente" onKeyPress="return EsNumero(event);" maxlength="5" class="form-control" size="10px" width="50px" >
+										</div> 		
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>                   
+				</div>
+				
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Email</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td> 
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<!--<div class="input-group-text"><span><i class="fa fa-envelope fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+															<div class="input-group-text"><img src="images/mail.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<input id="txt_emailContacto" name="txt_emailContacto" type="text" placeholder="example12@gmail.com" class="form-control">
+										</div> 
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center; padding: 10px">
+							<table width="100%">
+								<tr>
+									<td style="text-align: left">
+										<label class="EPP_lb_size_14" style="font-weight: bold">Mensaje</label><label class="EPP_lb_size_14" style="font-weight: bold; color:#DC143C" > *</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="input-group mb-2" >
+											<div class="input-group-prepend">
+												<!--<div class="input-group-text"><span><i class="fa  fa-pencil-square-o fa  fa-lg "  style="color:#0095ff" aria-hidden="true"></i></span></div> -->
+												<div class="input-group-text"><img src="images/comentario.png" style="cursor: pointer; max-width: 24px;"></div>
+											</div>
+											<textarea class="form-control" id="txt_mensajeContacto" rows="3" placeholder="Descripcion del mensaje"></textarea>
+										</div> 
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+					<div class="row">
+				<ul class="list-unstyled">
+
+						<li>
+							<a href="#!" id="btn_aviso" style="color: #007bff;font-family: Arial Narrow;font-size: 18px;font-style: bold;font-weight: bold;">Políticas de Privacidad</a>							
+						</li>
+					
+					</ul>
+				 </div>	 
+			  </div>
+			 <div class="col-12 col-sm-12 col-md-12 col-lg-12" id="effect"  style="display:none;">
+                <%@include file="MenuPoliticasDePrivacidad.html" %>
+                
+              <ul class="list-unstyled">
+
+						<li>
+							<a href="#!" id="btn_cerrar_aviso" style="color: #007bff;font-family: Arial Narrow;font-size: 18px;font-style: bold;font-weight: bold;">Cerrar Políticas de Privacidad</a>							
+						</li>
+					
+					</ul>  
+                
+  </div>
+   
+      </div>
+			 
+			 <div class="modal-footer">
+		         <button type="button" class="btn btn-secondary" data-dismiss="modal"  data-backdrop="false">Cerrar</button>
+		         <button type="button" class="btn btn-primary" onclick="validarInformacioncontacto()">Enviar correo</button>
+		     </div>
+			 <br><br><br>
+		</div>
+	</div>
+</div>
+    
+
+
+

@@ -1,0 +1,169 @@
+<!-- Modal -->
+		<div class="modal fade bd-example-modal-lg" id="ModalVacante"
+			tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document"
+				style="margin-right: 100px; margin-left: 100px; max-width: 100%;">
+				<div class="modal-content ">
+					<div class="modal-header">
+					<table>
+					<tr>
+					<td>
+					<img id="ImgAdvertencia" class="img-log"
+										src="Images/Alert-48.png"
+										style="height: 50px; width: 50px; border-width: 0px; display: none;">
+					</td>
+					<td>
+						<h5 class="modal-title" id="modalTituloVacante"></h5>
+						</td>
+						</tr>
+						</table>
+						
+						
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<form>
+
+							<div class="form-group">
+								<label for="cmbVacantePuesto">Puesto:</label> <select
+									id="cmbVacantePuesto" class="form-control">
+									<option disable value="0">Seleccionar</option>
+									<c:forEach items="${listaPuestos}" var="puesto">
+										<option value="${puesto.idPuesto}">${puesto.nombrePuesto}</option>
+									</c:forEach>
+								</select>
+
+							</div>
+
+							<div class="form-group">
+								<label for="txtVacanteDescripcion">Descripcion:</label>
+								<textarea class="form-control" id="txtVacanteDescripcion"
+									rows="3"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<label for="txtVacanteHorario">Horario:</label> <input
+									type="text" class="form-control" id="txtVacanteHorario">
+							</div>
+
+							<div class="form-group">
+								<label for="txtVacanteObservaciones">Observaciones:</label>
+								<textarea class="form-control" id="txtVacanteObservaciones"
+									rows="3"></textarea>
+
+							</div>
+
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="txtVacanteLugarTrabajo">Lugar de Trabajo:</label> <input
+										type="text" class="form-control" id="txtVacanteLugarTrabajo">
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="cmbVacanteEstado">Estado:</label> <select
+										id="cmbVacanteEstado" class="form-control">
+										<option value="0">Seleccionar</option>
+										<option value="1">AGUASCALIENTES</option>
+										<option value="2">BAJA CALIFORNIA</option>
+										<option value="3">BAJA CALIFORNIA SUR</option>
+										<option value="4">CAMPECHE</option>
+										<option value="5">COAHUILA</option>
+										<option value="6">COLIMA</option>
+										<option value="7">CHIAPAS</option>
+										<option value="8">CHIHUAHUA</option>
+										<option value="9">CDMX</option>
+										<option value="10">DURANGO</option>
+										<option value="11">GUANAJUATO</option>
+										<option value="12">GUERRERO</option>
+										<option value="13">HIDALGO</option>
+										<option value="14">JALISCO</option>
+										<option value="15">ESTADO DE MEXICO</option>
+										<option value="16">MICHOACAN</option>
+										<option value="17">MORELOS</option>
+										<option value="18">NAYARIT</option>
+										<option value="19">NUEVO LEON</option>
+										<option value="20">OAXACA</option>
+										<option value="21">PUEBLA</option>
+										<option value="22">QUERETARO</option>
+										<option value="23">QUINTANA ROO</option>
+										<option value="24">SAN LUIS POTOSI</option>
+										<option value="25">SINALOA</option>
+										<option value="26">SONORA</option>
+										<option value="27">TABASCO</option>
+										<option value="28">TAMAULIPAS</option>
+										<option value="29">TLAXCALA</option>
+										<option value="30">VERACRUZ</option>
+										<option value="31">YUCATAN</option>
+										<option value="32">ZACATECAS</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="form-row">
+								<div class="form-group col-md-4">
+									<label for="cmbVacanteEmpresa">Empresa Solicitante:</label> <select
+										id="cmbVacanteEmpresa" class="form-control">
+										<option value="0">Seleccionar</option>
+										<c:forEach var="cdo" items="${listaCDOs}">
+											<option value="${cdo.cveEmpresa}">${cdo.nombreComercial}</option>
+										</c:forEach>
+									</select>
+								</div>
+
+								<div class="form-group col-md-4">
+									<label for="txtVacantefechaPublicacion">fecha de
+										Publicacion:</label>
+									<!-- <input type="text" class="form-control"
+										id="txtVacantefechaPublicacion"> -->
+									<input type="date" class="form-control"
+										id="txtVacantefechaPublicacion" name="trip-start">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="cmbVacanteEstatus">Estatus:</label> <select
+										id="cmbVacanteEstatus" class="form-control">
+										<option value="">Seleccionar</option>
+										<option value="0">Vigente</option>
+										<option value="1">No Vigente</option>
+									</select>
+								</div>
+							</div>
+						</form>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<div id="divBonotesActualizar">
+							 
+							<button type="button" class="btn btn-primary"
+								onclick="ActualizarDatosVacante()">Actualizar Datos</button>
+							<hiden id="hiddenIDVacante"></hiden>
+						</div>
+						<div id="divConfirmarBaja" style="display: none;">
+						
+										<button type="button" class="btn btn-danger"
+											onclick="EliminarRegistroVacente()">Eliminar</button>
+										<button type="button" class="btn btn-default"
+											onclick="CancelarEliminarRegistroVacante()">Cancelar</button>
+								
+						</div>
+						
+						<div id="divBonotesAgregar" style="display: none;">
+							 
+							<button type="button" class="btn btn-success"
+								onclick="AgregarNuevaVacante()">Guardar Datos</button>
+							<hiden id="hiddenIDVacante"></hiden>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN Modal -->

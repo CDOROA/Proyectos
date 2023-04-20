@@ -1,0 +1,47 @@
+<div id="divCentroMEnsajes" style="display: none;" class="popupImagenes">
+	<div class="content-popupImagenes" style="background-color: white">
+		<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+			<div
+				class=" col-12 col-sm-12 col-md-12 col-lg-12 alert alert-primary"
+				style="text-align: left; padding: 3px; margin: 0px">
+				<div class='row'
+					style='padding: 0px; margin: 0; text-align: center;'>
+					<div class=" col-6 col-sm-6 col-md-6 col-lg-6 "
+						style="text-align: left; padding: 3px; margin: 0px">
+						<img src="${pageContext.request.contextPath}/images/info.png"></img>
+						<strong><label id="lblCentroMensajesTotal"
+							class="ECC_lb_size_14">Centro de Mensajes</label></strong>
+					</div>
+					<div class=" col-6 col-sm-6 col-md-6 col-lg-6"
+						style="text-align: right; padding: 3px; margin: 0px">
+						<img  id="CentroMensajesBtnCerrar" 
+							src="${pageContext.request.contextPath}/images/cerrar_alerta.png"
+							onclick="OcultarDiv('divCentroMEnsajes');"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+			<div class=" col-12 col-sm-12 col-md-12 col-lg-12 alert"
+				style="text-align: left; padding: 3px; margin: 0px">
+
+				<div id="tabs">
+					<ul>
+						<li><a href="#tabs-1"><label
+								id="lblCentroMensajesPenditnes"></label></a></li>
+						<li><a href="#tabs-2"><label id="lblCentroMensajesLeidos"></label></a></li>
+					</ul>
+					<div id="tabs-1" style="overflow: auto; height: 300px;">
+						<div id="divContenedorMensajesPendientes" class="my-3 p-3 bg-body rounded shadow-sm">
+						</div>
+					</div>
+					<div id="tabs-2" style="overflow: auto; height: 300px;">
+						<div id="divContenedorMensajesLeidos" class="my-3 p-3 bg-body rounded shadow-sm">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
