@@ -1,0 +1,59 @@
+<div style="height: 5px"></div>
+<!-- FILTROS DE BUSQUEDA  -->	
+<table align="center" width="90%" style="border: 1px solid #DDDDDD;">
+	<tr>
+		<td>
+			<div style="padding:0px; width:100%;">
+				<br>
+				<table width="95%" align="center" > 
+	              	<tr>
+                        <td>
+                        	<label class="EG_lbtexto">Fecha Inicio:</label>
+                       	</td>
+                       	<td>
+                       		<input type="text" id="txt_fechaIniConcentrado" class="EG_calendario">
+                       	</td>
+                       	<td>
+                       		<label class="EG_lbtexto">Fecha Fin:</label>
+                       	</td>
+                       	<td>
+                       		<input type="text" id="txt_fechaFinConcentrado" class="EG_calendario">
+                       	</td>
+                       	<td>
+                       		<label class="EG_lbtexto">Estatus:</label>
+                       	</td>
+                       	<td>
+	                      	<select id="cmbEstatusConcentrado"  name="cmbEstatus" class="EG_cmb">	
+								<c:forEach var="stsLin" items="${listaEstatusLinea}">
+									<option value="${stsLin.id_estatus}">${stsLin.nombre_estatus}</option>
+								 </c:forEach>
+							</select>
+	                    </td>
+	                    <td align=left>
+	                        <button class="btn btn-info" type="submit"  style="padding:3px; width:120px"   onclick="obtieneConcentradoLineasBancariasPendientesBD()"  >
+								<i class="glyphicon glyphicon-search"></i>Buscar
+							</button>
+	                    </td>	
+	                    <td>
+	                        <button id="btn_confirmaAsignacionEncargado" class="btn btn-success" type="submit"  style="padding:3px; font-size:13px;  width: 170px" onclick="asignaEncargadoLineaBancaria()"  >
+								<i class="glyphicon glyphicon-ok"></i> Asignar Linea
+							</button>
+	                    </td>                   
+	               	</tr>
+				</table>
+				<br>
+			</div>
+		</td>
+	</tr>
+</table>
+<br>
+<table align="center" width="100%">
+	<tr>
+		<td align="center">
+			<div id="grid_concentradoDeBancosXUsu" style="font-family: arial; font-size: 11px">
+					
+			</div>
+		</td>
+	</tr>
+</table>
+

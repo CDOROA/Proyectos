@@ -1,0 +1,60 @@
+<div id="divEliminarArticulo" style="display: none;" class="popupImagenes">
+    <div class="content-popupImagenes" style=" background-color: white">
+    	<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12 alert alert-primary" style="text-align:left;padding: 3px ; margin: 0px">
+    			<div class='row' style='padding: 0px; margin: 0; text-align: center;'>
+    				<div  class=" col-6 col-sm-6 col-md-6 col-lg-6 " style="text-align: left;padding: 3px ; margin: 0px">  
+						<img src="${pageContext.request.contextPath}/images/warning32.png" ></img>	
+						<strong><label class="ECC_lb_size_14">Eliminar Art&iacute;culo del Carrito</label></strong>			
+		    		</div>
+		    		<div  class=" col-6 col-sm-6 col-md-6 col-lg-6" style="text-align: right;padding: 3px ; margin: 0px">  
+						<img src="${pageContext.request.contextPath}/images/cerrar_alerta.png" onclick="OcultarDiv('divEliminarArticulo')"></img>				
+		    		</div>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	<div class='row  justify-content-center' style='padding: 0px; margin: 0; text-align: right; '>    	
+   			<div  class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:left;">
+   				<br>
+    			<img id="EliminarArticulo_Imagen" style ="width: 98%" src='https://www.cdoautopartes.com.mx/image//img_productos/N12Y_1.jpg' >
+    		</div>
+    		<div  class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:left;" >
+    			<br>
+    			<strong><label id="EliminarArticulo_Descripcion" class="ECC_lb_size_16" style="color:#00498A; font-weight: bold"> </label></strong>
+    			<br><label class="ECC_lb_size_12"> ARTICULO:</label><label id="EliminarArticulo_NumArt" class="ECC_lb_size_12" > </label>
+    			<br><br>
+    		</div> 
+    	</div>
+    	    	
+    	<div class='row  justify-content-center' style='padding: 0px; margin: 0; text-align: right; '>
+    		<div id="divTablaCantidades" class=" col-12 col-sm-12 col-md-6 col-lg-6" style="text-align:left;" >
+    			<table   width="98%" align="center" class="table" >
+    				<thead  style="padding: 2px">
+    					<tr>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Cantidad <br> Pedida</label></td>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Surtido <br>  CDO-CDMX </label> </td>
+    						<td width="33%" align="center"  style="padding: 2px"><label class="ECC_lb_size_12">Surtido <br>  CDO Guadalajara</label></td>
+    				</thead>
+    				<tbody>
+    					<tr>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black">20</label></strong></td>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black"> 12</label></strong></td>
+	    					<td align="center"><strong><label class="ECC_lb_size_16" style="font-weight: bold; color:black"> 15</label></strong></td>		    					
+	    				</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    	
+
+		 
+		 <div class='row' style='padding: 0px; margin: 0; text-align: center '>
+
+    		<div  class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;" > 
+		   		<button class="btn btn-danger" id="EliminarArticulo_BotonEiminar" style="width: 40%">Eliminar</button>	
+    		</div>    		
+    	  </div>
+		 <br>
+    </div>
+</div>	

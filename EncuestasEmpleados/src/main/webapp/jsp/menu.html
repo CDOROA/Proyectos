@@ -1,0 +1,63 @@
+<nav id="header" class="navbar navbar-expand-md fixed-top bg-azul position-static"
+	style="padding-top: 0px; padding-bottom: 0px;">
+
+	<table style="width: 100%">
+		<tr>
+			<td style="width: 5%; display:none;" class="centrar"><img id="Image1"
+				class="img-log" src="images/logocdo.png"
+				style="height: 50px; width: 50px; border-width: 0px;"></td>
+				<td>
+				<span class="centrar" id="lbl_titulo_CDO"
+							style="color: White; font-family: Arial; font-weight: bold;">Centro
+								de Distribución Oriente SA de CV</span>
+				</td>
+				<td>
+				<div style="display: inline;">
+				<form action="inicio" method="post">
+									<label class="texto_menu" style="display:none;"><img
+										style="height: 16px; width: 16px;" src="images/User.png"
+										class="img-fluid centrar invert" alt=""/> ${nombre}</label>&nbsp;&nbsp;&nbsp; <label
+										class="texto_menu" style="display:none;"><img
+										style="height: 16px; width: 16px;" src="images/Globe.png"	
+										class="img-fluid centrar invert" alt="" /> ${nombreCdo}</label>&nbsp;&nbsp;&nbsp;
+									<label class="texto_menu" style="display:none;"><img
+										style="height: 16px; width: 16px;" src="images/Home.png"
+										class="img-fluid centrar invert" alt="" /> ${departamento}</label> <label
+										class="texto_menu"style="display:none;">${uname}</label>
+									<input type="hidden" value="${idEmpleado}" id="idEvaluador">
+								</form>
+								</div>
+				</td>
+			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="container-fluid">
+					<nav class="nav">	
+					  <a class="nav-link Opc-Menu" id="menu-evaluacion" href="${pageContext.request.contextPath}/EvaluacionesServlet?accion=Inicio">Evaluaciones</a>
+					  		
+					</nav>
+					
+				</div>
+			</td>
+			<td><a id="btnCerrar" class="btn btn-danger justify-content-end" href="${pageContext.request.contextPath}/EmpleadosServlet?accion=Cerrar">Cerrar Sesión</a></td>
+		</tr>
+		
+	</table>
+</nav>
+
+<nav id='navEvaluacion' class='navbar text-center' style="display:none;">
+<div id="divInstrucciones" class='text-center'>
+<h5 style="text-align:center;">Encuesta 360°</h5>
+<h5>El objetivo de esta evaluacion es conocer su opinión sobre la persona que evaluará y que contribuya  a un mejor desempeño.<b> Esta evaluación es totalmente anónima y confidencial, por lo que le pedimos sea lo más objetivo y sincero en su evaluación.</b></h5>
+ <h5>Instrucciones: Lea cuidasomante cada competencia y seleccione una calificación que mejor describa al Evaluado,  dónde 5 es el más alto y 1 el más bajo, de acuerdo a la siguiente escala.  Si la calificación es 1 o  2 favor de justificar con un breve comentario.  </h5>
+ </div>
+		  
+		  <div id="opciones" class='container text-light'>
+		  <p>SIEMPRE</p>|<p>CASI SIEMPRE</p>|<p>A VECES</p>|<p>CASI NUNCA</p><p>NUNCA</p>
+		 <div class="numero">
+		
+		 <p >5</p><p >4</p><p >3</p><p>2</p><p>1</p>
+		 </div>
+		  </div>
+		</nav>

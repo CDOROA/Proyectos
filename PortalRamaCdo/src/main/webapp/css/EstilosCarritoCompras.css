@@ -1,0 +1,701 @@
+.bordes
+{
+/* 	border: hidden !important; */
+	    font-weight: bold;
+    color: #DC143C;
+        border: 2px solid #8d8787 !important;
+    padding-top: 0px !important;
+    font-size: 14px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important
+    ;
+    text-align: center;
+}
+.anchoThDetArt
+{
+	width: 7% !important;
+}
+.anchoThDetArtCombustible
+{
+	width: 7% !important;
+}
+.anchoThDetArtArmadora
+{
+	width: 15% !important;
+}
+.anchoThDetArtModelos
+{
+	width: 20% !important;
+}
+.etiquetado
+{
+	color: white;
+    margin-bottom: 0px;
+    background: red;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.etiquetado_ACES
+{
+	font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #f1f1f1;
+    background: linear-gradient(0deg, #dc3545 0%, rgb(0 57 112) 100%);
+    border-radius: 6px;
+}
+
+.ECC_img_articulos
+{
+	width:100px;	
+	height: 100px
+}
+.dataTables_length
+{
+	text-align: left !important;
+}
+.ECC_img_logosKwxOep
+{
+	width:50px;	
+}
+
+.ECC_img_EstatusPedido
+{
+	width:30px;	
+}
+
+.modalDetalle
+{
+	padding-right: 0px !important;
+}
+
+.ECC_lb_size_14
+{
+	font-family: Arial; font-size:14px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_10
+{
+	font-family: Arial; font-size:10px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_11
+{
+	font-family: Arial; font-size:11px;  font-weight: normal;margin: 0px;
+}
+
+
+
+.ECC_lb_size_12
+{
+	font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_12_edo_Cuenta
+{
+	font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_20
+{
+	font-family: Arial; font-size:20px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_18
+{
+	font-family: Arial; font-size:18px;  font-weight: normal;margin: 0px;
+}
+
+
+
+.ECC_lb_size_22
+{
+	font-family: Arial; font-size:22px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_24
+{
+	font-family: Arial; font-size:24px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_26
+{
+	font-family: Arial; font-size:26px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_titulos
+{
+	font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_subtitulos
+{
+	font-family: Arial; font-size:14px;  font-weight: normal;margin: 0px;color:#DC143C; text-decoration: underline;
+}
+
+.ECC_lb_size_12_carrito{
+  max-width: 80%;
+  font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;
+}
+
+.ECC_lb_size_16
+{
+	font-family: Arial; font-size:16px;  font-weight: normal;margin: 0px;
+}
+
+.EG_hide
+{
+   display:none;
+}
+
+.ECC_lb_descripcion_carrito
+{
+	font-family: Arial; font-size:16px;  font-weight: bold;margin: 0px;color:#0174DF;
+}
+
+.ECC_lb_precio_carrito
+{
+	font-family: Arial; font-size:18px;  font-weight: bold;margin: 0px;color:#DC143C;
+}
+
+
+/*** ESTILOS PARA PAGINADO Y FILTROS DE CARRITO DE COMPRAS ***/
+#tb_articulos_length, #tb_articulos_filter
+{
+	text-align: center;
+    justify-content: center;
+}
+
+#tb_articulos_length label{
+    font-family: arial;
+    font-size: 14px;
+    text-align: left;
+    width:40%;
+    justify-content: left;
+    color:black;
+    display:inline-flex;
+}
+
+
+#tb_articulos_filter label
+{
+    font-family: arial;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    color:black;
+}
+
+
+/* table.dataTable thead .sorting_asc, */
+/* table.dataTable thead .sorting_desc { */
+/*   border-bottom: 5px solid red; */
+/* } */
+
+#tb_articulosDetalle_length, #tb_articulosDetalle_filter
+{
+	text-align: center;
+    justify-content: center;
+}
+
+#tb_articulosDetalle_length label{
+    font-family: arial;
+    font-size: 14px;
+    text-align: left;
+    width:65%;
+    justify-content: left;
+    color:black;
+    display:inline-flex;
+}
+
+
+
+
+#tb_articulosDetalle_filter label
+{
+    font-family: arial;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    color:black;
+}
+
+
+#tb_articulos_info
+{
+    font-family: arial;
+    width:100%;
+    font-size: 12px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    padding-top:10px;
+    color:#007BFF;
+}
+
+#tb_articulos_paginate 
+{
+	text-align: right;
+	width:100%;
+	display:inline-flex;
+	justify-content: center;
+}
+
+#tb_articulos_paginate ul li 
+{
+	 font-family: arial;
+	 font-size: 12px
+	 
+}
+
+
+/*** ESTILOS PARA PAGINADO Y FILTROS DE PEDIDO ACTUAL EN EL CARRITO DE COMPRAS ***/
+#tb_articulosPedCarrito_length, #tb_articulos_filter
+{
+	text-align: center;
+    justify-content: center;
+}
+
+#tb_articulosPedCarrito_length label{
+    font-family: arial;
+    font-size: 14px;
+    text-align: left;
+    width:40%;
+    justify-content: left;
+    color:black;
+    display:inline-flex;
+}
+
+
+#tb_articulosPedCarrito_filter label
+{
+    font-family: arial;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    color:black;
+}
+
+#tb_articulosPedCarrito_info
+{
+    font-family: arial;
+    width:100%;
+    font-size: 12px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    padding-top:10px;
+    color:#007BFF;
+}
+
+#tb_articulosPedCarrito_paginate 
+{
+	text-align: right;
+	width:100%;
+	display:inline-flex;
+	justify-content: center;
+}
+
+#tb_articulosPedCarrito_paginate ul li 
+{
+	 font-family: arial;
+	 font-size: 12px
+	 
+}
+
+
+
+
+/*** ESTILOS PARA PAGINADO Y FILTROS TABLA DETALLE ESTADO DE CUENTA  ***/
+#tb_facturasEdoCuenta_length, #tb_facturasEdoCuenta_filter
+{
+	text-align: center;
+    justify-content: center;
+}
+
+#tb_facturasEdoCuenta_length label{
+    font-family: arial;
+    font-size: 14px;
+    text-align: left;
+    width:40%;
+    justify-content: left;
+    color:black;
+    display:inline-flex;
+}
+
+
+#tb_facturasEdoCuenta_filter label
+{
+    font-family: arial;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    color:black;
+}
+
+#tb_facturasEdoCuenta_info
+{
+    font-family: arial;
+    width:100%;
+    font-size: 12px;
+    text-align: center;
+    display:inline-flex;
+    justify-content: center;
+    padding-top:10px;
+    color:#007BFF;
+}
+
+#tb_facturasEdoCuenta_paginate 
+{
+	text-align: right;
+	width:100%;
+	display:inline-flex;
+	justify-content: center;
+}
+
+#tb_facturasEdoCuenta_paginate ul li 
+{
+	 font-family: arial;
+	 font-size: 12px
+	 
+}
+
+
+
+
+
+
+
+
+
+
+.ECC_img_articulos_carrito
+{
+	width:100px;	
+	height: 100px
+}
+
+	.tabla_importes {
+	WIDTH: 240PX;
+    MAX-WIDTH: 240PX !IMPORTANT;
+       }
+
+/* ESTILOS PARA DIMERNCIONES MOVILES */
+@media (max-width: 767px)
+{
+	.td_facturasEdoCuenta
+	{
+		width: 100% !important;
+	}
+	.tabla_importes_Movil {
+	WIDTH: 180PX;
+    MAX-WIDTH: 180PX !IMPORTANT;
+       }
+       
+	.tb_td_foto_articulo {
+	text-align:center;
+           width:60%;
+       }
+	.ECC_img_articulos
+	{
+		width:80px;
+		height: 80px	
+	}
+	
+	.ECC_img_logosKwxOep
+	{
+		width:70px;	
+	}
+	
+	.ECC_img_EstatusPedido
+	{
+		width:35px;	
+	}
+		
+	
+	
+	
+	.ECC_lb_size_26
+	{
+		font-family: Arial Black; font-size:22px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_24
+	{
+		font-family: Arial; font-size:22px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_14
+	{
+		font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_16
+	{
+		font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px; 
+	}
+	
+	.ECC_lb_size_22
+	{
+		font-family: Arial; font-size:20px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_18
+	{
+		font-family: Arial; font-size:18px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_10
+	{
+		font-family: Arial; font-size:9px;  font-weight: normal;margin: 0px;
+	}
+	
+	.ECC_lb_size_12_edo_Cuenta
+	{
+		font-family: Arial; font-size:10px;  font-weight: normal;margin: 0px;
+	}
+	
+	
+	.ECC_lb_titulos
+	{
+		font-family: Arial; font-size:11px;  font-weight: normal;margin: 0px;
+	}
+	
+	.imgGaleriaGrande
+	{
+		display: none;
+	}
+	
+	.imgGaleriaMini
+	{
+		witdh:80%
+	}
+}
+
+/***  CARRITO DE COMPRAS RESPONSIVO  ***/
+@media screen and (max-width: 767px) {
+       
+       #tb_articulos {
+           width:100%;
+       }
+      .td_facturasEdoCuenta
+	{
+		width: 100% !important;
+	}
+       #th_articulos1 {
+           display: none;
+       }
+       #th_articulos2 {
+           display: none;
+       }
+       #th_articulos3 {
+           display: none;
+       }
+       #tr_articulos:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       #tr_articulos #td_articulos:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       #tbd_articulos #td_articulos {
+           display: block;
+           text-align:center;
+       }
+       #tbd_articulos  #td_articulos:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       
+       
+        #tb_articulosPedCarrito {
+           width:100%;
+       }
+       #th_articulosPedCarrito1 {
+           display: none;
+       }
+       #th_articulosPedCarrito2 {
+           display: none;
+       }
+       #th_articulosPedCarrito3 {
+           display: none;
+       }
+       #tr_articulosPedCarrito:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       #tr_articulosPedCarrito #td_articulosPedCarrito:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       #tbd_articulosPedCarrito #td_articulosPedCarrito {
+           display: block;
+           text-align:center;
+       }
+       #tbd_articulosPedCarrito  #td_articulosPedCarrito:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       
+       
+       #tb_facturasEdoCuenta {
+           width:100%;
+       }
+       #th_facturasEdoCuenta1 {
+           display: none;
+       }
+       #tr_facturasEdoCuenta:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       #tr_facturasEdoCuenta #td_facturasEdoCuenta:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       #tbd_facturasEdoCuenta #td_facturasEdoCuenta {
+           display: block;
+           text-align:center;
+       }
+       #tbd_facturasEdoCuenta  #td_facturasEdoCuenta:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       
+}
+
+
+
+
+
+
+
+/* ESTILOS PARA GALERIA DE IMAGENES */
+.popupImagenes {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupImagenes {
+    margin:0px auto;
+    margin-top:10%;
+    position:relative;
+    padding:10px;
+    width:95%;
+    min-height:500px;
+    max-height:700px;    
+    border-radius:4px;
+    background-color:transparent;
+    box-shadow: 0 2px 5px transparent;
+    overflow: auto;
+}
+
+.content-popupImagenes h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupImagenes-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+/* ESTILOS PARA ALERTA DE EXISTENCIAS X ARTICULO */
+.popupExistenciasArticulos {
+    left:0%;
+    position: absolute;
+    top: 0%;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupExistenciasArticulos {
+    margin:0px auto;
+    margin-top:10%;
+    position:relative;
+    padding:10px;
+    width:40%;   
+    border-radius:4px;
+    background-color:transparent;
+    box-shadow: 0 2px 5px transparent;
+    overflow: auto;
+}
+
+.content-popupExistenciasArticulos h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 100%;font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupExistenciasArticulos-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+td.tdSugerencia:hover{
+   background-color:red;
+  }
+  
+  .estiloCarritoProductosCERO
+  {
+     color: #007bff;
+    font-family: Arial Narrow;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0px;
+  }
+  .estiloCarritoProductosLleno
+  {
+       color: white;
+    font-family: Arial Narrow;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0px;
+    background-color: red;
+  }

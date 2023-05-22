@@ -1,0 +1,41 @@
+<div id="divOlvidoContrasena" class="container-fluid" style="padding: 0; margin: 0;background-color: #FBFBFB;display:none" >	
+	<br>
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">
+	
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;"></div>		
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;background-color: white; border: 1px solid #DDDDDD; border-radius: 5px">				
+			<div style="height: 15px"></div>
+			<label  class="EPP_lb_size_24" style="font-weight: bold; color:#DC143C">Generar Nueva Contrase&ntilde;a</label>
+			<div style="height: 15px"></div>
+			
+			<div id="divMjsExitoGenerarContrasena" style=" padding:3px; display: none">	
+				<div class="alert alert-primary alert-dismissible fade show" role="alert">
+				  <label id ="lbMsjExitoGenerarContrasena" style="font-weight: normal; font-size: 14px"></label><strong> ¡Correctamente!</strong>  				  
+				</div>	
+			</div>
+			
+			<div id="divMjsErrorGenerarContrasena" style=" padding:3px; display: none">	
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				  <strong>¡Error!</strong> <label id ="lbMsjErrorGenerarContrasena" style="font-weight: normal; font-size: 14px"></label>				  
+				</div>	
+			</div>
+				
+			<form >
+				<div class="form-group" align="left">
+					<input id="txtNumCteRecuperaPsw" type="text" maxlength="7" class="form-control" id="formGroupExampleInput" placeholder="Numero de Cliente" onkeypress="return EsNumero(event)" >
+				</div>
+				<br>				
+				<div class="form-group" align="center">
+					<button type="button" class="btn btn-danger" onclick="generarNuevaContrasena()">Generar Contrase&ntilde;a</button>
+				</div>
+				<div class="form-group" align="center">
+					<button type="button" class="btn btn-link" style="font-family: Arial Narrow; color:#DC143C; text-decoration: underline;" onclick="ocultarDivRecuperarContrasena()">Regresar </button>
+				</div>
+			</form>
+			<div style="height: 15px"></div>	
+		</div>		
+		<div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center;"></div>
+	
+	</div>
+	<br>
+</div>

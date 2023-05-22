@@ -1,0 +1,245 @@
+<div id="receptor" style="width:80%; margin-left:8%;">
+	<br><div id="receptorTITULO" style='background:black; color:white;'><h5>Receptor:</h5></div>
+	<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control " id="rfcReceptor" placeholder="RFC RECEPTOR" readonly value="">
+		      <label for="floatingInputGrid">RFC RECEPTOR</label>
+		      <div class="invalid-feedback">
+       			 RFC no valido o vacio.
+      		</div>
+		      <div style="text-align:right; margin: 2px;">
+		      <button id="btnRegimenFiscalReceptor" class="btn btn-success" onclick="consultaRfc();">ACTUALIZAR</button>
+		    </div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="nombreReceptor" placeholder="NOMBRE RECEPTOR" readonly value="">
+		      <label for="floatingInputGrid">NOMBRE RECEPTOR</label>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="domicilioFiscalReceptor" name="number" placeholder="DOMICILIO FISCAL" onkeyup="validar2('#domicilioFiscalReceptor');" value="">
+		      <label for="floatingInputGrid">DOMICILIO FISCAL</label>
+		       <div class="invalid-feedback">
+       			Ingresa un domicio fiscal.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="regimenFiscalReceptor" placeholder="REGIMEN FISCAL RECEPTOR" readonly value="">
+		      <label for="floatingInputGrid">REGIMEN FISCAL RECEPTOR</label>
+		      <div class="invalid-feedback">
+       			 Regimen fiscal no valido o vacio.
+      		</div>
+		      <div style="text-align:right; margin: 2px;">
+		      
+		      <button id="btnRegimenFiscalReceptor" class="btn btn-success" onclick="actualizaRegimenReceptor();">ACTUALIZAR</button>
+		    </div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control" id="usoCFDIReceptor" placeholder="USO CFDI RECEPTOR" readonly value="">
+		      <label for="floatingInputGrid">USO CFDI RECEPTOR</label>
+		      <div class="invalid-feedback">
+       			Uso de CFDI no valido o vacio.
+      		</div>
+		      <div style="text-align:right; margin: 2px;">
+		      <button id="btnUsoCFDI" class="btn btn-success" onclick="actualizaUsoCFDI();">ACTUALIZAR</button>
+		      
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaTransporte" placeholder="ETIQUETA TRANSPORTE" onkeyup="validar('#etiquetaTransporte');" value="">
+		      <label for="floatingInputGrid">ETIQUETA TRANSPORTE</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta transporte.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaRuta" placeholder="ETIQUETA RUTA" onkeyup="validar('#etiquetaRuta');" value="">
+		      <label for="floatingInputGrid">ETIQUETA RUTA</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta ruta.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaCalle" placeholder="ETIQUETA CALLE" onkeyup="validar('#etiquetaCalle');" value="">
+		      <label for="floatingInputGrid">ETIQUETA CALLE</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta calle.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaNumExt" placeholder="ETIQUETA NUMERO EXTERIOR" onkeyup="validar('#etiquetaNumExt');" value="">
+		      <label for="floatingInputGrid">ETIQUETA NUMERO EXTERIOR</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta numero exterior.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaNumInt" placeholder="ETIQUETA NUMERO INTERIOR" onkeyup="validar('#etiquetaNumInt');" value="">
+		      <label for="floatingInputGrid">ETIQUETA NUMERO INTERIOR</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta numero interior.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaColonia" placeholder="ETIQUETA COLONIA" onkeyup="validar('#etiquetaColonia');" value="">
+		      <label for="floatingInputGrid">ETIQUETA COLONIA</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta colonia.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaCodigoPostal" placeholder="ETIQUETA CODIGO POSTAL" onkeyup="validar('#etiquetaCodigoPostal');" value="">
+		      <label for="floatingInputGrid">ETIQUETA CODIGO POSTAL</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta codigo postal.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaMunicipio" placeholder="ETIQUETA MUNICIPIO" onkeyup="validar('#etiquetaMunicipio');" value="">
+		      <label for="floatingInputGrid">ETIQUETA MUNICIPIO</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta municipio.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaEstado" placeholder="ETIQUETA ESTADO" onkeyup="validar('#etiquetaEstado');" value="">
+		      <label for="floatingInputGrid">ETIQUETA ESTADO</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta estado.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaPais" placeholder="ETIQUETA PAIS" onkeyup="validar('#etiquetaPais');" value="">
+		      <label for="floatingInputGrid">ETIQUETA PAIS</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta pais.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaPedido" placeholder="ETIQUETA PEDIDO" onkeyup="validar('#etiquetaPedido');" value="">
+		      <label for="floatingInputGrid">ETIQUETA PEDIDO</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta pedido.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">	
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaNumCli" placeholder="ETIQUETA NUMERO CLIENTE"  readonly value="">
+		      <label for="floatingInputGrid">ETIQUETA NUMERO CLIENTE</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta numero cliente.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaAgente" placeholder="ETIQUETA AGENTE"  readonly value="">
+		      <label for="floatingInputGrid">ETIQUETA AGENTE</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta agente.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaCondCred" placeholder="ETIQUETA CONDICION CREDITO" onkeyup="validar('#etiquetaCondCred');" value="">
+		      <label for="floatingInputGrid">ETIQUETA CONDICION CREDITO</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta numero cliente.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaTipoFact" placeholder="ETIQUETA TIPO FACTURA" onkeyup="validar('#etiquetaTipoFact');" value="">
+		      <label for="floatingInputGrid">ETIQUETA TIPO FACTURA</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta tipo factura.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaTipoCliente" placeholder="ETIQUETA TIPO CLIENTE" onkeyup="validar('#etiquetaTipoCliente');" value="">
+		      <label for="floatingInputGrid">ETIQUETA TIPO CLIENTE</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta tipo cliente.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+		<br><div class="row g-3">
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaTipoDocto" placeholder="ETIQUETA TIPO DOCUMENTO" onkeyup="validar('#etiquetaTipoDocto');" value="">
+		      <label for="floatingInputGrid">ETIQUETA TIPO DOCUMENTO</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta tipo documento.
+      		</div>
+		    </div>
+		  </div>
+		  <div class="col-md">
+		    <div class="form-floating">
+		      <input type="text" class="form-control bg-editable" id="etiquetaMail" placeholder="ETIQUETA EMAIL" onkeyup="validar('#etiquetaMail');" value="">
+		      <label for="floatingInputGrid">ETIQUETA EMAIL</label>
+		      <div class="invalid-feedback">
+       			Ingresa la etiqueta mail.
+      		</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+        $('input[name="number"]').keyup(function(e)
+                                {
+  if (/\D/g.test(this.value))
+  {
+    // Filter non-digits from input value.
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
+    </script>

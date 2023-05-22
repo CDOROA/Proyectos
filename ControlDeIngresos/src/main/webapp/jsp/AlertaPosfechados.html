@@ -1,0 +1,59 @@
+<div id="popupPosfechado" style="display: none;" class="popupPosfechado">
+	<div class="content-popupPosfechado">
+		<div style="background: #F2F2F2; border: 1px solid #CCCCCC; " align="center"><br>
+			<table width="95%">
+				<tr>
+					<td align="center">
+					</td>
+					<td align="right">
+						<button class="btn btn-danger" type="button" style="padding: 3px; width: 30px" onclick="OcultarDiv('popupPosfechado');MostrarDiv('encabezadoPosfechado');OcultarDiv('tablaFichaPosfechados');">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+						
+					</td>
+				</tr>
+			</table>
+			<br>
+			<div class="container-fluid divInicialAncho">
+			<table style="width: 100% ; display: none" id="tablaFichaPosfechados">
+					<tr>
+						<td align="center"><label style="color:#439ED4;font-size: 20px;" class="EG_lbTituloAzul">Se enviaran los siguientes cheques con la ficha de deposito.</label></td>
+					</tr>
+					<tr height="10px">
+					</tr>
+					<tr>
+						<td>
+							<div align="center" style="display:none">
+								<label>Ficha Deposito: </label>
+								<input type="text" name="txtFichaDeposito" id="txtFichaDeposito" maxlength="15" onKeyPress="return EsNumero(event);" >
+<!-- 									<button type="button" class="btn btn-success btn-xs" onclick="validarFichaDeposito(3,'S')">CONTINUAR <span class="glyphicon glyphicon-ok"></span> -->
+<!-- 									</button> -->
+							</div>
+						</td>
+					</tr>
+				</table>
+				<table style="width: 100%">
+					<tr>
+						<td align="center"><label id="encabezadoPosfechado" style="color:#439ED4;font-size: 15px;" class="EG_lbTituloAzul"></label></td>
+					</tr>
+					<tr height="10px">
+					</tr>
+					<tr>
+						<td>
+							<div align="center">
+									<div id="dgAlertaPosfechados" class="EG_DivGrid"></div>
+									<br>
+								<button type="button"  style="display: none" id="btnConfirmadoAlerta" onclick="actualizarEstatus('confirmado','N')" class="btn btn-sm btn-success"> Confirmar <span class="glyphicon glyphicon-check"></span> </button>
+								<button type="button"  style="display: none" id="btnTransitoAlerta" onclick="actualizarEstatus('transito','N')" class="btn btn-sm btn-info"> Confirmar <span class="glyphicon glyphicon-road"></span> </button>
+								<button type="button"  style="display: none" id="btnDepositadoAlerta" onclick="validarFichaDeposito('deposito','S')" class="btn btn-sm btn-warning"> Confirmar <span class="glyphicon glyphicon-saved"></span> </button>
+								<button type="button"  style="display: none" id="btnCancelarAlertaCaja" onclick="actualizarEstatus('cancelar','N')" class="btn btn-sm btn-success"> Confirmar <span class="glyphicon glyphicon-trash"></span> </button>
+								<button type="button"  style="display: none" id="btnCancelarAlertaCredito" onclick="actualizarEstatus('cancelar','C')" class="btn btn-sm btn-success"> Confirmar <span class="glyphicon glyphicon-trash"></span> </button>
+									</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

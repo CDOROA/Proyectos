@@ -1,0 +1,117 @@
+<div id="impresion"  style="display: none" class="tab-pane fade ">
+	<div style="width: 100%" align="center">
+	<table style="width: 100%">
+	<tr>
+	<td style="padding-left: 20px;">
+			<div style="display: block; background: rgb(209, 211, 212);color: black;height: 53px;width: 100%;padding: 10px 30px;margin-bottom: 5px;margin-top: 28px;   border-radius: 5px;" >
+			<table width="100%">
+			  <tr>
+			    <td style="width: 80%; text-align: center;">
+			    	<label style="   font-size: 17px;margin-bottom: 0px;">INGRESE EL FOLIO DE ENVIO:  </label>
+			    </td>
+			    <td style="width: 20%">
+				    <table width="100%">
+						  <tr>
+						    <td>
+						    	<input id="folioImprimir" onKeyPress="return soloNumeros(event);" type="text">
+						   	</td>
+						   	<td>
+						   		<div style="width: 50px"></div>
+						   	</td>
+						    <td>
+						    	<button class="btn btn-success" id="nolimpiar" type="button" style="padding: 4px; width: 117px; color: white;" onclick="imprimirTicket()">
+									 IMPRIMIR &nbsp;&nbsp;
+								</button>
+								<button class="btn btn-warning" id="limpiar" type="button" style="padding: 4px; width: 117px; color: white; display: none;" onclick="limpiar()">
+									 LIMPIAR &nbsp;&nbsp;
+								</button>
+						    </td>
+						  </tr>
+					</table>
+			    </td>
+			  </tr>
+			</table>
+			</div>
+			<div style="width: 100%" align="center">
+			
+			<br />
+			<input name="checksReimpresion[]" type="checkbox" value="todo" checked="checked" /> Todo&nbsp;&nbsp;
+			
+			<input name="checksReimpresion[]" type="checkbox" value="CREDITO" /> CREDITO&nbsp;&nbsp;
+			
+			<input name="checksReimpresion[]" type="checkbox" value="ENVIOS" /> ENVIOS&nbsp;&nbsp;
+			
+			<input name="checksReimpresion[]" type="checkbox" value="CAJA" /> CAJA&nbsp;&nbsp;
+			</div> 
+
+			<table style="width: 100%; display: none" id="variosTickets">
+			<tr>
+			<td style="width: 20%">
+			</td>
+			<td style="width: 60%">
+				<label style=" font-family: arial;font-size: 17px;font-weight: bold;color: black;margin-bottom: 0px;">Seleccione el CDO del que desea imprimir el folio: <span id="folioSpan"></span></label>
+			</td>
+			<td style="width: 20%">
+			</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<select id="ticketsEnvio"></select>
+				</td>
+				<td align="center">
+								<button class="btn btn-info" type="button" style="padding: 4px; width: 117px; color: white;" onclick="imprimirTicket()">
+									 Reimprimir &nbsp;&nbsp;
+								</button>
+				</td>
+			</tr>
+			</table>
+			
+		</td>
+		<td style="width: 10%">
+		
+		</td>
+		<td style="padding-right: 20px;">
+			<div style="display: block; background: rgb(209, 211, 212);color: black;height: 53px;width: 100%;padding: 10px 30px;margin-bottom: 5px;margin-top: 28px;   border-radius: 5px;" >
+						<table width="100%">
+			  <tr>
+			    <td style="width: 80%; text-align: center;">
+			    	<label style="   font-size: 17px;margin-bottom: 0px;">INGRESE EL FOLIO DEL CORTE:  </label>
+			    </td>
+			    <td style="width: 20%">
+				    <table width="100%">
+						  <tr>
+						    <td>
+						    	<input id="folioImprimirCorte" onKeyPress="return soloNumeros(event);" type="text">
+						   	</td>
+						   	<td>
+						   		<div style="width: 50px"></div>
+						   	</td>
+						    <td>
+						    	<button class="btn btn-success" type="button" style="padding: 4px; width: 117px; color: white;" onclick="imprimirTicketCorte()">
+									 IMPRIMIR &nbsp;&nbsp;
+								</button>
+						    </td>
+						  </tr>
+					</table>
+			    </td>
+			  </tr>
+			</table>
+		</div>
+		<div style="    visibility: hidden;">
+		<br />
+			<input name="" type="checkbox" value="todo"  /> Todo&nbsp;&nbsp;
+			
+			<input name="" type="checkbox" value="CREDITO" /> CREDITO&nbsp;&nbsp;
+			
+			<input name="" type="checkbox" value="ENVIOS" /> ENVIOS&nbsp;&nbsp;
+			
+			<input name="" type="checkbox" value="CAJA" /> CAJA&nbsp;&nbsp;
+		</div>	
+		<div style="height: 55px; display: none" id="variosTicketsCorte"></div>
+		</td>
+	</tr>
+	</table>
+	</div>
+
+	
+</div>	

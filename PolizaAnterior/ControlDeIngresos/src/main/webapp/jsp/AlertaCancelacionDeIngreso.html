@@ -1,0 +1,49 @@
+<div id="divCancelacion" style="display: none;" class="popupCE" >
+    <div class="content-popupCE">
+		<div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+			<br>
+			<table width="95%" align="center">
+				<tr>
+					<td rowspan="2" width=13% align="right">
+						<img src="images/error.png" class="img-responsive navbar-brand-img"></img>
+					</td>
+					<td align="center">	
+						<div style="display: inline">
+							<label class="EG_lbtexto" style="font-weight: bold;"> El folio </label>
+							<strong> <label id="msjCancelacion" style="color:#B22222"></label> </strong>
+							<label class="EG_lbtexto" style="font-weight: bold;">  sera </label>
+							<label style="color:#B22222" ><strong> CANCELADO </strong> </label> 
+							<label class="EG_lbtexto" style="font-weight: bold;"> en el sistema. </label>
+						</div>				
+					</td>
+				</tr>		        					    
+				<tr>
+					<td align="center" colspan="2">
+						<label class="EG_lbtexto" style="font-weight: normal;"> Motivo: </label>
+						<select id="cmbMotCancela"  name="cmbMotCancela"  class="EG_cmb" style="width:170px">	
+							<c:forEach var="mc" items="${listaMotivosCancelacion}">
+								<option value="${mc.id_motivo_cancelacion}" >${mc.motivo_cancelacion}</option>												
+							</c:forEach>
+						</select>
+					</td>
+				</tr>
+			</table>	
+			<br>
+			<table width="70%" align="center">
+				<tr>	
+					<td  class="EG_lbtexto" align="center">
+						<button class="btn btn-primary" type="button"  style="padding:3px; width: 80px ; font-size:13px" onclick="OcultarDiv('divCancelacion');"  >
+							<i class="glyphicon glyphicon-arrow-left"></i> Atras
+						</button>
+					</td>
+					<td  class="EG_lbtexto" align="right">
+						<button class="btn btn-danger" type="button"  style="padding:3px; width: 140px; font-size:13px" onclick="CancelarIngresoXID()"  >
+							<i class="glyphicon glyphicon-remove"></i> Si, Cancelar
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+		</div>
+    </div>
+</div>

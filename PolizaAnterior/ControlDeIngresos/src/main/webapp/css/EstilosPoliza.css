@@ -1,0 +1,17 @@
+.EPOL_lb
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px;
+}
+
+.EPOL_lb_tb
+{
+	font-family: arial; font-size: 12px; font-weight:normal; margin: 0px
+}
+
+.EPOL_lb_hd
+{
+	font-family: arial;font-size: 14px;color:#013ADF;font-weight:bold; margin: 0px
+}

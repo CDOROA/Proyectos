@@ -1,0 +1,207 @@
+
+<div class="row" style="padding: 0px; margin: 0; text-align: center;">		
+
+	<div class=" col-xs-12 col-sm-12 col-md-9 col-lg-9" style="text-align:center;padding: 5px;  ">	
+		<div style="background-color: #F0F8FF; width: 95%">
+			<label class="ECC_lb_size_22" style="color:#003399; font-weight: bold">Productos en Mi Carrito  </label>
+		</div>
+		<div style="height: 5px"></div>
+		<div id="dgDetalleConsultaArticulos" style="font-size: 80%; width:95%;"></div>
+	</div>
+	
+	<div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3" style="text-align:center;padding: 5px;">
+		
+		<br>
+			
+		
+		
+		<div style="border: 1px solid #CCCCCC; width: 100%;"> 
+		
+			<br>
+			<label class="ECC_lb_size_18" style="color:black; font-weight: bold"> Enviar Pedido:</label>
+		    <label id="lb_numeroPedidoEnCarro" class="ECC_lb_size_18" style="color:black; font-weight: bold;  "> </label>
+		    <br> 
+			<label class="ECC_lb_size_12_carrito" style="color:black; font-weight: bold" id="lb_rfcliente" ></label>
+
+			<input type="hidden" name="hide_desglosaIva" id="hide_desglosaIva" value="" >
+			<input type="hidden" name="hide_facDescuento" id="hide_facDescuento" value="" >
+		    <table class="table table-striped"  style="width: 80%;" align="center">
+				<tbody>					
+					<tr>
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Importe Pedido:</th>
+	    				<td style="text-align: right; padding: 2px" class="ECC_lb_size_14" >
+	    	            <label id="lb_subtotalCarritoCompras"   class="ECC_lb_size_14"></label> 			
+	    				</td>
+					</tr>
+					<tr>
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Descuentos:</th>
+	    				<td style="text-align: right;padding: 2px" class="ECC_lb_size_14"><label id="lb_descuentos"   class="ECC_lb_size_14"></label></td>
+					</tr>
+					
+					<tr id="tr_Seguro">
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Seguro:</th>
+	    				<td style="text-align: right;padding: 2px" class="ECC_lb_size_14"> <label id="lb_seguro_cte"   class="ECC_lb_size_14"></label> </td>
+					</tr>
+					<tr id="tr_Maniobra">
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Maniobra:</th>
+	    				<td style="text-align: right;padding: 2px" class="ECC_lb_size_14"> <label id="lb_maniobra_cte"   class="ECC_lb_size_14"></label></td>
+					</tr>
+					<tr>
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Subtotal:</th>
+	    				<td style="text-align: right; padding: 2px" class="ECC_lb_size_14" >
+	    	            <label id="lb_subtotalCarritoComprasSyM"   class="ECC_lb_size_14"></label> 			
+	    				</td>
+					</tr>
+					<tr>
+						<th style="text-align: left; padding: 2px" class="ECC_lb_size_14">Iva:</th>
+	    				<td style="text-align: right;padding: 2px" class="ECC_lb_size_14">
+	    				 <label id="lb_IvaCarritoCompras"   class="ECC_lb_size_14"></label> 
+                        </td>
+					</tr>
+					<tr>
+						<th style="text-align: left; padding: 2px; font-weight: bold" class="ECC_lb_size_14">Total:</th>
+	    				<td style="text-align: right;padding: 2px; font-weight: bold" class="ECC_lb_size_14">
+	    				<label id="lb_TOTALCarritoCompras"   class="ECC_lb_size_14"></label> 
+	    				</td>
+					</tr>				
+				</tbody>
+			</table>
+
+			 <br>
+			 <label style="text-align: left; padding: 2px; font-weight: bold" class="ECC_lb_size_18" >Tipo de Transporte </label>   
+			 <br>
+			 
+			 <table style="width: 70%;" align="center">
+			 	<tbody>
+			 		<tr>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoTransporte" id="rdoTransporte1" value="1" onclick="CalculaCteRecoge()" >
+								  <label class="form-check-label" for="rdoTransporte" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;">
+								    Cliente Recoge
+								  </label>
+							</div>
+			 			</td>
+			 		</tr>
+			 	 	<tr>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoTransporte" id="rdoTransporte2" value="2" onclick="CalculaCteRecoge()">
+								  <label class="form-check-label" for="rdoTransporte2" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;">
+								    Transporte C.D.O
+								  </label>
+							</div>			 			
+			 			</td>
+			 		</tr> 
+			 		
+			 		<tr id="div_tranpsote_expres">
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoTransporte" id="rdoTransporte3" value="3" onclick="CalculaCteRecoge()" >
+								  <label class="form-check-label" for="rdoTransporte3" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;">
+								    Servicio Express
+								  </label>
+							</div>			 			
+			 			</td>
+			 		</tr>
+			 		 
+			 		<tr>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoTransporte" id="rdoTransportep" value="P" onclick="seleccionaPaquetera();" >
+								  <label class="form-check-label" for="rdoTransporteP" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px; ">
+								    Paqueteria
+								  </label>
+								  <select   class="ECC_lb_size_14" style="width: 50%; display:none" id="cboTransportes">
+								  	
+								  </select>
+							</div>			 			
+			 			</td>
+			 		</tr>
+			 		
+			 	</tbody>
+			 </table>
+			 <table style="width: 70%; display:none; " align="center" >
+			 	<tbody>
+			 	<tr>
+			 	<td> Distancias: </td>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <select class="ECC_lb_size_14" style="width: 50%" id="cboDistancias"></select>
+							</div>			 			
+			 			</td>
+			 		</tr> 	
+			 		<tr>
+			 		<td> Seguro y maniobra: </td>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <label class="form-check-label" id="lb_seguro_maniobra_cte" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;" ></label>
+							</div>			 			
+			 			</td>
+			 		</tr> 	
+			 		<tr>
+			 		<td> Distancia cdo: </td>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <label class="form-check-label" id="lb_distancia_cte" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;" ></label>
+
+							</div>			 			
+			 			</td>
+			 		</tr> 	
+			 		</tbody> 		
+			 </table>
+			 <br>
+			 <label style="text-align: left; padding: 2px; font-weight: bold" class="ECC_lb_size_18" >Sucursal de Entrega</label>   
+			 <br>
+			 
+			 <table style="width: 80%;" align="center">
+			 	<tbody>
+			 		<tr>
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoSucursal" id="rdoSucursal1" value="0" checked>
+								  <label class="form-check-label" for="rdoSucursal1" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;">
+								    Sucursal Matriz
+								  </label>
+							</div>
+			 			</td>
+			 		</tr>
+			 		<tr  id="div_consignatarios">
+			 			<td align="left">
+			 				<div class="form-check">
+								  <input class="form-check-input" type="radio" name="rdoSucursal" id="rdoSucursal2" value="S">
+								  <label class="form-check-label" for="rdoSucursal2" style="font-family: Arial; font-size:12px;  font-weight: normal;margin: 0px;">
+								   Consignatario:
+								  </label>
+								  <select class="ECC_lb_size_14"  style="width: 50%" id="cboConsignatarios">
+								  	
+								  </select>
+							</div>			 			
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			 </table> 
+			<br>
+			<div id="div_mensaje_expres_termina_compra" style="display: none;">
+			<label style="text-align: left; padding: 2px; font-weight: bold; color: red;" class="ECC_lb_size_14" >IMPORTANTE!</label>
+				<label style="text-align: left; padding: 2px; font-weight: bold;color: red;" class="ECC_lb_size_12" >EL pedido contiene Articulos que no se envian mediante Servicio Expres.</label>
+			</div>
+			<br>    
+		    <button type="button" class="btn btn-primary" style="width: 80%" onclick="TerminarCompra()">Terminar Compra</button>
+		    <br>
+		     <br>
+		    
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+</div>

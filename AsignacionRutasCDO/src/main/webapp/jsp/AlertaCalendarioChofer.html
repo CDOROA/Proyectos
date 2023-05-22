@@ -1,0 +1,57 @@
+<div id="divCalendarioc" style="display: none;" class="popupCECalendarioc">
+	<div class="content-popupCECalendarioc">
+	<table style="width: 100%">
+		<tr>
+			<td align="center" colspan="6" style="    padding-top: 10px;padding-bottom: 7px;">
+				<label style="font-weight: bold; color: #6696ee; font-size: 16px">SELECCIONE UN RANGO DE FECHAS PARA LA BUSQUEDA</label>
+			</td>
+			<td align="right" colspan="1"  style="vertical-align: top;">
+				<label style="color: #6c757d;font-size: 17px;    padding-right: 8px; font-weight: bold;" onclick="OcultarDiv('divCalendarioc')">X</label>
+			</td>
+		</tr>
+		<tr>
+			<td width="10%"></td>
+			<td>
+				<label class="font-family: arial;font-size: 17px;color: black;">Fecha inicio:</label>
+			</td>
+			<td>
+				<input type="text" id="txt_fechaIniPedidosc" class="EG_calendario" autocomplete="off">
+			</td>
+			<td>
+				<label class="font-family: arial;font-size: 17px;color: black;">Fecha fin:</label>
+			</td>
+			<td>
+				<input type="text" id="txt_fechaFinPedidosc" class="EG_calendario" autocomplete="off">
+			</td>
+			<td rowspan="2">
+				<button type="button" class="btn btn-success" id="btnFechac" style="    padding-top: 1px;padding-bottom: 1px;" onclick="envioRangoFechasc()">Continuar</button>
+			</td>
+			</tr>
+			<tr>
+			<td width="10%"></td>
+			<td colspan="2">
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="mostrarInfoPorc" id="infoPedidoc" value="p">
+				  <label class="form-check-label" for="infoPedidoc">
+				    Mostrar informacion por pedido
+				  </label>
+				</div>
+			</td>
+			<td colspan="2">
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="mostrarInfoPorc" id="infoFacturac" value="f" checked>
+				  <label class="form-check-label" for="infoFacturac">
+				    Mostrar informacion por factura
+				  </label>
+				</div>
+			</td>
+			
+			
+		</tr>
+		<tr>
+			<td align="center" colspan="7" style=" padding-bottom: 15px;">
+			</td>
+		</tr>
+	</table>
+	</div>
+</div>

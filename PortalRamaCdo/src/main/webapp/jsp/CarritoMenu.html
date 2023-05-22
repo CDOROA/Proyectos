@@ -1,0 +1,186 @@
+<!-- HEADER -->
+<div class="container-fluid" style="text-align: center; padding: 0px;">
+<nav class="navbar navbar-expand-md navbar-light " style="background-color: ${infoCliente.colorBarra}; padding-top: 5px; padding-bottom: 5px;padding-right: 5px;padding-left: 5px; margin-bottom: 0px;">
+      
+      <div class="form-inline" style="width: 50%;">
+          		<table width=100% align="center" style="margin-right: 0px;margin-left: 0px;">
+				<tr>
+					<td  align="left" width=90% >						      
+					     <input onkeyup="consultaSugerencias2(event)" id ="txt_buscar_productos" type="text"  placeholder="¿Qu&eacute; es lo que buscas? Ej.: Articulo Auto Modelo" style="font-family:Arial; font-size: 12px; border:1px solid #007bff; border-radius: 5px; width: 100%; padding:4px">
+					</td >
+					<td width=5%>     
+						 <img src="${pageContext.request.contextPath}/images/buscar.png" onclick="consultaArticulos()" style="height: 38px; cursor: pointer;">							      				          
+					</td>
+					<td width=5%>     
+						 <SPAN title="Limpiar busqueda"><img src="${pageContext.request.contextPath}/images/borrar2.png" onclick="LimpiaCampoBusqueda()" style="height: 38px;cursor: pointer;padding-top: 5px;padding-bottom: 5px;"> </SPAN>							      				          
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<table id="tbSugerencias"  style="background-color: #005CB0; font-family: arial; font-size: 12px;color:white;" width=100% ></table>
+					</td>
+				</tr>
+			</table>	
+        </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+       <ul class="navbar-nav" style="width: 100%;">
+          <li class="nav-item" style="padding-left: 5px;padding-right: 5px;">
+            	<div style="display: table-cell;vertical-align: middle; text-align: center; padding:0px;height: 65px">
+				<div style="display:inline-block; text-align: center;">
+					<img src="${pageContext.request.contextPath}/images/cliente.png" style="cursor: pointer;" ></img>
+					<label id="lb_DatosCliente" style=" padding-right: 20px; font-size:12px;font-family:arial; color:${infoCliente.colorLetra}; font-weight: bold">${infoCliente.nombre_cliente}</label>
+					
+					<img src="${pageContext.request.contextPath}/images/carrito-gris2.png" style="cursor: pointer;" ></img>
+					<button id="btnArticulosEnElCarrito" onclick="consultaPedidoEnCarrito()" type="button"  class="btn btn-link primary ${estiloTotalProductos}">
+					  ( ${articulosEnElCarrito} ) 
+					 </button>
+					
+					
+					<button id="btnCentroMensajesImagen" onclick="MostrarMensjes()" type="button"  class="btn btn-link primary" style="color:#007bff; font-family:Arial Narrow; font-size: 14px;font-weight: bold; text-decoration:none; padding:0px"> 
+					<img id= "imgCentroMensajes" src="${pageContext.request.contextPath}/images/${centroMensajesImagen}.png" style="cursor: pointer;" ></img> 
+					<label id="lblCentroMensajesTotal" >(${centroMensajesTotalPEndientes}) </label>
+					
+					</button>
+					
+				</div>
+			</div>
+          </li>
+          
+          
+           <li class="nav-item" style="padding-left: 5px;padding-right: 5px; padding-top: 10px;">
+           <div style="width:100%" class="btn-group" >
+                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" id="divSubMenuBusquedas">Pedidos<span class="caret"></span></button>
+			 <ul class="dropdown-menu" >
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="cargaInicialDeLosPedidos(false)">Roa Online</a> </li>
+                     <li class="dropdown-divider"></li> 
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="cargaInicialDeOtrosPedidos(false)">Otros Pedidos</a></li>
+            </ul>
+		
+			<!-- 	<button style="width:100%" type="button"  class="btn btn-primary" onclick="cargaInicialDeLosPedidos(false)">Pedidos</button> -->
+			</div>					
+          </li>
+          
+           <li class="nav-item" style="padding-left: 5px;padding-right: 5px; padding-top: 10px;">
+           <div style="width:100%" class="btn-group" ">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" id="divSubMenuBusquedas">B&uacute;squedas<span class="caret"></span></button>
+                <ul class="dropdown-menu" >
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="mostrarControles('divBusquedaPorAutomovil')">B&uacute;scar por Auto</a> </li>
+                     <li class="dropdown-divider"></li> 
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="consultaArticulosNuevos()">Productos Nuevos</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="mostrarConsultaPorAplicacion()" >Marcas CDO</a> </li>
+                </ul>
+            </div>
+          </li>
+          <li class="nav-item" style="padding-left: 5px;padding-right: 5px; padding-top: 10px;">
+           <div style="width:100%" class="btn-group" >
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" id="divSubMenuCuenta">Ayuda <span class="caret"></span></button>
+                <ul class="dropdown-menu" >
+                 
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="https://online.flippingbook.com/view/62921062/" target="_blank" >Guia de Usuario</a> </li>
+                     
+                </ul>
+            </div>
+          </li>
+          <li class="nav-item" style="padding-left: 5px;padding-right: 5px; padding-top: 10px;">
+           <div style="width:100%" class="btn-group" >
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" id="divSubMenuCuenta">Cuenta <span class="caret"></span></button>
+                <ul class="dropdown-menu" >
+                    <li><a style="font-size: 12px;" class="dropdown-item" href="#" onclick="mostrarModalContrasenaEdoCuenta()" >Estado de Cuenta</a> </li>
+                     <li class="dropdown-divider"></li>
+                    <li>
+	                     <form action="IniciaSession" method="post" id= "idSalirDelSistema">
+							<input type="hidden" name="vista" id="idIndex" value="CarritoDeCompras.jsp" >
+							<input type="hidden" name="operacion" id="idIndex" value="SalirDelSistema" >
+							 <a style="font-size: 12px;" class="dropdown-item" href="#" onclick="javascript:document.getElementById('idSalirDelSistema').submit();" >Cerrar Sesi&oacute;n</a>
+						</form>
+					</li>
+                </ul>
+            </div>
+          </li>
+        </ul>
+    </div>
+    </nav>
+</div>
+
+<!-- HEADER SEGUIMIENTO PED ACTUAL
+<div class="container"  style="text-align: center;padding-top: 5px; " id="divSeguimientoPEdidoActual">
+	<div class="row"  style="padding: 0px; margin: 0; text-align: center;" >		
+		
+		<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style=" text-align: center; padding:0px;border:1px solid #E2E2E2; background-color: #F6F6F6">
+			<div class="row" style="padding: 0px; margin: 0; text-align: center;" >	
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="padding: 0px;"> 
+					<div style="display: table-cell;vertical-align: middle; text-align: center; padding:0px;">
+						<div style="height: 5px"></div>
+						<div style="display:inline-block;padding-left:5px">
+							<label class="ECC_lb_size_11" style="color:#0051B4; font-weight: bold"> PEDIDO: </label>
+							<label class="ECC_lb_size_11"  style=" color:#0051B4;  font-weight: bold"> 52768</label>
+						</div>
+					</div>
+				</div>				
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px; padding-bottom:0px;justify-content: center">
+					<img src="images/ok_azul.png" style="cursor: pointer; "><br>
+					<label  class="ECC_lb_size_10" style="color:black;margin-top:0px">CAPTURADO</label>	
+				</div>	
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px;padding-bottom:0px; justify-content: center;">
+					<div style="vertical-align: middle; text-align: center; padding:0px; width: 100%">
+						<div style="height: 5px"></div>
+						<label class="ECC_lb_size_10" style="color:#D8D8D8; font-weight: bold ">________________</label>
+					</div>
+				</div>
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="text-align: center; padding:5px; padding-bottom:0px;justify-content: center">
+					<img src="images/ok_azul.png" style="cursor: pointer; "><br>
+					<label  class="ECC_lb_size_10" style="color:black;margin-top:0px">ENVIADO</label>	
+				</div>	
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px; padding-bottom:0px;justify-content: center">
+					<div style="vertical-align: middle; text-align: center; padding:0px; width: 100%">
+						<div style="height: 5px"></div>
+						<label class="ECC_lb_size_10" style="color:#D8D8D8; font-weight: bold ">________________</label>
+					</div>
+				</div>
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px; padding-bottom:0px;justify-content: center">
+					<img src="images/ok_azul.png" style="cursor: pointer; "><br>
+					<label  class="ECC_lb_size_10" style="color:black;margin:0px">SURTIDO</label>		
+				</div>		
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px;padding-bottom:0px; justify-content: center">
+					<div style="vertical-align: middle; text-align: center; padding:0px; width: 100%">
+						<div style="height: 5px"></div>
+						<label class="ECC_lb_size_10" style="color:#D8D8D8; font-weight: bold">________________</label>
+					</div>				
+				</div>
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="; text-align: center; padding:5px;padding-bottom:0px; justify-content: center">
+					<img src="images/ok_azul.png" style="cursor: pointer; "><br>
+					<label  class="ECC_lb_size_10" style=" color:black;margin:0px">EMPACADO</label>		
+				</div>		
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style=" text-align: center; padding:5px;padding-bottom:0px;justify-content: center">
+					<div style="vertical-align: middle; text-align: center; padding:0px;; width: 100%">
+						<div style="height: 5px"></div>
+						<label class="ECC_lb_size_10" style="color:#D8D8D8;  font-weight: bold">________________</label>
+					</div>
+				</div>		
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="display:inline-block; text-align: center; padding:5px;padding-bottom:0px; justify-content: center">
+					<img src="images/ok_gris.png" style="cursor: pointer; "><br>
+					<label  class="ECC_lb_size_10" style="color:#A4A4A4;margin:0px">FACTURADO</label>		
+				</div>		
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="display:inline-block; text-align: center; padding:5px; padding-bottom:0px;justify-content: center">
+					<div style="vertical-align: middle; text-align: center; padding:0px;; width: 100%">
+						<div style="height: 5px"></div>
+						<label class="ECC_lb_size_10" style="color:#D8D8D8;  font-weight: bold">________________</label>
+					</div>
+				</div>
+				<div class=" col-2 col-sm-2 col-md-1 col-lg-1" style="display:inline-block; text-align: center; padding:5px;padding-bottom:0px; justify-content: center">
+					<img src="images/ok_gris.png" style="cursor: pointer; "><br>
+					<label class="ECC_lb_size_10" style="color:#A4A4A4;margin:0px">ENTRAGDO</label>		
+				</div>
+				
+			</div>
+		</div>		
+		
+		
+			
+	</div>
+</div>  -->

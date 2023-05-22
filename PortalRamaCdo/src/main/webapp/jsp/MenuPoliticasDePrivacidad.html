@@ -1,0 +1,28 @@
+<div style="padding: 10px; margin: 0;background-color: #FBFBFB;" >	
+	<label class="EPP_lb_size_30" style="font-weight: bold; color:#0033CC">Aviso de Privacidad</label>
+	
+	<div class="row" style="padding: 10px; margin: 0; text-align: center;">
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+			<table width=95%  align="center">
+				<tbody>
+					<tr>
+						<td style="padding:0px">
+							<c:forEach var="politicas" items="${listPoliticasPrivacidad}">
+								<div id="divPoliticasDisponibles">
+									<div class='row' style='padding: 10px; margin: 0; text-align: center;'>
+										<div class=' col-xs-12 col-sm-12 col-md-4 col-lg-4' style='text-align:left;'>
+											<label class='EPP_lb_size_14' style='font-weight: bold; text-align: left;'> ${politicas.titulo} </label>
+										</div>
+										<div class='col-xs-12 col-sm-12 col-md-8 col-lg-8' style='text-align:center;'>
+											<label class='EPP_lb_size_14' style='font-weight: normal;text-align: justify;'> ${politicas.descripcion}</label>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+	</div>
+</div>

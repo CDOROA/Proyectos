@@ -1,0 +1,60 @@
+<!--<div id="divMensajeInicio" style="display: ${MostrarPaginaEmergente};" class="popupMensajeInicio">
+    <div class="content-popupMensajeInicio">
+    	<div align="center" >
+    		<table align="center" style="background:rgba(0,0,0,0.20)">    			
+    			<tr>
+    				<td  valign="top" align="right">
+    					<img src="${pageContext.request.contextPath}/images/cerrar.png"  onclick="cerrarMensajeInicial('divMensajeInicio')"></img>
+    					
+    				</td>
+    			</tr>
+    			<tr>
+    				<td align="center" > 
+    					<img style="width: 90%;" src="${pageContext.request.contextPath}/image/boletines/${imagenInicial}"></img>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td  valign="top" align="right">
+    					<br>
+    				</td>
+    			</tr>
+    		</table>    
+    	</div>
+    </div>
+</div>-->
+<div id="divMensajeInicio" style="" class="popupMensajeInicio">
+    <div class="content-popupMensajeInicio">
+    	<div align="center">
+    		<table align="center" style="background:rgba(0,0,0,0.20); ">      			
+    			<tbody><tr>
+    				<td valign="top" align="right">
+    					<img src="images/cerrar.png" onclick="cerrarMensajeInicial('divMensajeInicio')">
+    					
+    				</td>
+    			</tr>
+    			<tr>
+    				<td align="center"> 
+    				<input id="txtImagenesCarrusel" value="${imagenInicial}" type="hidden">
+<!--     					<img style="width: 90%;" src="/PortalRamaCdo/image/boletines/Emergente01.jpg*1,Emergente02.jpg*2"></img> -->
+<!--  	<div class="carousel"> -->
+<!--         <button id="retroceder" style="display: none;">Retroceder</button> -->
+<!--         <div id="imagen" style="    width: 500px;"></div> -->
+<!--         <button id="avanzar" style="display: none;">Avanzar</button> -->
+<!--     </div> -->
+<!--     <div class="controles" style="display: none;">  -->
+<!--         <button id="play">Play</button> -->
+<!--         <button id="stop" disabled>Stop</button> -->
+<!--     </div> -->
+    <div id="pruebaCarrusel" style="width: 100%">  <div id="carouselExampleIndicators" class="carousel  slide-fade" data-ride="carousel"><ol class="carousel-indicators"><li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li></ol><div class="carousel-inner"><div class="carousel-item active"><img class="d-block " style="width: 90%;" src="images/boletines/Emergente01.jpg" alt="First slide"></div></div><a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div> </div>
+<!--     					<img style="width: 90%;" src="images/boletines/Emergente09.jpg"></img> -->
+    				</td>
+    			</tr>
+    			<tr>
+    				<td valign="top" align="right">
+    					<br>
+    				</td>
+    			</tr>
+    		</tbody></table>    
+    	</div>
+    </div>
+</div>

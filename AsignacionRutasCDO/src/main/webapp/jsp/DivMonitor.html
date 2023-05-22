@@ -1,0 +1,201 @@
+<script type="text/javascript">
+	$(document).ready(function()
+		{
+		$("input[name=tipoBusqueda]").change(function () {	 
+			if($(this).val() == 'cliente')
+				{
+					$("#labelCliente").show()
+					$("#busquedaCliente").show()
+					$("#labelClienteFin").show()
+					$("#busquedaClienteFin").show()
+				}
+			else
+				{
+				$("#labelCliente").hide()
+				$("#busquedaCliente").hide()
+				$("#labelClienteFin").hide()
+				$("#busquedaClienteFin").hide()
+				}
+			});
+ 
+		 });
+</script>
+<div id="monitor"   style="display: none; width: 100%; margin-top: 10px;"  class="tab-pane fade">
+	<table align="center" width="97%" style="border: 1px solid #DDDDDD; ">
+		<tr>
+			<td width="20px">
+			</td>
+			<td>
+				<div style="padding: 0px;width: 100%;margin-top: 10px;height: 108px">
+				<table width="100%" align="center"  >
+					<tr><td colspan="12" style="text-align: center;"> 
+							<label style="    font-size: 18px; color: #428bca">MONITOR SEGUIMIENTO FOLIOS ENVIOS </label>
+						</td></tr>
+					<tr>
+						<td>
+							<label class="EG_lbtexto">Fecha inicio asignacion:</label>
+						</td>
+						<td>
+							<input type="text" id="txt_fechaIni" class="EG_calendario" >
+						</td>
+						<td>
+							<label class="EG_lbtexto">Fecha fin:</label>
+						</td>
+						<td>
+							<input type="text" id="txt_fechaFin" class="EG_calendario" >
+						</td>
+						<td>
+							<label class="EG_lbtexto">Folio Envio Inicio</label>
+						</td>
+						<td>
+							<input type="text" id="rutaInicio" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;" maxlength="12">
+						</td>
+
+						<td>
+							<label class="EG_lbtexto">Folio Envio Fin:</label>
+						</td>
+						<td>
+							<input type="text" id="rutaFin" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;" maxlength="12">
+						</td>
+						<td>
+							<label class="EG_lbtexto">Chofer Inicio: </label>
+						</td>
+						<td>
+							<input type="tex" id="choferInicio" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;"  maxlength="5">
+						</td>
+						<td>
+						<label class="EG_lbtexto">Chofer Fin: </label>
+						</td>
+						<td>
+							<input type="tex" id="choferFin" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;" maxlength="5">
+						</td>
+						
+						<td rowspan="2">
+							<button class="btn btn-primary" type="submit" style="padding: 4px; width: 100px" onclick="consultarTrayecto('no')">Consultar</button>
+						</td>
+		
+						</tr>
+						<tr>
+						
+						<td>
+							<label class="EG_lbtexto">Busqueda por: </label>
+						</td>
+						<td>
+							<input type="radio" name="tipoBusqueda" id="rutaCheck" value="ruta" checked="checked" onclick="quitarValorCliente()"/>
+							<label for="rutaCheck" class="EG_lb_text" style="margin-bottom: 0px;"> &nbsp;Ruta</label>
+						</td>
+						<td>
+							<input type="radio" name="tipoBusqueda" id="clienteCheck" value="cliente" onclick="ponerValorCliente()"/>
+							<label for="clienteCheck" class="EG_lb_text" style="margin-bottom: 0px;"> &nbsp;Cliente</label>						
+						</td>
+						<td>
+							<select id="cmbEstatus" name="cmbEstatus"  style="width: auto; display: none" onchange="changeFunc(value);">
+								  <option value="" disabled="disabled" selected>CDO</option>
+
+								  <option value="" disabled="disabled"style="background: #87CEEB;font: bold;">REGIONALES</option>
+									<c:forEach var="dato" items="${regionales}">
+										<option value="${dato.getUname_br()}" >${dato.getDescripcion()} </option>
+									</c:forEach>	  
+
+							 </select>	
+							 <input type="hidden" id="check" value="">
+							
+						</td>	
+						<td>
+							<label class="EG_lbtexto" id="labelCliente" style="display: none" >Cliente Inicio:</label>
+						</td>
+						<td>
+							<input type="text" id="busquedaCliente" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;display: none" maxlength="6">
+						</td>
+						<td>
+							<label class="EG_lbtexto" id="labelClienteFin" style="display: none">Cliente Fin:</label>
+						</td>
+						<td>
+							<input type="text" id="busquedaClienteFin" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;display: none" maxlength="6" >
+						</td>
+						
+						
+						<td>
+							<label class="EG_lbtexto" id="labelPedido" style="display: block">Pedido:</label>
+						</td>
+						<td>
+							<input type="text" id="busquedaPedido" class="EG_cmb "  onKeyPress="return soloNumeros(event);" style="text-align: center;display: block" maxlength="7">
+						</td>
+						<td>
+							<label class="EG_lbtexto" id="labelFactura" style="display: block">Factura:</label>
+						</td>
+						<td>
+							<input type="text" id="busquedaFactura" class="EG_cmb "   style="text-align: center;display: block" maxlength="7">
+						</td>
+						
+
+					
+						</tr>
+					</table><br>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<div>
+	<div id="mon" class="EG_DivGrid" style="font-size: 12px !important;margin-top: 10px;margin-bottom: 10px;max-height: 600px;"></div>
+	<table align="center" style="border: 1px solid #DDDDDD; display: none;width: 99%;" id="gridMonitor" >
+		<tr>
+			<td align="center">
+				
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<button class="btn btn-success" onclick="generarExcel('g')"> Generar Excel</button>
+							
+				<form action="DownloadServlet" id="formExcel" style="display: none">
+				<input id="urlExcel" name="urlExcel" type="hidden">
+				<button type="submit">ddd</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div id="monCliente" class="EG_DivGrid" style="font-size: 12px !important;margin-top: 10px;margin-bottom: 10px;max-height: 600px"></div>
+	<table align="center" style="border: 1px solid #DDDDDD; display: none;width: 99%;" id="gridMonitorCliente" >
+		<tr>
+			<td align="center">
+				
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<button class="btn btn-success" onclick="generarExcel('c')"> Generar Excel</button>
+
+			</td>
+		</tr>
+	</table>
+	<%@include file="ModalDetalle.html"%>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	 
+</div>

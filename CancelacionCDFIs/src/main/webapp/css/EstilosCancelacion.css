@@ -1,0 +1,44 @@
+.lbMenu
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+}
+
+.lbAzul
+{
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: #87B5E0;
+}
+
+.lbTitulo
+{
+	color:white;
+	font-size: 22px;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-family: arial;
+}
+.scroll-tablas{
+	height: 200px;
+	overflow-y:scroll; 
+}
+
+.tablas-display{
+	display: none;
+}
+.resultados{
+	font-size: 12px;
+}
+.tablaWidth{
+	width:98%;
+}
+.textoTamaño{
+	font-size: 16px;
+}
+
+

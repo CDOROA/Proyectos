@@ -1,0 +1,98 @@
+<div style="width:80%; display: none"  id="tb_TotalesGrid" >
+	<table width=100% class="table table-striped" style="margin: 3px">
+		<thead>
+			<tr style="background-color:#B8DAFF; border: 1px solid #7ABAFF;padding:2px; margin: 0px ">
+				<th style="padding:0px; margin: 0px; text-align: center"> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>IMPORTE</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>EFECTIVO</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>CHEQUE</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>POSFECHADO</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>T. CREDITO</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>T. DEBITO</label> </th>
+				<th style="padding:0px; margin: 0px; text-align: center"> <label class='EG_lbtexto'>TRANSFERENCIA</label> </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divCOB" ><label>COB</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_importe" ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="COB_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center"  class="EG_divHR"><label >HR</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_importe" ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="HR_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>			
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divCON"><label  >CON</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_importe"  ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CON_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divCRE"><label  >CRE</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_importe"  ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="CRE_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divOI"><label  >OI</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_importe"  ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="OI_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divLIN"><label >LIN</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_importe" ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="LIN_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divFHR"><label >FHR</label> </td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_importe" ></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_efectivo" style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_cheque"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_pofechado"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_credito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_debito"  style="font-weight: normal"></label></td>
+				<td style="padding:2px; margin: 0px" align="right"><label class='EG_lbtexTotalizado' id="FHR_lb_trasferencia"  style="font-weight: normal"></label></td>
+			</tr>
+			<tr style="padding:2px; margin: 0px"> 
+				<td style="padding:2px; margin: 0px; width: 35px" align="center" class="EG_divTOT"><label >TOT</label> </td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_importe" ></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_efectivo"></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_cheque"></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_pofechado"></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_credito"></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_debito"></label></td>
+				<td class="EG_divTOT" style="padding:2px; margin: 0px" align="right" ><label class='EG_lbtexTotalizadoGeneral' id="TOT_lb_trasferencia"></label></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

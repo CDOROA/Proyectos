@@ -1,0 +1,46 @@
+<nav id="header" class="navbar navbar-expand-md fixed-top bg-azul position-static"
+	style="padding-top: 0px; padding-bottom: 0px;">
+
+	<table style="width: 100%">
+		<tr>
+			<td style="width: 5%;" class="centrar"><img id="Image1"
+				class="img-log" src="images/logocdo.png"
+				style="height: 50px; width: 50px; border-width: 0px;"></td>
+				<td>
+				<span class="centrar" id="lbl_titulo_CDO"
+							style="color: White; font-family: Arial; font-size: 16pt; font-weight: bold;">Centro
+								de Distribución Oriente SA de CV</span>
+				</td>
+				<td>
+				<div style="display: inline;">
+				<form action="inicio" method="post">
+									<label class="texto_menu"><img
+										style="height: 16px; width: 16px;" src="images/User.png"
+										class="img-fluid centrar invert" alt="" /> ${nombre}</label>&nbsp;&nbsp;&nbsp; <label
+										class="texto_menu"><img
+										style="height: 16px; width: 16px;" src="images/Globe.png"	
+										class="img-fluid centrar invert" alt="" /> ${nombreCdo}</label>&nbsp;&nbsp;&nbsp;
+									<label class="texto_menu"><img
+										style="height: 16px; width: 16px;" src="images/Home.png"
+										class="img-fluid centrar invert" alt="" /> ${departamento}</label> <label
+										class="texto_menu">${uname}</label>
+								</form>
+								</div>
+				</td>
+			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="container-fluid">
+					<nav class="nav">
+					  <a class="nav-link Opc-Menu" id="menu-cfdi" href="${pageContext.request.contextPath}/AdministradorCFDI?accion=Inicio">CFDI´s</a>
+					  <a class="nav-link Opc-Menu" id="menu-genera" href="${pageContext.request.contextPath}/AdministradorGenera?accion=Inicio">GENERA INFORMACION CFDI</a>
+					    <a class="nav-link Opc-Menu" id="menu-sellado" href="${pageContext.request.contextPath}/AdministradorSellado?accion=Inicio">ESTATUS SELLADO</a>
+					</nav>
+				</div>
+			</td>
+			<td><a class="btn btn-danger justify-content-end" href="${pageContext.request.contextPath}/UsuarioServlet?accion=Cerrar">Cerrar Sesión</a></td>
+		</tr>
+		
+	</table>
+</nav>

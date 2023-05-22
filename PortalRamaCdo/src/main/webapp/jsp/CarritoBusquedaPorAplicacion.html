@@ -1,0 +1,94 @@
+<div style="padding: 0px; margin: 0;" >		
+	<div class="row" style="padding: 0px; margin: 0; text-align: center;">
+	
+		<!-- BUSQUEDA POR AUTO  -->
+		<div id="divBusquedaPorAutomovil" class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center; display:none">			
+			<div class="row" style="padding-bottom: 5px; margin: 0; text-align: center;">			
+				<div class=" col-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;padding:5px; justify-content: center"></div>
+				<div class=" col-12 col-sm-12 col-md-10 col-lg-10 row" style="text-align:center;padding:5px; justify-content: center;background-color:#F0F8FF;  border:1px solid #D8D8D8">					
+					<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;padding:5px; justify-content: center">
+						<label style="font-size: 16px; font-family: Arial Narrow;color:#0054A2;font-weight: bold;"> Selecciona  los datos, para encontrar lo que le queda a tu autom&oacute;vil</label>
+						<hr style="margin:5px">	
+					</div>	
+					<div class='col-12 col-sm-12 col-md-2 col-lg-2' style="text-align:center;padding:5px; justify-content: center">
+						<select id="cbo_marca_aplicacion" class="custom-select" required style="font-size: 12px; font-family: arial" onchange="consultaSubmarcas()" >
+							<option value="-1" >-- Marca --</option>
+							<c:forEach var="marcaAp" items="${listaArmadoras}">
+								<option value="${marcaAp.cve_armadora}" >${marcaAp.descripcion_armadora}</option>
+							</c:forEach>
+					   </select>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:center;padding:5px; justify-content: center">
+						<select id="cbo_auto_aplicacion" class="custom-select"  style="font-size: 12px; font-family: arial">
+							<option value="0" >-- Auto --</option>
+					 	 </select>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:center;padding:5px; justify-content: center">
+					 	<select id="cbo_modelo_aplicacion" class="custom-select"  style="font-size: 12px; font-family: arial;">
+							<option value="0" >-- Modelo (Año) --</option>
+					  	</select>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:center;padding:5px; justify-content: center">
+					 	<select id="cbo_cilindros_aplicacion" class="custom-select"  style="font-size: 12px; font-family: arial;">
+							<option value="0" >-- Cilindros --</option>
+							<c:forEach var="cilindro" items="${listaCilindros}">
+								<option value="${cilindro.nom_cilindros}" >${cilindro.nom_cilindros}</option>
+							</c:forEach>
+					  	</select>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:center;padding:5px; justify-content: center;">
+					 	<select id="cbo_litros_aplicacion" class="custom-select"  style="font-size: 12px; font-family: arial;">
+							<option value="0" >-- Motor --</option>
+							<c:forEach var="litro" items="${listaLitros}">
+								<option value="${litro.nom_litros}" >${litro.nom_litros}</option>
+							</c:forEach>
+					  	</select>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-2 col-lg-2" style="text-align:center;padding:5px; justify-content: center">
+						<button class="btn btn-primary" onclick="consultaArticulosPorautomovil()" style="width:60%; padding-top:4px; padding-bottom: 4px; font-family:Arial; font-size: 12px; " >Buscar</button>
+						<button class="btn btn-danger" onclick="OcultarDiv('divBusquedaPorAutomovil')" style="width:30%; padding-top:4px; padding-bottom: 4px; font-family:Arial; font-size: 12px; ">Cerrar </button>
+					</div>
+				</div>
+				<div class=" col-12 col-sm-12 col-md-1 col-lg-1" style="text-align:center;padding:5px; justify-content: center"></div>				
+			</div>
+		</div>
+		
+		
+		<!-- CARRITO DE COMPRAS -->
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;padding :0px">
+		
+			<div class="row" style="padding: 0px; margin: 0; text-align: left;">	
+				<!-- carrito -->
+				<div id="div_ArticulosXAplicacion" class="table-responsive" style="display: none">		
+				<table id='tbaleReultados' align='center' cellpadding=0px; cellspacing=0px; class='table table-bordered' style='width:100%; background:#212529' data-page-length='5'>
+		<tr><td>
+		<label class='EPP_lb_size_14' id="txtResultados" style="font-weight: bold;color: white;background: #212529;padding-right: 5px;padding-left: 5px; margin-bottom: 0px; "></label>
+		</td></tr></table>
+						
+					<div id="div_ArticulosCarrito" class="table-responsive" style="height: 1200px;"></div>
+				</div>
+				
+				<!-- marcas CDO -->
+				<div id="div_MarcasPrincipalesCdo" class="table-responsive" style="height: 700px; diaplay:none">
+				
+					<div class="row" style="padding-top: 0px; margin: 0; text-align: left;">
+					
+						<c:forEach var="marcaCal" items="${listaMarcasCalidad}">	
+							<div class="col-6 col-sm-6 col-md-4 col-lg-2" style="text-align: center; padding: 2px; justify-content: center; ">
+								<a href="javascript:consultaArticulosMarcasCalidad('${marcaCal.imagen}')">
+									<img src="${pageContext.request.contextPath}/image/marcas_calidad/${marcaCal.imagen}" border="0" alt="" width="125" />
+								</a>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+		</div>		
+	</div>
+</div>

@@ -1,0 +1,131 @@
+
+.ECI_lbTituloDiv
+{
+	font-family: arial;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+
+.ECI_lbtextoAzul
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #2866AF;
+}
+
+.ECI_cmbOI
+{
+	border:1px solid #C0C0C0;
+	border-radius: 2px;
+	font-family: arial;
+	font-size: 12px;
+	padding: 2px;
+	width: 150px;
+}
+
+
+.ECI_txtOI
+{
+	border:1px solid #C0C0C0;
+	border-radius: 2px;
+	font-family: arial;
+	font-size: 12px;
+	padding: 2px;
+	text-align: center;
+	width: 80px;
+}
+
+
+.ECI_th
+{
+	font-family: arial;
+	font-size: 12px;
+	text-align: center;
+	background: #6495ED;
+	border:1px solid #B0C4DE;
+	font-weight: bold;
+	color: white;
+	
+}
+
+
+.ECI_td
+{
+	font-family: arial;
+	font-size: 11px;
+	border:1px solid #B0C4DE;
+	font-weight: normal;
+	padding: 5px;
+	
+}
+.ECI_tdTotales
+{
+	font-family: arial;
+	font-size: 11px;
+	border:1px solid #B0C4DE;
+	font-weight: bold;
+	padding: 5px;
+	background-color:#F0F8FF;
+	color:black;
+}
+
+
+/******************************* ESTILOS PARA VENTA EMRGENTE DE PRECIOS ******************************/
+
+.popupEditaPrecios {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: 1001;
+    min-height:1500px;
+    background:rgba(0,0,0,0.20);
+}
+
+.content-popupEditaPrecios {
+    margin:0px auto;
+    margin-top:100px;
+    position:relative;
+    padding:10px;
+    width:1050px;
+    min-height:390px;
+    max-height:390px;
+    
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+    overflow: auto;
+}
+
+.content-popupEditaPrecios h2 {
+    color:#0066CC;
+   /* border-bottom: 1px solid #4169E1;*/
+    font-size: 140%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.popupEditaPrecios-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close 
+{
+    position: absolute;
+    right: 15px;
+}
+
+
+

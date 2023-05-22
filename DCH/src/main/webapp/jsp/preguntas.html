@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="preguntas" Style="display:none;">
+<div class="card">
+  <div class="card-header" style='display:flex;'>
+  <button type="button" class="btn btn-light" style="margin-right:45%;" onclick="cambio('preguntas','Evaluaciones');"><img alt="" src="images/izquierda.svg"></button>
+   <H5 class="text-center">Configuración</H5>
+  </div>
+  <div style='text-align:center;' class="card-body">
+     <div id="divArea">
+    </div><div id="botonGuarda"><button id="btnGuardar" type="button" onclick="borrarAnteriores();" style="display:none;"class="btn btn-success">Guardar</button>&nbsp;&nbsp;
+    <div id="btnLimpiar"></div>&nbsp;&nbsp;
+    <button type="button" id="btnCorreos" onclick="rellenaArrays();" class="btn btn-warning" style="display:none;">Enviar link por correo</button><br></div>
+    
+    <div id='tablaEvaluados'></div>
+
+  </div>
+</div>
+</div>
+</body>
+</html>

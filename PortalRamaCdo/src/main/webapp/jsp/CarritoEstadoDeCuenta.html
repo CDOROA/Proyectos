@@ -1,0 +1,104 @@
+<div style="padding: 0px; margin: 0;" >		
+	<table id="tb_facturasEdoCuenta"  width=90% align="center">
+		<tbody id="tbd_facturasEdoCuenta" >
+			<tr id="tr_facturasEdoCuenta" >
+				<td id="td_facturasEdoCuenta" >
+					<div class="row" style="padding: 0px; margin: 0; text-align: center;">
+						<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;padding: 5px; ">	
+							<div class="row" style="padding: 5px; margin: 0; text-align: left; ">
+								<div class=" col-6 col-sm-6 col-md-6 col-lg-6" style="text-align:left;">
+									<label class="ECC_lb_size_26" style="font-weight: bold; color:#045FB4; "> Estado de Cuenta</label>
+								</div>
+								<div class=" col-6 col-sm-6 col-md-6 col-lg-6" style="text-align:right;">
+								    <button class="btn btn-outline-secondary"   id="lb_verInformacionDeContacto" onclick="ConsultaInformacionDeContacto();">Informacion de Contacto</button>
+								    <button class="btn btn-outline-warning"   id="lb_verInformacionCuentasDeposito" onclick="ConsultaCuentasDeposito();">Cuentas Deposito</button>
+									<button class="btn btn-primary" style="display: none" id="lb_verDetalleEdocuenta" onclick="consultaEstadoDeCuentaDetallePorCte();">Ver Detalle de Facturas</button>
+									<button class="btn btn-primary" style="display: none" id="lb_OcultarDetalleEdocuenta" onclick="ocultarDetalleMovimientos();">Ocultar Detalle de Facturas</button>
+								</div>
+							</div>
+							<div class="row" style="padding: 5px; margin: 0; text-align: left; ">
+								<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;background-color: #F5F5F5">
+									<hr  style="  margin: 10px ;">
+										<label class ="ECC_lb_size_14" style="font-weight: bold; color:black;">${infoCliente.nombre_cliente} </label><br>
+										<label class ="ECC_lb_size_14" style="font-weight: bold; color:black;">No. cliente: ${infoCliente.cve_cliente}</label><br>
+										<label class="ECC_lb_size_14 style="font-weight: bold; color:black;" id="lbFechaEstadoCuenta"> </label>					
+									<hr style="margin: 10px">
+								</div>
+							</div>	
+							<!-- Estado de cuenta  -->
+							<div class="row" style="padding:5px; margin: 0; text-align: left;">
+								<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+									<label class ="ECC_lb_size_12" style="color:#0174DF; font-weight: bold">L&Iacute;NEA DE CR&Eacute;DITO</label><br>
+									<table class="table" style="margin: 5px">
+										<tbody>
+											<tr style="background-color: #F5F5F5">
+												<th  style="font-weight: bold; font-family: arial; font-size: 14px; font-weight: normal;text-align: left;padding: 5px"> L&iacute;mite de Cr&eacute;dito </th>
+												<td style="font-weight: bold; font-family: arial; font-size: 14px;text-align: right ;padding: 5px">${infoCliente.limite_credito}</td>
+											</tr>
+											<tr style="background-color: #F5F5F5">
+												<th  style="font-weight: bold; font-family: arial; font-size: 14px;font-weight: normal;text-align: left;padding: 5px"> Disponible </th>
+												<td style="font-weight: bold; font-family: arial; font-size: 14px;text-align: right ;padding: 5px">${infoCliente.disponible_cte}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div class="row" style="padding:5px; margin: 0; text-align: left;">
+								<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+									<label class ="ECC_lb_size_12" style="color:#0174DF; font-weight: bold">DETALLE</label><br>
+									<table class="table " style="margin: 5px">
+										<tbody>
+											<tr>
+												<th  style="font-family: arial; font-size: 14px;font-weight: normal;text-align: left;padding: 5px"> Saldo Total </th>
+												<td style="font-family: arial; font-size: 14px;text-align: right; font-weight: bold ;  color:black;padding: 5px"> <label id="lbSaldoTotal"></label></td>
+											</tr>
+											<tr>
+												<th  style="font-family: arial; font-size: 14px;font-weight: normal;text-align: left;padding: 5px"> Saldo Vencido </th>
+												<td style="font-family: arial; font-size: 14px;text-align: right; font-weight: bold ;  color:#DC143C;padding: 5px"> <label id="lbSaldoVencido"> </label></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div class="row" style="padding:5px; margin: 0; text-align: left;">
+								<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+									<label id="lb_FacturasDiaEdoCuenta" class ="ECC_lb_size_12" style="color:#0174DF; font-weight: bold"></label><br>
+									<div id="div_FacturasDiaEdoCuenta" style="max-height:200px; overflow: auto">
+									
+									</div>
+								</div>
+							</div>
+							
+							<div class="row" style="padding:5px; margin: 0; text-align: left;">
+								<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+									<label  id="lb_PedidosDiaEdoCuenta" class ="ECC_lb_size_12" style="color:#0174DF; font-weight: bold"></label><br>
+									<div id="div_PedidosDiaEdoCuenta" style="max-height:200px; overflow: auto">
+									
+									</div>
+								</div>
+							</div>
+							
+							<div style="background-color: #045FB4; text-align: center; width: 100%">
+								<label class ="ECC_lb_size_11" style="color:white; font-weight: bold">Emitido por : Centro de Distribuci&oacute;n Oriente S.A  de C.V</label>
+							</div>
+							
+						</div>	
+					</div>
+				</td>
+				<td  id="td_facturasEdoCuenta"  valign="top">
+					<div id="div_SeccionDetalleEdoCuenta" class="row" style="padding:5px; margin: 0; text-align: center;  " >
+						<div class=" col-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+							<label class ="ECC_lb_size_14" style="color:#084B8A; font-weight: bold">FACTURAS PENDIENTES DE PAGO</label><br>
+							<div id="tb_FacturasDetalleEdoCuenta" style="height: 600px; overflow: auto">
+							
+							</div>
+						</div>
+					</div>					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+	

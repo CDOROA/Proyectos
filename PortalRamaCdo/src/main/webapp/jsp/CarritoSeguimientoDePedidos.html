@@ -1,0 +1,41 @@
+<div style="padding: 0px; margin: 0;" >		
+	<div class="row" style="padding: 0px; margin: 0; text-align: center;">
+	
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: left;border: 1px solid #E5E7E9;">
+			<label class="EPP_lb_size_28"  style="font-weight: bold; color:#424949 ">Lista de Pedidos</label>
+						
+		</div>
+		
+		
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: left; padding: 8px; border: 1px solid #E5E7E9; background-color: #F8F9F9 ">		
+			<div class="row" style="padding: 0px; margin: 0; text-align: center;">		
+				<div class="col-12 col-sm-12 col-md-1 col-lg-1" style="text-align: center;"></div>
+				<div class="col-12 col-sm-12 col-md-3 col-lg-3" style="text-align: center;">
+					<label class="EPP_lb_size_14"  style="font-weight: bold; color:black">Fecha Inicio:</label>
+					<input type="text" id="txt_fechaIniResumenPedido" class="EG_calendario">
+				</div>				
+				<div class="col-12 col-sm-12 col-md-3 col-lg-3" style="text-align: center;">
+					<label class="EPP_lb_size_14"  style="font-weight: bold; color:black">Fecha Fin:</label>
+					<input type="text" id="txt_fechaFinResumenPedido" class="EG_calendario">
+				
+				</div>
+				<div class="col-12 col-sm-12 col-md-2 col-lg-2" style="text-align: center; ">
+					<label class="EPP_lb_size_14"  style="font-weight: bold; color:black">Numero Pedido:</label>
+					<input type="text" id="txt_numResumenPedido" class="EG_txt">
+				</div>
+				<div class="col-12 col-sm-12 col-md-2 col-lg-2" style="text-align: center; ">
+					<button class="btn btn-info" onclick="consultaResumenHistorialPedidos(true)" style="font-size: 12px; font-family: arial; width: 100px">Buscar</button>
+				</div>	
+				<div class="col-12 col-sm-12 col-md-1 col-lg-1" style="text-align: center;"></div>				
+			</div>			
+		</div>
+	
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: left; height: 30px;"></div>
+				
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+			<div id="dgResumenHistorialPedidos" style="font-size: 70%; width:100%;">
+			</div>
+		</div>
+		
+	</div>
+</div>

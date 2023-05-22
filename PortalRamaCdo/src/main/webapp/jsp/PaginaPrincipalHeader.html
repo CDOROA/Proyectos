@@ -1,0 +1,141 @@
+<div class="headerMenu sticky" id="miHeaderMenu">
+	<div>
+		<div style="height: 5px"></div>
+		<div id="div_imagenesEncabezado" style="width: 100%"
+			class="EPP_vista_normal">
+			<img
+				src="${pageContext.request.contextPath}/image/paginaInicio/barra_logo.jpg"
+				onclick="location.reload();" style="width:100%;"></img>
+		</div>
+	</div>
+	<div>
+		<!-- HEADER MENUS -->
+		<div style="height: 10px"></div>
+		<div class="container-fluid" style="padding: 0; margin: 0;">
+			<nav class="navbar  navbar-light navbar-expand-md "
+				style="background-color: white; padding-top: 5px; padding-bottom: 5px; background-color: #DE1A30; margin-bottom: 10px;">
+				<table class="navbar-toggler collapsed" align="center"
+					style="padding: 0px; width: 100%">
+					<thead>
+						<tr>
+							<td align="left" width=25%>
+								<button class="navbar-toggler collapsed" type="button"
+									data-toggle="collapse" data-target="#navbar1"
+									aria-controls="navbarCollapse" aria-expanded="false"
+									aria-label="Toggle navigation">
+									<img src="${pageContext.request.contextPath}/images/menu.png"
+										style="width: 30px;"></img>
+								</button>
+							</td>
+							<td align="center" width=50%><img
+								src="${pageContext.request.contextPath}/images/logo_cdo_roa.png"></img>
+							</td>
+							<td align="right" width=25%><img
+								src="${pageContext.request.contextPath}/images/cliente.png"
+								style="width: 30px;" onclick="mostrarLogin()"></img></td>
+						</tr>
+					</thead>
+				</table>
+
+
+
+				<div class="navbar-collapse collapse" id="navbar1" style="">
+					<ul class="navbar-nav mr-auto">
+						<li id="liInicio" class="nav-item"
+							style="border-right: 1px solid white; text-align: left;">
+							<form action="PaginaPrincipal" method="post" id="idRefrescar">
+								<input type="hidden" name="vista" id="idIndex" value="index">
+								<button
+									onclick="javascript:document.getElementById('idRefrescar').submit();"
+									type="button" class="btn btn-link "
+									style="color: white; font-family: Arial Narrow; font-size: 14px; font-weight: bold; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px"
+									onmouseover="moseOverIngresar('liInicio')"
+									onmouseout="moseUpIngresar('liInicio')">INICIO</button>
+							</form>
+						</li>
+						<li id="liNuestraEmpresa" class="nav-item"
+							style="border-right: 1px solid white; text-align: left;">
+							<button onclick="mostrarNuestraEmpresa()" type="button"
+								class="btn btn-link "
+								style="color: white; font-family: Arial Narrow; font-size: 14px; font-weight: bold; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px"
+								onmouseover="moseOverIngresar('liNuestraEmpresa')"
+								onmouseout="moseUpIngresar('liNuestraEmpresa')">¿QUI&Eacute;NES
+								SOMOS?</button>
+						</li>
+						<li id="liMarcas" class="nav-item"
+							style="text-align: left; border-right: 1px solid white;">
+							<button onclick="mostrarMarcasExclusivas()" type="button"
+								class="btn btn-link "
+								style="color: white; font-family: Arial Narrow; font-size: 14px; font-weight: bold; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px"
+								onmouseover="moseOverIngresar('liMarcas')"
+								onmouseout="moseUpIngresar('liMarcas')">MARCAS CDO</button>
+						</li>
+						<li id="liSucursales" class="nav-item"
+							style="border-right: 1px solid white; text-align: left;">
+							<button onclick="mostrarSucursales()" type="button"
+								class="btn btn-link "
+								style="color: white; font-family: Arial Narrow; font-size: 14px; font-weight: bold; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px"
+								onmouseover="moseOverIngresar('liSucursales')"
+								onmouseout="moseUpIngresar('liSucursales')">SUCURSALES</button>
+						</li>
+						<li id="liQueAuto" class="nav-item"
+							style="border-right: 1px solid white; text-align: left;">
+							<button onclick="mostrarQueAutoBusca()" type="button"
+								class="btn btn-link "
+								style="color: white; font-family: Arial Narrow; font-size: 14px; font-weight: bold; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px"
+								onmouseover="moseOverIngresar('liQueAuto')"
+								onmouseout="moseUpIngresar('liQueAuto')">¿QU&Eacute;
+								AUTOPARTE BUSCA?</button>
+						</li>
+					</ul>
+					<ul class="list-unstyled nav-item float-right"
+						style="border-right: 1px solid white; text-align: left; background-color: #DE1A30; margin-bottom: 0px;">
+						<!-- <li style="background: transparent; padding-top: 0px;padding-bottom: 0px;margin-top: 0px;display: inline-block;">
+													<a href="javascript:void(0);">
+														<img src="https://www.cdoautopartes.com.mx/images/Icon_Signal.png">
+													</a>
+												</li> -->
+						<li
+							style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px; padding-right: 10px; display: inline-block;">
+							<a href="https://wa.me/message/S24XU3B7UVR7E1" target="_blank">
+								<img src="images/Icon_WhatsApp.png">
+						</a>
+						</li>
+						<li
+							style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px; display: inline-block;">
+							<a href="https://t.me/CDO_ROA" target="_blank"> <img
+								src="images/Icon_Telegram.png">
+						</a>
+						</li>
+						<li
+							style="background: transparent; margin-right: 15px; display: inline-block;">
+							<a ref="javascript:void(0);" class="EPP_lb_size_22"
+							style="color: white; font-family: Arial Narrow; font-size: 18px; font-weight: bold; text-decoration: none; padding: 0px">
+								55 4449 1721 </a>
+						</li>
+					</ul>
+					<ul class="navbar-nav nav-flex-icons" style="background-color: #DE1A30;">
+						<li  id="div_ingresarCarrito" class="nav-item" style="text-align: left;  vertical-align: bottom;  padding:2px;">
+							<div class="EPP_vista_normal">
+								&nbsp;&nbsp;<img src="images/cliente.png" style="cursor: pointer; "></img>
+								<button onclick="mostrarLogin()" type="button"  class="btn btn-link primary" style="color: white; font-family:Arial Narrow; font-size: 18px;font-weight: bold; text-decoration:underline; padding:0px" onmouseover="moseOverIngresar('div_ingresarCarrito')" onmouseout="moseUpIngresar('div_ingresarCarrito')">Inicia Sesi&oacute;n</button>
+								&nbsp;&nbsp;
+							</div>							
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+

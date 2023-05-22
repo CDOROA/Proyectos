@@ -1,0 +1,123 @@
+<div id="divConsultaCortesDePoliza">	
+	<!-- FILTROS DE BUSQUEDA POLIZA  -->
+	<div style="height: 10px"></div>
+	<table width=70% align="center" style="background-color: #FBFBFB ; border: 1px solid #DDDDDD;">
+		<tr height="10px"></tr>
+		<tr>
+			<td width=20px></td>
+			<td>
+				<label class="EG_lbtexto">Fecha Poliza:</label>
+				<input type="text" id="txt_fechaCortePoliza" class="EG_calendario">
+			</td>
+			<td>
+				<label class="EG_lbtexto">Folio Poliza:</label>
+				<input type="text" id="txt_folioCortePoliza" class="EG_txt">
+			</td>
+			<c:if test="${infoUsu.dato_numerico == 1}">
+				<td><label class ="EG_lbtexto">CDO-BR:</label></td>
+				<td>
+					<select id="cmbCdoMantoCortePoliza"  name="cmbCdoMantoCortePoliza" class="ECI_cmbOI">
+						<option value="0" >Selecciona</option>	
+						<c:forEach var="cdo" items="${listaCdos}">
+							<option value="${cdo.cve_cdo}" >${cdo.nombre_cdo}</option>												
+						</c:forEach>
+					</select>
+				</td>
+			</c:if>
+			<td>
+                <button  class="btn btn-info" type="submit"  style="padding:3px; font-size:13px;  width: 110px" onclick="consultaCorteDePolizaBD()"  >
+					<i class="glyphicon glyphicon-search"></i> Buscar
+				</button>
+            </td>
+            <td width=10px></td>
+		</tr>	
+		<tr height="10px"></tr>
+	</table>
+	<div style="height: 10px"></div>
+		
+	<div id="divCortePolizaConsultado" style="display: none">
+		
+		<div id="divCortePolizaImpresion" style="width: 98%; overflow: auto;height: 650px">
+			<!-- ENCABEZADOS DE POLIZA -->
+			<table width=90% cellspacing="0px" cellpadding="0px" align="center">
+				<tr>
+					<td align="center">
+						<label  style="margin: 0px; font-size: 14px; font-family: arial; font-weight: bold">Centro de Distribucion Oriente  SA de CV </label><br>
+						<label  style="margin: 0px; color:#013ADF; font-size: 14px;font-family: arial; font-weight: bold">Poliza De Ingresos Del D&iacute;a </label><br>
+						<label  style="margin: 0px; color:#013ADF; font-size: 14px;font-family: arial; font-weight: bold">Sucursal: ${infoUsu.uname_nombre} </label>	
+						<label  style="margin: 0px;color:#013ADF;font-size: 14px; font-family: arial; font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No. Folio:</label>
+						<label id="lb_folioActualPol" class="EPOL_label" style="margin: 0px;color:#013ADF;"></label>
+						<label  style="margin: 0px; color:#013ADF; font-size: 14px;font-family: arial; font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha:</label>					
+						<label id="lb_fechaActualPol" class="EPOL_label" style="margin: 0px;color:#013ADF;"></label><br>		
+					</td>
+				</tr>
+			</table>
+		
+			<!-- POLIZA INGRESOS - ENCABEZADOS -->
+			<table  class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+				<thead>
+					<tr style="background-color: #B8DAFF; border: 1px solid #7ABAFF;">
+						<th  style="text-align: center; display:none;">
+							<label>ID </label>
+						</th>
+						<th style="text-align: center;padding: 4px; width: 15%; border:1px solid #D3D3D3"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px" >CONCEPTO</label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3">
+							 <label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> EFECTIVO </label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> CHEQUE </label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%;background-color:BLACK; border:1px solid BLACK;"> 
+							<label style="color:black;font-weight: normal;color:white; font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> BANCOS </label>
+						</th>	
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> T.CREDITO </label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3">
+						 	<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> T.DEBITO </label>
+						 </th>
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> TRANSFE. </label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%; background-color: #FFEEBA; border:1px solid #FFDF7E"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> POSFECH. </label>
+						</th>
+						<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+							<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> TOTAL </label>
+						</th>
+					</tr>
+				</thead>
+			</table>
+			
+			<div id="div_ContenidoPoliza"  style="border:0px solid red"></div>
+		</div>
+		<br>
+		<table width=100%>
+			<tr>
+				<td align="center">
+					<button id="btn_reimprimir_polizaConsulta" class="btn btn-primary" type="submit"  style="padding:3px; font-size:13px;  width: 250px;" onclick="ReImprimirPoliza()"">
+						<i class="glyphicon glyphicon-ok"></i> Re-Imprimir Poliza Dia
+					</button>
+					<br>
+					<br>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<!-- POLIZA INGRESOS - MENSAJES DE POLIZAS -->														 				
+	<div id="divMjsErrorPoliza" style=" padding:3px; width:50%; display: none">	
+		<br>
+		<br>
+		<div class="alert alert-info alert-dismissible fade in" >
+		    <strong id="lb_textConfirPoliza">¡No existen polizas en el sistema!</strong>
+		    <button type="button" class="close" onclick="OcultarDiv('divMjsError')">&times;</button>
+		</div>
+		<br>
+		<br>
+	</div>
+	
+</div>

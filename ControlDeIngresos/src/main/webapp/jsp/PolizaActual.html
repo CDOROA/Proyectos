@@ -1,0 +1,1092 @@
+<c:if test="${mostrarCorteDePolizaAdvertencia != 'NO'}">		 				
+	<div id="divMjsAdvertencia" style=" padding:3px; width:60%">	
+		<div class="alert alert-danger alert-dismissible fade in" >
+		   ¡Existen <strong>egresos sin transferencia</strong> confirmados en el sistema!
+		</div>
+	</div>
+</c:if>	
+
+<c:if test="${mostrarCorteDePoliza == 'SI'}">
+	<div id="divPolizaDelDia" style="overflow: auto; height: 750px">
+		<div style="height: 8px"></div>
+				
+		<!-- ENCABEZADOS DE POLIZA -->
+		<table width=90% cellspacing="0px" cellpadding="0px" align="center">
+			<tr>
+				<td align="center">
+					<label class="EPOL_label" style="margin: 0px; font-size: 16px">Centro de Distribucion Oriente  SA de CV </label><br>
+					<label class="EPOL_label" style="margin: 0px; color:#013ADF; font-size: 14px">Poliza De Ingresos Del D&iacute;a </label><br>
+					<label class="EPOL_label" style="margin: 0px; color:#013ADF;">Sucursal: ${infoUsu.uname_br_nombre} </label>	
+					<label class="EPOL_label" style="margin: 0px;color:#013ADF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No. Folio: ${polizaCompleta.folio_poliza} 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha:
+					</label>					
+					<label id="lb_fechaActualPol" class="EPOL_label" style="margin: 0px;color:#013ADF;"></label><br>		
+				</td>
+			</tr>
+		</table>
+						
+		<!-- POLIZA INGRESOS - NOMBRE COLUMNAS -->
+		<table  class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<thead>
+				<tr style="background-color: #B8DAFF; border: 1px solid #B8DAFF;">
+					<th  style="text-align: center; display:none;">
+						<label>ID </label>
+					</th>
+					<th style="text-align: center;padding: 4px; width: 15%; border:1px solid #D3D3D3"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px" >CONCEPTO</label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3">
+						 <label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> EFECTIVO </label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> CHEQUE </label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%;background-color:BLACK; border:1px solid BLACK;"> 
+						<label style="color:black;font-weight: normal;font-family: arial;color:white; font-size: 11px; font-weight:bold; margin: 0px"> BANCOS </label>
+					</th>					
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> T.CREDITO </label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3">
+					 	<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> T.DEBITO </label>
+					 </th>
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> TRANSFE. </label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%; background-color: #FFEEBA; border:1px solid #FFDF7E"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> POSFECH. </label>
+					</th>
+					<th style="text-align: center;padding: 4px;width: 10%; border:1px solid #D3D3D3"> 
+						<label style="color:black;font-weight: normal;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px"> TOTAL </label>
+					</th>
+				</tr>
+			</thead>
+		</table>
+				
+				
+		<!-- POLIZA INGRESOS SEGMENTO EGRESOS -->
+		<table  class="table table-striped"  style="width: 100%; margin-bottom: 0px;display:none">
+			<tbody>
+				<tr>
+					<td colspan="9"  style="; border:1px solid #D3D3D3">
+						<label class="EPOL_lb_hd" style="color:#DC143C;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px">EGRESOS </label>
+					</td>
+				</tr>
+				<c:set var="totalRowE" value="${0}"/>
+				<c:set var="tEfeE" value="${0}"/>
+				<c:set var="tCheqE" value="${0}"/>
+				<c:set var="tTtotalE" value="${0}"/>
+				<c:forEach var="egreso" items="${polizaDiaXTipoEgreso}">				
+					<c:choose>
+                      	<c:when  test="${egreso.tipo_egreso != 5}">
+                   			<c:set var="tEfeE" value="${tEfeE + egreso.importe_efectivo}" />
+                      	</c:when >
+                        <c:otherwise>
+                        	<c:set var="tCheqE" value="${tCheqE + egreso.importe_efectivo}" />
+                  			<c:set var="totalRowE" value="${egreso.importe_efectivo}" />						
+							<c:set var="tTtotalE" value="${tTtotalE + totalRowE}" />
+                      	</c:otherwise>
+                     </c:choose> 
+				</c:forEach>
+			</tbody>
+		</table>	
+			
+				
+		<!-- POLIZA INGRESOS SEGMENTO BANCOS -->
+		<table  class="table table-striped"  style="width: 100%;margin-bottom: 0px">
+				<tbody>
+				<tr>
+					<td colspan="9" style="; border:1px solid #D3D3D3" >
+						<label style="font-family: arial;font-size: 14px;color:#013ADF;font-weight:bold; margin: 0px"> BANCOS </label>
+					</td>
+				</tr>
+				<c:set var="totalRow" value="${0}"/>
+				<c:set var="tEfe" value="${0}"/>
+				<c:set var="tChe" value="${0}"/>
+				<c:set var="tTcre" value="${0}"/>
+				<c:set var="tTDeb" value="${0}"/>
+				<c:set var="tTra" value="${0}"/>
+				<c:set var="tPos" value="${0}"/>
+				<c:set var="tTtotal" value="${0}"/>
+				<c:forEach var="ban" items="${polizaDiaXBancoIngreso}">
+				
+					<c:set var="totalRow" value="${ban.importe_efectivo + ban.importe_cheque + ban.importe_tCredito + ban.importe_tDebito +ban.importe_transferencia}" />
+					<c:set var="tEfe" value="${tEfe + ban.importe_efectivo}" />
+					<c:set var="tChe" value="${tChe + ban.importe_cheque}" />
+					<c:set var="tTcre" value="${tTcre + ban.importe_tCredito}" />
+					<c:set var="tTDeb" value="${tTDeb + ban.importe_tDebito}" />
+					<c:set var="tTra" value="${tTra + ban.importe_transferencia}" />
+					<c:set var="tPos" value="${tPos + ban.importe_posfechado}" />
+					<c:set var="tTtotal" value="${tTtotal + totalRow}" />
+					
+					<tr>
+						<td style="padding: 4px; display:none; border:1px solid #D3D3D3">
+							<label style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">${ban.cve_banco}</label>
+						</td>
+						<td style="padding: 4px; width: 15%; border:1px solid #D3D3D3" >
+							<label style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">${ban.nombre_banco}</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_efectivo}" />
+							 </label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_cheque}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">
+							<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_efectivo + ban.importe_cheque}" />
+							</label>
+						</td>	
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_tCredito}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_tDebito}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<labe style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_transferencia}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ban.importe_posfechado}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${totalRow}" />
+							</label>
+						</td>
+					</tr>
+					
+					<!-- SEGMENTO EGRESOS * BANCO  -->
+					
+					<c:forEach var="egreso" items="${polizaDiaXTipoEgreso}">	
+					
+						<c:if test="${ban.nombre_banco == egreso.nombre_banco && egreso.tipo_egreso !=5}">
+							<tr  style=" background-color: #F5C6CB; border: 1px solid #E8939B">
+								<td style="padding: 4px; display:none; border:1px solid #D3D3D3">
+									<label style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">0</label>
+								</td>
+								<td style="padding: 4px; width: 15%; border:1px solid #D3D3D3" >
+									<label style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">  ${egreso.nombre_banco} -  ${egreso.nombre_tipo_egreso} </label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+		                   			<label style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ -
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+									 </label>			                      
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">	
+		                        	<label  style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+									</label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">								
+		                   			<label style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ -
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+									</label>
+								</td>	
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+									<label style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+									</label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+									<label  style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+									</label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+									<labe style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+									</label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+									<label  style="color:#DC143C;font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+									</label>
+								</td>
+								<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+									<label style="color:#DC143C;font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ -
+										<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+									</label>
+								</td>
+							</tr>						
+						</c:if>
+					
+					</c:forEach>
+					
+				</c:forEach>
+				<tr style="background-color: #B8DAFF; border: 1px solid #B8DAFF;">
+				 	<td style="padding: 4px; display:none;"></td>
+				 	<td style="padding: 4px;width: 15%" align="left"></td>
+				 	<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style=" color:black;font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfe- tEfeE}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label style="color:black;font-weight: bold;font-family: arial; font-size: 11px; ; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tChe}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; background-color: black; border:1px solid black;" align="right">
+						<label style="color:black;font-weight: bold;color:white;font-family: arial; font-size: 11px; ; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${(tEfe - tEfeE) + (tChe)}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-family: arial; font-size: 11px; font-weight:bold; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTcre}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold;font-family: arial; font-size: 11px;  margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTDeb}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTra}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; background-color: #FFEEBA; border:1px solid #FFDF7E" align="right">
+						<label  style="color:black;font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tPos}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold;font-family: arial; font-size: 11px; margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotal - (tEfeE)}" />
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div style="display:none"><label id="lb_totalBancosCheque" style="display:none">${tChe}</label></div>
+	
+		<BR>
+		<!-- POLIZA INGRESOS SEGMENTO TIPO INGRESOS -->
+		<table  class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="3"  style="; border-left:1px solid #D3D3D3">
+						<label style="font-family: arial;font-size: 14px;color:#013ADF;font-weight:bold; margin: 0px"> TIPOS PAGO </label>
+					</td>
+					<td align="center">
+						<label style="font-family: arial;font-size: 14px;color:#013ADF;font-weight:bold; margin: 0px"> CLIENTES CREDITO </label>
+					</td>
+					<td colspan="5"></td>
+				</tr>
+				<c:set var="totalRowT" value="${0}"/>
+				<c:set var="totalCHequeConEgresos" value="${0}"/>
+				<c:set var="tEfeT" value="${0}"/>
+				<c:set var="tCheT" value="${0}"/>
+				<c:set var="tTcreT" value="${0}"/>
+				<c:set var="tTDebT" value="${0}"/>
+				<c:set var="tTraT" value="${0}"/>
+				<c:set var="tPosT" value="${0}"/>
+				<c:set var="tTtotalT" value="${0}"/>
+				<c:set var="totalAjusteChNominativo" value="${0}"/>
+				
+				<c:forEach var="tipo" items="${polizaDiaXTipoIngreso}">	
+				
+					<c:if test="${tipo.tipo_pago != 4}">
+						<c:set var="totalRowT" value="${tipo.importe_efectivo + tipo.importe_cheque + tipo.importe_tCredito + tipo.importe_tDebito + tipo.importe_transferencia}" />
+						<c:set var="tEfeT" value="${tEfeT + tipo.importe_efectivo}" />
+						<c:set var="tCheT" value="${tCheT + tipo.importe_cheque}" />
+						<c:set var="tTcreT" value="${tTcreT + tipo.importe_tCredito}" />
+						<c:set var="tTDebT" value="${tTDebT + tipo.importe_tDebito}" />
+						<c:set var="tPosT" value="${tPosT +  tipo.importe_posfechado}" />
+						<c:set var="tTraT" value="${tTraT + tipo.importe_transferencia}" />
+						<c:set var="tTtotalT" value="${tTtotalT + totalRowT}" />
+								
+						<tr>
+							<td style="padding: 4px; display:none;">
+								<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">${tipo.tipo_pago}</label>
+							</td>
+							<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3">
+								<label style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">${tipo.nombre_tipo_pago}</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_efectivo}" />
+								 </label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_cheque}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">
+								<label  style="font-weight: normal;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_efectivo + tipo.importe_cheque}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label style="font-weight: normal; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_tCredito}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label  style="font-weight: normal; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_tDebito}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label  style="font-weight: normal; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_transferencia}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label  style="font-weight: normal; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tipo.importe_posfechado}" />
+								</label>
+							</td>
+							<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<label " style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+									<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${totalRowT}" />
+								</label>
+							</td>
+						</tr>
+				
+					</c:if>
+				</c:forEach>
+				
+				<!-- EGRESO CHEQUE DEVUELTO -->
+				<c:if test="${tTtotalE > 0}">
+					<tr style=" background-color: #F5C6CB; border: 1px solid #E8939B">
+						<td style="padding: 4px; display:none;">
+							<label  style="font-weight: normal;color:#DC143C;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">0</label>
+						</td>
+						<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3">
+							<label style="font-weight: normal;color:#DC143C;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">CHEQUES DEVUELTOS</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:#DC143C;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">						
+							<label  style="font-weight: normal;color:#DC143C;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ - 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalE}" />
+							 </label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">
+							<label  style="font-weight: normal;color:#DC143C;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ -
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalE}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: normal;color:#DC143C; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:#DC143C; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:#DC143C; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:#DC143C; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: bold;color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ -
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalE}" />
+							</label>
+						</td>
+					</tr>
+				</c:if>
+				
+				
+				<!--  AJUSTE A CHEQUES NOMINATIVOS  -->
+                <c:if test="${polizaCompleta.ajusteMasCheque != '0'}">
+					<c:set var="totalAjusteChNominativo" value="${polizaCompleta.ajusteMasCheque}" />
+				</c:if>
+				
+				 <c:if test="${polizaCompleta.ajusteMenosCheque != '0'}">
+					<c:set var="totalAjusteChNominativo" value="${polizaCompleta.ajusteMenosCheque}" />
+				</c:if>
+					
+				<c:if test="${totalAjusteChNominativo != '0'}"> 
+					<tr style=" background-color: #EBEBEE; border: 1px solid #E8939B">
+						<td style="padding: 4px; display:none;">
+							<label  style="font-weight: normal;color:black;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">0</label>
+						</td>
+						<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3">
+							<label style="font-weight: normal;color:black;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">AJUSTE CHEQUE NOMINATIVO</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:black;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">						
+							<label  style="font-weight: normal;color:black;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$  
+								${totalAjusteChNominativo}
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">
+							<label  style="font-weight: normal;color:black;font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								${totalAjusteChNominativo}
+							</label>
+						</td>
+						
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: normal;color:black; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:black; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:black; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal;color:black; font-family: arial; font-size: 11px; font-weight:normal; margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: bold;color:black; font-family: arial; font-size: 11px;margin: 0px">$ 
+								${totalAjusteChNominativo}
+							</label>
+						</td>
+					</tr>
+				</c:if>	
+					
+					
+				<c:set var="totalCHequeConEgresos" value="${tCheT - tTtotalE}" />
+				<c:set var="totalCHequeConEgresos" value="${tEfeT + totalCHequeConEgresos}" />
+				
+				<c:set var="parseTotalAjusteCH" value="${totalAjusteChNominativo * 1}" />
+				
+				<c:if test="${parseTotalAjusteCH > 0}">
+					<c:set var="totalCHequeConEgresos" value="${totalCHequeConEgresos + parseTotalAjusteCH}" />
+					<c:set var="tCheT" value="${tCheT + parseTotalAjusteCH }" />
+					<c:set var="tTtotalT" value="${tTtotalT + parseTotalAjusteCH }" />
+				</c:if>
+				
+				<c:if test="${parseTotalAjusteCH < 0}">
+					<c:set var="parseTotalAjusteCH" value="${parseTotalAjusteCH * (-1)}" />
+					<c:set var="totalCHequeConEgresos" value="${totalCHequeConEgresos - parseTotalAjusteCH}" />
+					<c:set var="tCheT" value="${tCheT - parseTotalAjusteCH }" />
+					<c:set var="tTtotalT" value="${tTtotalT - parseTotalAjusteCH }" />
+				</c:if>
+				
+				<tr style="background-color: #B8DAFF; border: 1px solid #B8DAFF;">
+				 	<td style="padding: 4px; display:none;"></td>
+				 	<td style="padding: 4px;width: 15%" align="left"></td>
+				 	<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeT}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tCheT - tTtotalE}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%;background-color:black; border:1px solid black;" align="right">
+						<label  style="color:black;font-weight: bold; color:white; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${totalCHequeConEgresos}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTcreT}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTDebT}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTraT}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%;background-color: #FFEEBA; border:1px solid #FFDF7E" align="right">
+						<label  style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tPosT}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalT - tTtotalE}" />
+						</label>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		
+		<div style="display:none"><label id="lb_totalTiposCheque" style="display:none">${tCheT - tTtotalE}</label></div>
+		<input type="text" value="${tCheT}" id="asda">
+			<input type="text" value="${tTtotalE}">
+			<input type="text" value="${polizaDiaXTipoEgreso}">
+				
+		<BR>		
+		<!-- POLIZA INGRESOS SEGMENTO EGRESOS -->
+		<table  class="table table-striped"  style="width: 100%; margin-bottom: 0px;">
+			<tbody>
+				<tr>
+					<td colspan="9"  style="; border:1px solid #D3D3D3">
+						<label class="EPOL_lb_hd" style="color:#DC143C;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px">EGRESOS </label>
+					</td>
+				</tr>
+				
+				<c:forEach var="egreso" items="${polizaDiaXTipoEgreso}">	
+					<tr>
+						<td style="padding: 4px; display:none;">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">${egreso.tipo_egreso}</label>
+						</td>
+						<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> ${egreso.nombre_tipo_egreso}  -  ${egreso.nombre_banco}</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<c:choose>
+                      				<c:when  test="${egreso.tipo_egreso != 5}">
+                      					<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+											<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+										</label>
+                      				</c:when >
+                      				<c:otherwise>
+                      					<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+											<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+										</label>
+                      				</c:otherwise>
+                      		</c:choose> 
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+								<c:choose>
+                      				<c:when  test="${egreso.tipo_egreso == 5}">
+                      					<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+											<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+										</label>
+                      				</c:when >
+                      				<c:otherwise>
+                      					<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+											<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+										</label>
+                      				</c:otherwise>
+                      		</c:choose> 
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${0.00}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label style="font-weight: norma; font-family: arial; font-size: 11px;margin: 0pxl">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${0.00}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${0.00}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${egreso.importe_efectivo}" />
+							</label>
+						</td>
+					</tr>
+				</c:forEach>
+				
+				<tr style=" background-color: #F5C6CB; border: 1px solid #E8939B">
+				 	<td style="padding: 4px; display:none;"></td>
+				 	<td style="padding: 4px;width: 15%" align="left"></td>
+				 	<td style="padding: 4px;width: 10%;border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold;  color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeE}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%;border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold ; color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tCheqE}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%;border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold ;color:#DC143C;font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeE + tCheqE}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold ;color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold ;color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold; color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold; color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "0.00" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="font-weight: bold; color:#DC143C; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeE + tTtotalE}" />
+						</label>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>		
+			
+		<BR>			
+		<!-- POLIZA INGRESOS SEGMENTO OTROS INGRESOS -->
+		<table  class="table table-striped"  style="width: 100%;margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="9"  style="; border:1px solid #D3D3D3">
+						<label style="font-family: arial;font-size: 14px;color:#013ADF;font-weight:bold; margin: 0px">OTROS INGRESOS </label>
+					</td>
+				</tr>
+				<c:set var="totalRowO" value="${0}"/>
+				<c:set var="tEfeO" value="${0}"/>
+				<c:set var="tCheO" value="${0}"/>
+				<c:set var="tTcreO" value="${0}"/>
+				<c:set var="tTDebO" value="${0}"/>
+				<c:set var="tTraO" value="${0}"/>
+				<c:set var="tPosO" value="${0}"/>
+				<c:set var="tTtotalO" value="${0}"/>
+				<c:forEach var="otros" items="${polizaDiaXOtrosIngresos}">	
+				
+					<c:set var="totalRowO" value="${otros.importe_efectivo + otros.importe_cheque + otros.importe_tCredito + otros.importe_tDebito + otros.importe_transferencia}" />
+					<c:set var="tEfeO" value="${tEfeO + otros.importe_efectivo}" />
+					<c:set var="tCheO" value="${tCheO + otros.importe_cheque}" />
+					<c:set var="tTcreO" value="${tTcreO + otros.importe_tCredito}" />
+					<c:set var="tTDebO" value="${tTDebO + otros.importe_tDebito}" />
+					<c:set var="tTraO" value="${tTraO + otros.importe_transferencia}" />
+					<c:set var="tPosO" value="${tPosO + otros.importe_posfechado}" />
+					<c:set var="tTtotalO" value="${tTtotalO + totalRowO}" />
+					
+					<tr>
+						<td style="padding: 4px; display:none;">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">${otros.id_otro_ingreso}</label>
+						</td>
+						<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> ${otros.nombre_otro_ingreso}</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_efectivo}" />
+							 </label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_cheque}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3;" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_efectivo + otros.importe_cheque}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_tCredito}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_tDebito}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_transferencia}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${otros.importe_posfechado}" />
+							</label>
+						</td>
+						<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+							<label  style="font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${totalRowO}" />
+							</label>
+						</td>
+					</tr>
+				</c:forEach>
+				
+				<tr style="background-color: #B8DAFF; border: 1px solid #7ABAFF;">
+				 	<td style="padding: 4px; display:none;"></td>
+				 	<td style="padding: 4px;width: 15%" align="left"></td>
+				 	<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tCheO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%;border:1px solid #D3D3D3;" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeO + tCheO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTcreO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTDebO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTraO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; background-color: #FFEEBA; border:1px solid #FFDF7E" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tPosO}" />
+						</label>
+					</td>
+					<td style="padding: 4px;width: 10%; border:1px solid #D3D3D3" align="right">
+						<label  style="color:black;font-weight: bold; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalO}" />
+						</label>
+					</td>
+				</tr>				
+			</tbody>
+		</table>
+			
+		<BR>	
+		<!-- POLIZA INGRESOS TOTAL BANCOS
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="3"  style="; border:1px solid #D3D3D3">
+						<label  style="color:black;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px">TOTAL BANCOS</label>
+					</td>
+				</tr>				
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px">INGRESOS</label></td>
+				 	
+				 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${(tEfeT + tCheT)-tTtotalO}" />
+						</label>
+				 	</td>				 	
+				</tr>
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px">EGRESOS</label></td>
+				 
+				 	<td style="padding: 4px;width:85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">- $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tEfeE}" />
+						</label>
+				 	</td>				 	
+				</tr>
+				<tr style="background-color:BLACK; border:1px solid BLACK;">
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px"></label></td>				 	
+				 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: bold;color:white; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${((tEfeT + tCheT)-tTtotalO) - tEfeE}" />
+						</label>
+				 	</td>				 	
+				</tr>
+			
+			</tbody>
+		</table>-->
+					
+		<!-- FICHAS BANCARIAS -->	
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="4"  style="; border:1px solid #D3D3D3">
+						<label  style="color:black;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px"> FICHAS BANCARIAS CHEQUES </label>
+					</td>
+				</tr>
+				<tr style="background-color: #DCDCDC">
+					<td  style="width: 15%; border:1px solid #D3D3D3; text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Banco </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Ficha Deposito </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Importe </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Acumulado </label>
+					</td>
+				</tr>					
+				
+				<c:forEach var="ficha" items="${polizaFichasBancarias}">
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">${ficha.banco}</label></td>
+				 	<td style="padding: 4px;width: 28%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">${ficha.ficha_bancaria}</label></td>
+				 	<td style="padding: 4px;width:28%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ficha.importe}" />
+						</label>
+				 	</td>
+				 	<td style="padding: 4px;width:28%; border:1px solid #D3D3D3; " align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ficha.acumulado}" />
+						</label>
+				 	</td>					 	
+				</tr>
+				</c:forEach>
+			
+			</tbody>
+		</table>
+			
+		<BR>
+		<!-- FICHAS BANCARIAS EGRESOS-->	
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="4"  style="; border:1px solid #D3D3D3">
+						<label  style="color:black;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px"> TRANSFERENCIAS BANCARIAS EGRESOS </label>
+					</td>
+				</tr>
+				<tr style="background-color: #DCDCDC">
+					<td  style="width: 15%; border:1px solid #D3D3D3; text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Banco </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> N&uacute;mero de Autorizaci&oacute;n </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Importe </label>
+					</td>
+					<td  style="width: 28%; border:1px solid #D3D3D3;text-align: center">
+						<label  style="color:black;font-family: arial;font-size: 12px;font-weight:bold; margin: 0px"> Acumulado </label>
+					</td>
+				</tr>					
+				
+				<c:forEach var="ficha" items="${polizaFichasBancariasEgresos}">
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">${ficha.banco}</label></td>
+				 	<td style="padding: 4px;width: 28%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">${ficha.ficha_bancaria}</label></td>
+				 	<td style="padding: 4px;width:28%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ficha.importe}" />
+						</label>
+				 	</td>
+				 	<td style="padding: 4px;width:28%; border:1px solid #D3D3D3; " align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${ficha.acumulado}" />
+						</label>
+				 	</td>					 	
+				</tr>
+				</c:forEach>
+			
+			</tbody>
+		</table>
+		
+		<BR>
+		<!-- TRANSITO -->	
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="3"  style="; border:1px solid #D3D3D3">
+						<label  style="color:black;font-family: arial;font-size: 14px;font-weight:bold; margin: 0px"> COBRANZA </label>
+					</td>
+				</tr>				
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">EN TRANSITO</label></td>
+				 	
+				 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${polizaCompleta.transito_pendiente}" />
+						</label>
+				 	</td>				 	
+				</tr>
+				<tr>
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px; font-weight: normal">EN TRANSITO APLICADA</label></td>
+				 
+				 	<td style="padding: 4px;width:85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px"> $ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${polizaCompleta.transito_aplicado}" />
+						</label>
+				 	</td>				 	
+				</tr>
+				<tr style="background-color:BLACK; border:1px solid BLACK;">
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">0</label>
+					</td>
+				 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left"><label style="font-family: arial; font-size: 11px;margin: 0px"></label></td>				 	
+				 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3; border-left: 0px; border-right: 0px" align="right">
+				 		<label  style="font-weight: bold;color:white; font-family: arial; font-size: 11px;margin: 0px">
+				 		
+						</label>
+				 	</td>				 	
+				</tr>
+			
+			</tbody>
+		</table>	
+			
+		<BR>
+	 	<!-- POLIZA SEGMENTO RECOLECCION DE VALORES   -->	
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="9"  style="; border:1px solid #D3D3D3">
+						<label style="font-family: arial;font-size: 14px;color:black;font-weight:bold; margin: 0px">REC. DE VALORES </label>
+					</td>
+				</tr>
+				<c:set var="tTtotalRV" value="${0}"/>
+				<c:forEach var="valores" items="${polizaDiaXRecoleccionValores}">	
+					<c:set var="tTtotalRV" value="${ tTtotalRV + valores.importe}" />
+					<td style="padding: 4px; display:none;">
+						<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">${egreso.tipo_egreso}</label>
+					</td>
+					<tr>
+					 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left">
+					 		<label style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">FOLIO REC. VAL.: ${valores.folio_panamericano}</label>
+					 	</td>
+					 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3" align="right">
+					 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${valores.importe}" />
+							</label>
+					 	</td>
+					</tr>				
+				</c:forEach>			
+				<tr>
+					<td colspan="2" style="padding: 4px;width: 100%; background-color: black; border: 1px solid black;" align="right">
+						<label  style="font-weight: bold; color:white; font-family: arial; font-size: 11px;margin: 0px ">$ 
+							<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${tTtotalRV}" />
+						</label>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		
+		<BR>
+	 	<!-- POLIZA CONTABLE 	
+		<table class="table table-striped"  style="width: 100%; margin-bottom: 0px">
+			<tbody>
+				<tr>
+					<td colspan="9"  style="; border:1px solid #D3D3D3;background-color:#F0F8FF">
+						<label style="font-family: arial;font-size: 14px;color:#4169E1;font-weight:bold; margin: 0px">POLIZA CONTABLE</label>
+					</td>
+				</tr>
+				<c:forEach var="polcon" items="${polizaContable}">	
+					<tr>
+					 	<td style="padding: 4px;width: 15%; border:1px solid #D3D3D3" align="left">
+					 		<label style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">${polcon.descripcion_contable}</label>
+					 	</td>
+					 	<td style="padding: 4px;width: 85%; border:1px solid #D3D3D3" align="right">
+					 		<label  style="font-weight: normal; font-family: arial; font-size: 11px;margin: 0px">$ 
+								<fmt:formatNumber type = "number"  maxFractionDigits = "2" value = "${polcon.importe_total}" />
+							</label>
+					 	</td>
+					</tr>				
+				</c:forEach>	
+				<tr>
+					<td colspan="2" style="padding: 4px;width: 100%; background-color: #4169E1; border: 1px solid #4169E1;" align="right">
+						<label  style="font-weight: bold; color:white; font-family: arial; font-size: 11px;margin: 0px "></label>
+					</td>
+				</tr>	
+			</tbody>
+		</table>-->
+		
+		<BR>
+		<BR>
+	</div>
+		
+	<div style="height: 10px"></div>
+	
+	<div id="div_botonGeneraPolDia">
+		<!-- BOTONES PARA GENERAR POLIZA   -->
+		<table  style="width: 90%">
+			<tr>
+				<button  class="btn btn-primary" type="submit"  style="padding:3px; font-size:13px;  width: 400px;" onclick="generaPolizaDiaEnBD()"">
+					<i class="glyphicon glyphicon-ok"></i> Generar Poliza Del D&iacute;a
+				</button>
+			</tr>
+		</table>
+	</div>
+	
+	<div style="height: 15px"></div>
+	
+</c:if>	
+
+<c:if test="${mostrarCorteDePoliza != 'SI'}">
+	<br>
+	<br>													 				
+	<div id="divMjsError" style=" padding:3px; width:60%">	
+		<div class="alert alert-info alert-dismissible fade in" >
+		    <strong id="lb_textConfirPoliza">${mostrarCorteDePoliza}</strong>
+		    <button type="button" class="close" onclick="OcultarDiv('divMjsError')">&times;</button>
+		</div>
+	</div>
+</c:if>	
+
+

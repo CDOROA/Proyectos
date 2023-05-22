@@ -1,0 +1,26 @@
+<div class="modal fade" id="modalDeptos" tabindex="-1" role="dialog" aria-labelledby="tituloModalDeptos" aria-hidden="true" style="width:100%;">
+  <div class="modal-dialog" role="document" style="margin-left:3%;">
+    <div class="modal-content" style="width:350%;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloModalDeptos"></h5>
+        <button type="button" class="close" onclick="Javascript: $('#modalDeptos').modal('hide');" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"><div id="divCompetenciasDeptos" style="font-size:12px;"></div><br>
+      	<div id="tablaDeptos"></div>
+      	<div id="deptosTabla" style="display:none;"></div>
+      </div>
+      <div class="modal-footer">
+       	<a id="download_xlsxDep" class="btn btn-warning"  href="#">Descargar</a>
+        <button type="button" class="btn btn-danger" onclick="Javascript: $('#modalDeptos').modal('hide');">Cerrar</button>
+      </div>
+    </div>
+    <script>
+        let download_xlsxDep = document.querySelector("#download_xlsxDep")
+        download_xlsxDep.addEventListener("click", ()=>{                     
+            ExcellentExport.convert({ anchor: download_xlsxDep, filename: 'ResultadosDepto', format: 'xls'},[{name: 'ResultadosDepto', from: {table: 'deptosTabla'}}])
+        })
+</script>  
+  </div>
+</div>

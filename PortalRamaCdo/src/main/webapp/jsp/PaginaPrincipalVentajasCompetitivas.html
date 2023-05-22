@@ -1,0 +1,20 @@
+<div style="padding: 10px; margin: 0;" >	
+	<label class="EPP_lb_size_40" style="font-weight: bold; color:#0054A2">Centro de Distribuci&oacute;n Oriente </label>
+	<br>
+	<div class="row">	
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<img  src="${pageContext.request.contextPath}/image/paginaInicio/ventajasCompetitivas.png"  style="border-radius: 10%;width:80%" ></img><br>
+		</div>	
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<br>
+			<c:forEach var="ventaja" items="${listVentajas}">	
+				<div class="  col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+					<label class="EPP_lb_size_16" style="text-align:justify;">
+						<img  src="${pageContext.request.contextPath}/images/ok.png"></img>
+						${ventaja.descripcion}
+					</label><br>
+				</div>
+			</c:forEach>
+		</div>	
+	</div>
+</div>

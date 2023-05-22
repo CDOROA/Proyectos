@@ -1,0 +1,53 @@
+<div id="popupCancelacionPosfechado" style="display: none;" class="popupCancelacionPosfechado">
+	<div class="content-popupCancelacionPosfechado">
+		<div style="background: #F2F2F2; border: 1px solid #CCCCCC; height: 150px" align="center"><br>
+			<table width="95%">
+				<tr>
+					<td align="center">
+					</td>
+					<td align="right">
+						<button class="btn btn-danger" type="button" style="padding: 3px; width: 30px" onclick="OcultarDiv('popupCancelacionPosfechado')">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<div class="container-fluid divInicialAncho">
+				<table style="width: 100%">
+					<tr>
+						<td align="center"><label style="color:#439ED4;font-size: 18px;" class="EG_lbTituloAzul">SELECCIONE EL MOTIVO DE CANCELACION</label></td>
+					</tr>
+					<tr height="10px">
+					</tr>
+					<tr>
+						<td>
+							<div align="center">
+								<div id="motivosCancelacionDepositado" style="display: none">
+									<select id="cmbMotvCancelacionCaja" name="cmbMotvCancelacionCaja" >
+										<c:forEach var="motvCanc" items="${lstMotivosCancelacionPosfechados}">
+											<c:if test="${motvCanc.tipo == '0'}">
+												<option value="${motvCanc.id_motivo}*${motvCanc.descripcion}">${motvCanc.descripcion}</option>
+											</c:if>
+										</c:forEach>
+									</select>
+									<button type="button" class="btn btn-success btn-xs" onclick="alertaActualizarEstatus('cancelar','N')">CONTINUAR <span class="glyphicon glyphicon-ok"></span>	</button>
+								</div>
+								<div id="motivosCancelacionCredito" style="display: none">
+									<select id="cmbMotvCancelacionCredito" name="cmbMotvCancelacionCredito">
+										<c:forEach var="motvCanc" items="${lstMotivosCancelacionPosfechados}">
+											<c:if test="${motvCanc.tipo == '1'}">
+												<option value="${motvCanc.id_motivo}*${motvCanc.descripcion}">${motvCanc.descripcion}</option>
+											</c:if>
+										</c:forEach>
+									</select>
+									<button type="button" class="btn btn-success btn-xs" onclick="alertaActualizarEstatus('cancelar','C')">CONTINUAR <span class="glyphicon glyphicon-ok"></span>	</button>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div> 

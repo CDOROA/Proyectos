@@ -1,0 +1,43 @@
+<div id="divEditaFechaPoliza" style="display: none;" class="popupCE" >
+    <div class="content-popupCE">
+	    <div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+	       	<br>
+	       	<table width="95%" align="center">
+				<tr> 
+					<td colspan="2"  align="center">
+						<label class="EG_lbtexto" style="font-size: 15px" > Folio de Ingreso:</label>
+						<label class="EG_lbtexto" style="font-size: 15px" id ="lbfolioFechaPolIngreso"></label>
+					</td>
+				</tr>
+				<tr>				
+					<td rowspan="2" width=10% align="right">
+						<img src="images/info.png" class="img-responsive navbar-brand-img"></img>
+					</td>
+					<td align="center" > 
+						<div>
+							<label class="EG_lbtexto"  style="font-weight: normal" > Fecha De Poliza: </label>
+							<input type="text" id="txt_fechaPolizaIngreso" class="EG_calendario">
+						</div>
+					</td>
+				</tr>	
+			</table>	
+			<br>
+	     	<table width="80%" align="center">
+	    		<tr>	
+	    			<td>&nbsp;</td> 	
+	     			<td  class="EG_lbtexto" align="center">
+	     				<button class="btn btn-danger" type="button"  style="padding:3px; width: 100px; font-size:12px " onclick="OcultarDiv('divEditaFechaPoliza');"  >
+							<i class="glyphicon glyphicon-arrow-left"></i> Atras
+						</button>
+	     			</td>
+	     			<td  class="EG_lbtexto" align="center">
+	     				<button class="btn btn-primary" type="button"  style="padding:3px; width: 120px;font-size:12px" onclick="actualizaFechaPoliza()"  >
+							<i class="glyphicon glyphicon-ok"></i> Sí, Actualizar
+						</button>
+	     			</td> 
+	     		</tr>
+	    	</table>
+	    	<br>
+	    </div>
+	 </div>
+</div>

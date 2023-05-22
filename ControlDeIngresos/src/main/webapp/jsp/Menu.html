@@ -1,0 +1,184 @@
+<div>
+	<table  width="120px">
+	   <tr>
+		 <td class="EM_td_menu"  id="tdLineaBancaria" >
+				<form action="LineaBancaria" method="post" id= "idLineaBancariServlet">	
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="LineaBancaria.jsp" >
+					<div class="div_menu"  id="mm_LineaBancaria" onclick="javascript:document.getElementById('idLineaBancariServlet').submit();">
+						<span class="descipcionMenu">Linea Bancaria</span>
+						<img src="images/excel_icon.png" class="EM_img_size" ></img><br>
+						<label class="lb_menus">Linea Bancaria</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		<tr>
+		 	<td class="EM_td_menu" id="tdChequesPosfechados">
+				<form action="ChequesPosfechadosServlet" method="post" id= "idChequesPosfechados">
+					<div class="div_menu" id="mm_ChequesPosfechados">
+						<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+				 		<div class="div_menu" id="mm_ChequesPosfechados" onclick="javascript:document.getElementById('idChequesPosfechados').submit();" > 
+							<img src="images/posfechados.png" class="EM_img_size"></img>
+							<span class="descipcionMenu">Posfechados</span><br>
+							<label class="lb_menus">Posfechados</label>
+						</div>
+					</div>
+				</form>
+			</td>
+		</tr>		
+		<tr>
+			<td class="EM_td_menu" id="tdChequesDevueltos">
+				<form action="ChequesDevueltos" method="post" id= "idChequeDevuelto">
+					<div class="div_menu" id="mm_ChequeDevuelto">
+						<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+				 		<div class="div_menu" id="mm_ChequeDevuelto" onclick="javascript:document.getElementById('idChequeDevuelto').submit();" > 
+							<img src="images/cheque.png" class="EM_img_size"></img>
+							<span class="descipcionMenu">Cheques</span><br>
+							<label class="lb_menus">Cheque Devuelto</label>
+						</div>
+					</div>
+				</form>
+			</td>
+		</tr>	
+		<tr>
+			<td class="EM_td_menu" id="tdMantoCheques">
+				<form action="MantoCheques" method="post" id= "idMantoCheques">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="MantenimientoCheques.jsp" >	
+					<div class="div_menu" id="mm_MantoCheques"  onclick="javascript:document.getElementById('idMantoCheques').submit();">
+						<img src="images/mantoCheques.png" class="EM_img_size"></img>
+						<span class="descipcionMenu">Manto.Cheques</span><br>
+						<label class="lb_menus">Manto.Cheques</label>
+					</div>
+				</form>
+			</td>
+		</tr>	
+		<tr>
+			<td class="EM_td_menu"  id="tdIngresos">
+				<form action="ConfirmaIngresosACaja" method="post" id= "idConfirmaIngresosACajaServlet">	
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="ConfirmaIngresosACaja.jsp" >
+					<div class="div_menu"  id="mm_PagosCaja" onclick="javascript:document.getElementById('idConfirmaIngresosACajaServlet').submit();">
+						<span class="descipcionMenu">Ingresos</span>
+						<img src="images/pago.png" class="EM_img_size" ></img><br>
+						<label class="lb_menus">Ingresos</label>
+					</div>
+				</form>
+			</td>
+		</tr>	
+		<tr>
+			<td class="EM_td_menu" id="tdEgresos">
+				<form action="ConfirmaEgresos" method="post" id= "idConfirmaEgresos">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="ConfirmaEgresos.jsp" >	
+					<div class="div_menu" id="mm_ConfirmaEgresos" onclick="javascript:document.getElementById('idConfirmaEgresos').submit();" > 
+						<img src="images/egreso.png" class="EM_img_size" style="width:48px" ></img>
+						<span class="descipcionMenu">Egresos </span><br>
+						<label class="lb_menus">Egresos</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" id="tdOtrosIngresos">
+			 	<form action="ControlDeIngresosServlet" method="post" id= "idControlDeIngresosServlet">	
+			 		<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="OtrosIngresos.jsp"  >
+					<div class="div_menu" id="mm_OtrosPagos" onclick="javascript:document.getElementById('idControlDeIngresosServlet').submit();" >
+						<img src="images/otrosIngresos.png" class="EM_img_size" ></img>
+						<span class="descipcionMenu">Otros I.</span><br>
+						<label class="lb_menus">Otros Ingresos</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" id="tdCorteDeCaja">
+				<form action="CorteDeCaja" method="post" id= "idCorteCaja">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="CorteDeCaja.jsp" >	
+					<div class="div_menu" id="mm_CorteCaja" onclick="javascript:document.getElementById('idCorteCaja').submit();">
+						<img src="images/corteCaja.png" class="EM_img_size" style="width: 60px" ></img>
+						<span class="descipcionMenu"> Corte</span><br>
+						<label class="lb_menus">Corte de Caja</label>
+					</div>
+				</form>
+			</td>
+		</tr>	
+		<tr>
+			<td class="EM_td_menu" id="tdCorteDePanamericano">
+				<form action="CortePanamericano" method="post" id= "idCortePanamericano">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="CortePanamericano.jsp" >	
+					<div class="div_menu" id="mm_Panamericano"  onclick="javascript:document.getElementById('idCortePanamericano').submit();">
+						<img src="images/panamericano.png" class="EM_img_size"></img>
+						<span class="descipcionMenu">Rec. Valores</span><br>
+						<label class="lb_menus">Rec. Valores</label>
+					</div>
+				</form>
+			</td>
+		</tr>		
+		<tr>
+			<td class="EM_td_menu" id="tdCorteDePoliza">
+				<form action="CortePoliza" method="post" id= "idCortePoliza">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="CortePoliza.jsp" >	
+					<div class="div_menu" id="mm_Poliza" onclick="javascript:document.getElementById('idCortePoliza').submit();">
+						<img src="images/poliza.png" class="EM_img_size"></img>
+						<span class="descipcionMenu">P&oacute;liza</span><br>
+						<label class="lb_menus">P&oacute;liza</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" id="tdConsultaPoliza">
+				<form action="ConsultasDeCortes" method="post" id= "idConsultaDeCortes">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="ConsultasDeCortes.jsp" >	
+					<div class="div_menu" id="mm_ConsultaCortes" onclick="javascript:document.getElementById('idConsultaDeCortes').submit();">
+						<img src="images/consultas.png" class="EM_img_size"></img>
+						<span class="descipcionMenu">Consultas Cortes</span><br>
+						<label class="lb_menus">Consultas</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<!-- <tr>
+			<td class="EM_td_menu" id="tdCorteDePolizaAnterior">
+				<form action="GeneraPolizaAnterior" method="post" id= "idCortePolizaAnterior">
+					<input type="hidden" name="vista" id="idIndex" value="Menu.html" >
+			 		<input type="hidden" name="pagina" id="idIndex" value="GeneraPolizaAnterior.jsp" >	
+					<div class="div_menu" id="mm_ConsultaCortes" onclick="javascript:document.getElementById('idCortePolizaAnterior').submit();">
+						<img src="images/polizaAnterior2.png" class="EM_img_size"></img>
+						<span class="descipcionMenu">Polizas Anteriores</span><br>
+						<label class="lb_menus">Poliza Anterior</label>
+					</div>
+				</form>
+			</td>
+		</tr>-->
+		
+		<tr>
+			<td class="EM_td_menu" style="border:0px solid white;">
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" style="border:0px solid white;">
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" style="border:0px solid white;">
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td class="EM_td_menu" style="border:0px solid white;">
+				<br>
+			</td>
+		</tr>
+	</table>	
+</div>

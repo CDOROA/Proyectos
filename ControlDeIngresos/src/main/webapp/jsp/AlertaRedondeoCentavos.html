@@ -1,0 +1,150 @@
+<div id="divAlertaRedondeoCentavos" style="display: none;" class="popupCEAlertaRedondeo" >
+    <div class="content-popupCEAlertaRedondeo">
+	    <div style="background:#F2F2F2;  border: 1px solid #CCCCCC"  align="center">
+	       	<div class="content">
+	       	
+	       		
+	       		<table width= 99%>
+	       			<tr>
+	       				<td  align="center">
+	       					<label style="font-family: arial; font-size: 16px; font-weight: bold; color:black">Redondear Centavos </label>
+	       				</td>
+	       				<td  class="EG_lbtexto" align="right"  width="10%">
+							<button class="btn btn-danger" type="button"  style="padding:5px; font-size:13px" onclick="OcultarDiv('divAlertaRedondeoCentavos');"  >
+								<i class="glyphicon glyphicon-remove"></i> 
+							</button>
+						</td>
+	       			</tr>
+	       		</table>
+	       		<br>
+	       		
+	       		<table align="center"  class="table table-striped"  style="width:80%">
+	       			<tr>
+				 		<td align="left" class="ECDC_lbRedondeos" style="padding:5px ; font-weight: bold;">Importe Efectivo</td>
+				 		<td align="right" class="ECDC_lbRedondeos" style="font-weight: bold; padding:5px" > $ <lable id="lbImpTotalEfectivoRedondeo"> ${importePrevioTotalEfectivo} </lable></td>
+					 </tr>
+	       		</table>
+	       	
+	       	
+		       	<table width="80%" align="center">
+		       		<tr>
+		       			<td>
+		       				<label style="font-family: arial; font-size: 12px; font-weight: bold;">Tipo de Redondeo:</label>
+		       				<!-- CHECKS DE TIPOS DE PAGO  -->	
+				 			<div class="funkyradio" style="padding:0px; " id="cbxsTiposRedondeo">
+                                <table width="50%" align="center">
+								    <tr>
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px">
+								                <input type="radio" name="tipoEgreso" id="TMas"  checked="checked"  onchange="validaQueCentavosMostrar()"/>
+								                <label for="TMas" class="ECDC_lbCheckBox"> &nbsp;+</label>
+								            </div>
+								        </td>                     	
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px">
+								                <input type="radio" name="tipoEgreso" id="TMenos" onchange="validaQueCentavosMostrar()" />
+								                <label for="TMenos" class="ECDC_lbCheckBox"> &nbsp;-</label>
+								            </div>
+								        </td>
+								    </tr>
+								</table>                                                     
+                            </div>
+		       			</td>
+		       		</tr>
+		       		<tr>
+		       			<td>
+		       				<label style="font-family: arial; font-size: 12px; font-weight: bold;">Selecciona a cuantos centavos deseas redondear:</label>
+		       				<div class="funkyradio" style="padding:0px; " id="cbxsMonedasRedondeo">
+                                <table width="95%" align="center">
+								    <tr>
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px"  id= "div_Moneda10">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda10" />
+								                <label for="Moneda10" class="ECDC_lbCheckBox"> &nbsp; $.10</label>
+								            </div>
+								        </td>                     	
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda20">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda20" />
+								                <label for="Moneda20" class="ECDC_lbCheckBox"> &nbsp; $.20</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda30">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda30" />
+								                <label for="Moneda30" class="ECDC_lbCheckBox"> &nbsp; $.30</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda40">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda40" />
+								                <label for="Moneda40" class="ECDC_lbCheckBox"> &nbsp; $.40</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda50">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda50" />
+								                <label for="Moneda50" class="ECDC_lbCheckBox"> &nbsp; $.50</label>
+								            </div>
+								        </td>
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda60">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda60" />
+								                <label for="Moneda60" class="ECDC_lbCheckBox"> &nbsp; $.60</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda70">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda70" />
+								                <label for="Moneda70" class="ECDC_lbCheckBox"> &nbsp; $.70</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px"  id= "div_Moneda80">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda80" />
+								                <label for="Moneda80" class="ECDC_lbCheckBox"> &nbsp; $.80</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda90">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda90" />
+								                <label for="Moneda90" class="ECDC_lbCheckBox"> &nbsp; $.90</label>
+								            </div>
+								        </td>
+								        
+								        <td  align="center">
+								            <div class="funkyradio-primary" style="width:65px" id= "div_Moneda1">
+								                <input type="radio" name="MonedasRedondeo" id="Moneda0" />
+								                <label for="Moneda0" class="ECDC_lbCheckBox"> &nbsp; $.00</label>
+								            </div>
+								        </td>
+								    </tr>
+								</table>                                                     
+                            </div>
+		       			</td>
+		       		</tr>
+		       	</table>
+		       <br>
+		       
+		       <table width="70%" align="center">
+				<tr>	
+					<td  class="EG_lbtexto" align="center">
+						<button class="btn btn-primary" type="button"  style="padding:3px; width: 200px; font-size:13px" onclick="validaRedondeoCentavos()"  >
+							<i class="glyphicon glyphicon-refresh"></i> Generar Redondeo
+						</button>
+					</td>
+				</tr>
+			  </table>
+		       <br>
+		       <br>
+
+		    </div>
+		</div>
+	</div>
+</div>
